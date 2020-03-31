@@ -12,6 +12,8 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 
+    let parseApiClient = ParseApiClient()
+    
     var sharedData : [PinPost] = []
     
     func deletePost(_ post: PinPost) -> Int?{
