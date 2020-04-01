@@ -15,11 +15,27 @@ class BaseApiClient{
         self.baseUrl = baseUrl
     }
     
-    func requestBuilder<R: Decodable>() -> ApiRequest<R>.Builder{
+    open func requestBuilder<R: Decodable>() -> ApiRequest<R>.Builder{
         return ApiRequest<R>.Builder(baseUrl: baseUrl)
     }
     
-    func apiProperty<R: Decodable>(request: ApiRequest<R>) -> ApiProperty<R>{
-        return ApiProperty<R>(withRequest: request)
+    open func apiProperty<R: Decodable>(id: String? = nil, request: ApiRequest<R>? = nil) -> ApiProperty<R>{
+        return ApiProperty<R>(withId: id, andRequest: request)
+    }
+    
+    func getCookies() -> [HTTPCookie]?{
+        return HTTPCookieStorage.shared.cookies
+    }
+    
+    func getCookieValue(name: String) -> String?{
+        if let cookies = getCookies(){
+            for cookie in cookies {
+                if(cookie.name == name){
+                    return cookie.value
+                }
+            }
+        }
+        
+        return nil
     }
 }

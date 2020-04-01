@@ -9,7 +9,10 @@
 import Foundation
 
 class ApiProperty<T: Decodable>{
+    let id: String?
+    
     typealias ChangeCallback = (ApiProperty<T>)->Void
+    typealias DisposeCallback = (String)->Void
     
     var state : State
     var request : ApiRequest<T>?
@@ -19,16 +22,17 @@ class ApiProperty<T: Decodable>{
     var callbacks : [String: (ApiProperty<T>)->Void]
     private var requestTask : URLSessionTask? = nil
     
-    enum State{
+    enum State: String{
         case idle, loading, error, success
     }
     
-    init(withRequest request: ApiRequest<T>? = nil){
+    init(withId id: String? = nil, andRequest request: ApiRequest<T>? = nil){
         self.request = request
         state = .idle
         value = nil
         error = nil
         callbacks = [:]
+        self.id = id
     }
     
     /* Load data from request (or use previous request for nil)  */
@@ -60,7 +64,7 @@ class ApiProperty<T: Decodable>{
         requestTask = nil
     }
     
-    func addCallback(identifier: String, callback: @escaping ChangeCallback){
+    func addCallback(identifier: String, callback: @escaping ChangeCallback) -> (String)->Void{
         callbacks[identifier] = callback
         
         if(state == .error || state == .idle){
@@ -68,6 +72,8 @@ class ApiProperty<T: Decodable>{
         }else{
             callback(self)
         }
+        
+        return removeCallback(identifier:)
     }
     
     func removeCallback(identifier: String){
@@ -75,9 +81,14 @@ class ApiProperty<T: Decodable>{
     }
     
     private func notifyChange(){
+        printProperty()
         callbacks.values.forEach { (callback: @escaping (ApiProperty<T>) -> Void) in
             print("Callback notify")
             callback(self)
         }
+    }
+    
+    public func printProperty(){
+        print("Property - \(id ?? "") - state: \(state)")
     }
 }

@@ -9,21 +9,15 @@
 import Foundation
 import UIKit
 
-class LoginViewController : UIViewController{
+class LoginViewController : PropertyObserverController{
     override func viewDidLoad() {
-        let app = (UIApplication.shared.delegate as! AppDelegate)
-        print("Controler")
-        app.parseApiClient.studentLocationsRequest.execute { (response, error) in
-            print("REPSONSE")
-            print(response != nil ? "not nil" : "nil")
-            print("ERROR")
-            print(error != nil ? "not nil" : "nil")
+        observeProperty(UdacityApiClient.shared.deleteSessionProperty){ (property) in
         }
         
-        
-        app.parseApiClient.studentLocationsProperty.addCallback(identifier: "TEST") { (property) in
-            print("PROPERTY CHANGE")
-            print(property)
+        observeProperty(UdacityApiClient.shared.createSessionProperty){ (property) in
+            if(property.state == .success){
+                UdacityApiClient.shared.deleteSession()
+            }
         }
     }
 }

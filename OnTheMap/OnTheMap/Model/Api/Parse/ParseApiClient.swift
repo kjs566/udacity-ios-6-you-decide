@@ -9,11 +9,14 @@
 import Foundation
 
 class ParseApiClient : BaseApiClient{
-    public init(){
+    // Is this ok? Or is it better to use variable in AppDelegate to share this?
+    static let shared = ParseApiClient()
+    
+    private init(){
         super.init(baseUrl: "https://onthemap-api.udacity.com")
     }
     
-    lazy var studentLocationsRequest : ApiRequest<StudentLocations> = requestBuilder().path(path: "/v1/StudentLocation").build()
+    lazy var studentLocationsRequest : ApiRequest<StudentLocationsResponseBody> = requestBuilder().path("/v1/StudentLocation").build()
     
-    lazy var studentLocationsProperty : ApiProperty<StudentLocations> = ApiProperty(withRequest: studentLocationsRequest)
+    lazy var studentLocationsProperty : ApiProperty<StudentLocationsResponseBody> = ApiProperty(withId:  "DeleteSession", andRequest: studentLocationsRequest)
 }

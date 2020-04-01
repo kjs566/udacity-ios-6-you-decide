@@ -11,8 +11,6 @@ import UIKit
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
-
-    let parseApiClient = ParseApiClient()
     
     var sharedData : [PinPost] = []
     
