@@ -8,7 +8,7 @@
 
 import Foundation
 
-class BaseApiClient{
+class BaseApi{
     let baseUrl: String
     
     init(baseUrl: String){

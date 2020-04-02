@@ -9,10 +9,6 @@
 import Foundation
 
 struct ApiRequest<R: Decodable>{
-    enum RequestError : Error{
-        case responseParseError
-    }
-    
     enum Method : String{
         case get = "GET", post = "POST", delete = "DELETE"
     }
@@ -141,27 +137,41 @@ struct ApiRequest<R: Decodable>{
         return request
     }
     
+    
+    // TODO might be an good idea to move this to another class
     @discardableResult
-    func execute(callback: @escaping (R?, RequestError?)->Void) -> URLSessionDataTask{
+    func execute(callback: @escaping (R?, ApiError?)->Void) -> URLSessionDataTask{
         let request = createURLRequest()
         print("ApiRequest: \(request.httpMethod ?? "nil") \(request.url?.absoluteString ?? "") \n Headers: \n \(request.allHTTPHeaderFields ?? [:])) \n Body: \n \(String(data: request.httpBody ?? Data(), encoding: .utf8)!)")
         let task = URLSession.shared.dataTask(with: request) {
             (data, response, error) in
             var result : R? = nil
-            var err : RequestError? = nil
+            var err : ApiError? = nil
             
-            if let data = data{
-                print("ApiResponse:")
-                print(String(data: data, encoding: .utf8) ?? "")
-                do{
-                    let offseted = data.subdata(in: self.responseOffset..<data.count)
-                    result = try JSONDecoder().decode(self.responseType, from: offseted)
-                }catch{
-                    err = .responseParseError
+            if let error = error{
+                err = .networkError(error: error)
+            }else{
+                if let data = data{
+                    print("ApiResponse:")
+                    print(String(data: data, encoding: .utf8) ?? "")
+                    do{
+                        let offseted = data.subdata(in: self.responseOffset..<data.count)
+                        let errorResult = try JSONDecoder().decode(ErrorResponse.self, from: offseted)
+                        
+                        if errorResult.error == nil{
+                            // Not an error response
+                            result = try JSONDecoder().decode(self.responseType, from: offseted)
+                        }else{
+                            err = .errorResponse(response: errorResult)
+                        }
+                    }catch{
+                        err = .parseError
+                    }
                 }
             }
+        
             DispatchQueue.main.async {
-                if(error != nil){
+                if let err = err {
                     callback(nil, err)
                 }else{
                     callback(result, nil)

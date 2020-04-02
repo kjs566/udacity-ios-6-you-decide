@@ -8,8 +8,8 @@
 
 import Foundation
 
-class UdacityApiClient : BaseApiClient{
-    static let shared = UdacityApiClient()
+class UdacityApi : BaseApi{
+    static let shared = UdacityApi()
     
     private init() {
         super.init(baseUrl: "https://onthemap-api.udacity.com")

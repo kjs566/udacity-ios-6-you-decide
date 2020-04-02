@@ -8,9 +8,9 @@
 
 import Foundation
 
-class ParseApiClient : BaseApiClient{
+class ParseApi : BaseApi{
     // Is this ok? Or is it better to use variable in AppDelegate to share this?
-    static let shared = ParseApiClient()
+    static let shared = ParseApi()
     
     private init(){
         super.init(baseUrl: "https://onthemap-api.udacity.com")
