@@ -59,7 +59,7 @@ open class BaseLocationsViewController: PropertyObserverController {
     func getItem(atIndexPath: IndexPath) -> StudentLocationsResponseBody.StudentLocation?{
         let data = getData()
         let index = getItemIndex(indexPath: atIndexPath)
-        if(data.count > index){
+        if data.count > index{
             return data[index]
         }else{
             return nil
@@ -68,7 +68,7 @@ open class BaseLocationsViewController: PropertyObserverController {
     
     func showLocation(urlString: String?){
         guard var url = urlString else { return }
-        if(!url.starts(with: "http")){
+        if !url.starts(with: "http"){
             url = "https://\(url)"
         }
         let app = UIApplication.shared

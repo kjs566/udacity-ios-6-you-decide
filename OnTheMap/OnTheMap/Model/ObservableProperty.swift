@@ -21,9 +21,11 @@ class ObservableProperty<T>{
         self.id = id
     }
     
-    open func setValue(_ value: T?){
+    open func setValue(_ value: T?, notify: Bool = true){
         self.value = value
-        notifyChange()
+        if notify {
+            notifyChange()
+        }
     }
     
     open func getValue() -> T?{
@@ -50,6 +52,10 @@ class ObservableProperty<T>{
     func removeCallback(identifier: String){
         callbacks.removeValue(forKey: identifier)
         afterCallbackRemove()
+    }
+    
+    func clearValue(){
+        setValue(nil, notify: false)
     }
     
     private func notifyChange(){

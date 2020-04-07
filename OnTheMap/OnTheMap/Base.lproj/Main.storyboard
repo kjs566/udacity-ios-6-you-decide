@@ -468,14 +468,19 @@
                                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                 <state key="normal" title="Find location"/>
                                                 <connections>
-                                                    <segue destination="9g0-E9-v1r" kind="show" id="0b7-5V-Hgo"/>
+                                                    <action selector="findLocationClicked:" destination="E88-mD-oRx" eventType="touchUpInside" id="2Wq-TL-ME9"/>
                                                 </connections>
                                             </button>
+                                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="aap-ji-KiK">
+                                                <rect key="frame" x="125" y="10" width="20" height="20"/>
+                                            </activityIndicatorView>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                         <constraints>
                                             <constraint firstItem="2FA-xR-wki" firstAttribute="width" secondItem="e6c-8i-Faw" secondAttribute="width" id="7f5-ze-EUS"/>
+                                            <constraint firstItem="aap-ji-KiK" firstAttribute="centerY" secondItem="2FA-xR-wki" secondAttribute="centerY" id="AlA-31-eHX"/>
                                             <constraint firstItem="2FA-xR-wki" firstAttribute="centerY" secondItem="e6c-8i-Faw" secondAttribute="centerY" id="Hyb-uv-gWC"/>
+                                            <constraint firstItem="aap-ji-KiK" firstAttribute="centerX" secondItem="2FA-xR-wki" secondAttribute="centerX" id="lUX-1f-JXp"/>
                                             <constraint firstItem="2FA-xR-wki" firstAttribute="height" secondItem="e6c-8i-Faw" secondAttribute="height" id="qNI-Bw-0Sl"/>
                                             <constraint firstItem="2FA-xR-wki" firstAttribute="centerX" secondItem="e6c-8i-Faw" secondAttribute="centerX" id="wff-Yi-Jyt"/>
                                         </constraints>
@@ -510,7 +515,9 @@
                     <connections>
                         <outlet property="addressView" destination="35t-Os-N7p" id="2vS-8t-ykb"/>
                         <outlet property="findLocationButton" destination="2FA-xR-wki" id="19V-he-KCb"/>
+                        <outlet property="loadingIndicator" destination="aap-ji-KiK" id="TsV-uc-a5f"/>
                         <outlet property="urlView" destination="3tR-dN-ykP" id="7z8-hS-hTy"/>
+                        <segue destination="9g0-E9-v1r" kind="show" identifier="placeLocationSegue" id="Mav-Ph-707"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="thj-di-AOR" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -531,27 +538,37 @@
                                     <outlet property="delegate" destination="9g0-E9-v1r" id="GF7-O7-Jqz"/>
                                 </connections>
                             </mapView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="PinIcon" translatesAutoresizingMaskIntoConstraints="NO" id="2m0-ci-dNq">
-                                <rect key="frame" x="162.5" y="302" width="50" height="50"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="PinIcon" translatesAutoresizingMaskIntoConstraints="NO" id="2m0-ci-dNq">
+                                <rect key="frame" x="162.5" y="282" width="50" height="50"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="50" id="QJ8-0z-Dia"/>
+                                    <constraint firstAttribute="width" constant="50" id="JEb-Sm-xE8"/>
                                     <constraint firstAttribute="height" constant="50" id="iUI-kM-xtc"/>
                                 </constraints>
                             </imageView>
                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="4XH-l2-f5d">
                                 <rect key="frame" x="169" y="308.5" width="37" height="37"/>
                             </activityIndicatorView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You can improve accuracy by draging the map." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fvv-6s-UwC">
+                                <rect key="frame" x="46" y="69" width="283" height="31.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="Xfx-nG-cW2" firstAttribute="centerY" secondItem="K97-1j-ga7" secondAttribute="centerY" id="1Bk-Cf-Kih"/>
                             <constraint firstItem="2m0-ci-dNq" firstAttribute="centerX" secondItem="Xfx-nG-cW2" secondAttribute="centerX" id="E0t-CC-4gN"/>
+                            <constraint firstItem="fvv-6s-UwC" firstAttribute="top" secondItem="K97-1j-ga7" secondAttribute="top" constant="13" id="Jlu-kx-lQy"/>
                             <constraint firstItem="Xfx-nG-cW2" firstAttribute="centerX" secondItem="K97-1j-ga7" secondAttribute="centerX" id="W0S-PI-HgQ"/>
                             <constraint firstItem="4XH-l2-f5d" firstAttribute="centerY" secondItem="K97-1j-ga7" secondAttribute="centerY" id="W67-7B-34J"/>
                             <constraint firstItem="4XH-l2-f5d" firstAttribute="centerX" secondItem="K97-1j-ga7" secondAttribute="centerX" id="emM-H7-gOx"/>
+                            <constraint firstItem="fvv-6s-UwC" firstAttribute="leading" secondItem="K97-1j-ga7" secondAttribute="leading" constant="46" id="ezx-kz-jSJ"/>
                             <constraint firstItem="Xfx-nG-cW2" firstAttribute="width" secondItem="K97-1j-ga7" secondAttribute="width" id="htK-da-Bp1"/>
-                            <constraint firstItem="2m0-ci-dNq" firstAttribute="centerY" secondItem="Xfx-nG-cW2" secondAttribute="centerY" id="kat-pY-T1V"/>
+                            <constraint firstItem="2m0-ci-dNq" firstAttribute="centerY" secondItem="Xfx-nG-cW2" secondAttribute="centerY" constant="-20" id="kat-pY-T1V"/>
+                            <constraint firstItem="fvv-6s-UwC" firstAttribute="centerX" secondItem="K97-1j-ga7" secondAttribute="centerX" id="rva-f8-G0l"/>
                             <constraint firstItem="Xfx-nG-cW2" firstAttribute="height" secondItem="K97-1j-ga7" secondAttribute="height" id="w7m-Jt-lfB"/>
+                            <constraint firstItem="K97-1j-ga7" firstAttribute="trailing" secondItem="fvv-6s-UwC" secondAttribute="trailing" constant="46" id="zM8-mG-okv"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="K97-1j-ga7"/>
                     </view>

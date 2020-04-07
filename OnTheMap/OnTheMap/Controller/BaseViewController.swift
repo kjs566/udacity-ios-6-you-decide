@@ -11,7 +11,7 @@ import UIKit
 
 open class BaseViewController : UIViewController{
     func handleError(_ error: Error?){
-        if(error is ApiError){
+        if error is ApiError {
             switch error as! ApiError{
             case .networkError:
                 showError("Connection error.")

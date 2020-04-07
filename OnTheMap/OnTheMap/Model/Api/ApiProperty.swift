@@ -31,7 +31,7 @@ class ApiProperty<T : Decodable> : ObservableProperty<ApiResult<T>>{
         setValue(state)
         
         requestTask = req.execute(callback: { (data, error) in
-            if(error != nil){
+            if error != nil {
                 print("Property error")
                 self.state.state = .error
                 self.state.error = error
@@ -50,13 +50,13 @@ class ApiProperty<T : Decodable> : ObservableProperty<ApiResult<T>>{
     }
     
     override func beforeCallbackAdd() {
-        if(state.isError() || state.isIdle()){
+        if state.isError() || state.isIdle() {
             load()
         }
     }
     
     override func afterCallbackRemove() {
-        if(callbacks.isEmpty){
+        if callbacks.isEmpty {
             cancelPreviousRequest()
         }
     }

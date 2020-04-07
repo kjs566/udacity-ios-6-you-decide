@@ -30,7 +30,7 @@ class BaseApi{
     func getCookieValue(name: String) -> String?{
         if let cookies = getCookies(){
             for cookie in cookies {
-                if(cookie.name == name){
+                if cookie.name == name {
                     return cookie.value
                 }
             }

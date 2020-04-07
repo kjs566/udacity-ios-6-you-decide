@@ -115,7 +115,7 @@ struct ApiRequest<R: Decodable>{
         var components = URLComponents(url: URL(string: baseUrl)!, resolvingAgainstBaseURL: false)!
         components.path = components.path + path
 
-        if(queryArguments.count > 0){
+        if queryArguments.count > 0 {
             components.queryItems = queryArguments.map { (entry) -> URLQueryItem in
                 let (key, value) = entry
                 return URLQueryItem(name: key, value: value)

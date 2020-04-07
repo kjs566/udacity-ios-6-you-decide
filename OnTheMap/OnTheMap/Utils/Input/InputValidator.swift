@@ -64,8 +64,8 @@ class InputValidator{
     }
     
     func validate(updateView: Bool){
-        if(isValid()){
-            if(updateView){
+        if isValid() {
+            if updateView {
                 applyStyleValid()
             }
             if let onValid = onValid, let textField = textField{
@@ -73,7 +73,7 @@ class InputValidator{
             }
             validityObservable.setValue(true)
         }else{
-            if(updateView){
+            if updateView {
                 applyStyleInvalid()
             }
             if let onInvalid = onInvalid, let textField = textField{

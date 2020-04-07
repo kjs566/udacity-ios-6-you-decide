@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class LocationsTableViewController: BaseLocationsViewController, UITableViewDataSource, UITableViewDelegate{
+class LocationsTableViewController: BaseLocationsViewController{
     
     @IBOutlet weak var tableView: UITableView!
     
@@ -27,13 +27,31 @@ class LocationsTableViewController: BaseLocationsViewController, UITableViewData
     
     override func getItemsCount() -> Int {
         var count = super.getItemsCount()
-        if(locationsLoading){
+        if locationsLoading{
             count += 1 // Loading item
         }
         count += 1 // Add location item
         return count
     }
     
+    override func locationsUpdated(){
+        tableView.reloadData()
+    }
+    
+    @IBAction func reloadClicked(_ sender: Any) {
+        reloadLocations()
+    }
+    @IBAction func addClicked(_ sender: Any) {
+        createLocation()
+    }
+    @IBAction func logoutClicked(_ sender: Any) {
+        logout()
+    }
+    
+}
+
+// MARK: - UITableViewDelegate
+extension LocationsTableViewController: UITableViewDataSource, UITableViewDelegate{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return getItemsCount()
     }
@@ -72,19 +90,4 @@ class LocationsTableViewController: BaseLocationsViewController, UITableViewData
             createLocation()
         }
     }
-    
-    override func locationsUpdated(){
-        tableView.reloadData()
-    }
-    
-    @IBAction func reloadClicked(_ sender: Any) {
-        reloadLocations()
-    }
-    @IBAction func addClicked(_ sender: Any) {
-        createLocation()
-    }
-    @IBAction func logoutClicked(_ sender: Any) {
-        logout()
-    }
-    
 }

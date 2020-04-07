@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		560EDAE5242FC0840011DB55 /* LocationDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 560EDAE4242FC0840011DB55 /* LocationDetailViewController.swift */; };
 		560EDAED2430927A0011DB55 /* LocationsMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 560EDAEC2430927A0011DB55 /* LocationsMapViewController.swift */; };
 		560EDAEF243095BE0011DB55 /* LocationsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 560EDAEE243095BE0011DB55 /* LocationsTableViewController.swift */; };
 		560EDAF1243095D00011DB55 /* AddTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 560EDAF0243095D00011DB55 /* AddTableViewCell.swift */; };
@@ -26,6 +25,7 @@
 		5693EA26243C6C7E006BB1C7 /* PostLocationRequestBody.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5693EA25243C6C7E006BB1C7 /* PostLocationRequestBody.swift */; };
 		5693EA28243C714C006BB1C7 /* UserProfileResponseBody.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5693EA27243C714C006BB1C7 /* UserProfileResponseBody.swift */; };
 		5693EA2A243C7BAF006BB1C7 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5693EA29243C7BAF006BB1C7 /* BaseViewController.swift */; };
+		5693EA2C243CDEED006BB1C7 /* GeocodeLocationProperty.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5693EA2B243CDEED006BB1C7 /* GeocodeLocationProperty.swift */; };
 		56AD643A2433A0D9000D88FE /* StudentLocationsResponseBody.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56AD64392433A0D9000D88FE /* StudentLocationsResponseBody.swift */; };
 		56AD643D2433A13E000D88FE /* ParseApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56AD643C2433A13E000D88FE /* ParseApi.swift */; };
 		56AD643F2433AD1B000D88FE /* PropertyObserverController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56AD643E2433AD1B000D88FE /* PropertyObserverController.swift */; };
@@ -49,7 +49,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		560EDAE4242FC0840011DB55 /* LocationDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationDetailViewController.swift; sourceTree = "<group>"; };
 		560EDAEC2430927A0011DB55 /* LocationsMapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationsMapViewController.swift; sourceTree = "<group>"; };
 		560EDAEE243095BE0011DB55 /* LocationsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationsTableViewController.swift; sourceTree = "<group>"; };
 		560EDAF0243095D00011DB55 /* AddTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddTableViewCell.swift; sourceTree = "<group>"; };
@@ -70,6 +69,7 @@
 		5693EA25243C6C7E006BB1C7 /* PostLocationRequestBody.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostLocationRequestBody.swift; sourceTree = "<group>"; };
 		5693EA27243C714C006BB1C7 /* UserProfileResponseBody.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileResponseBody.swift; sourceTree = "<group>"; };
 		5693EA29243C7BAF006BB1C7 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
+		5693EA2B243CDEED006BB1C7 /* GeocodeLocationProperty.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeocodeLocationProperty.swift; sourceTree = "<group>"; };
 		56AD64392433A0D9000D88FE /* StudentLocationsResponseBody.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentLocationsResponseBody.swift; sourceTree = "<group>"; };
 		56AD643C2433A13E000D88FE /* ParseApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParseApi.swift; sourceTree = "<group>"; };
 		56AD643E2433AD1B000D88FE /* PropertyObserverController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PropertyObserverController.swift; sourceTree = "<group>"; };
@@ -246,6 +246,7 @@
 		56E6661F242D6A5B00C3B621 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				5693EA2B243CDEED006BB1C7 /* GeocodeLocationProperty.swift */,
 				56FF8CA22434B2340093A2E1 /* PropertyObserver.swift */,
 				5693EA1A243B89EE006BB1C7 /* ObservableProperty.swift */,
 				56BDFE8D243258BF0013A9EB /* Api */,
@@ -259,7 +260,6 @@
 				560EDAEE243095BE0011DB55 /* LocationsTableViewController.swift */,
 				565357202055329C00857C9B /* AboutViewController.swift */,
 				568FF811242F67F7003B689A /* BaseLocationsViewController.swift */,
-				560EDAE4242FC0840011DB55 /* LocationDetailViewController.swift */,
 				560EDAEC2430927A0011DB55 /* LocationsMapViewController.swift */,
 				560EDAF4243099AD0011DB55 /* CreateLocationViewController.swift */,
 				56BDFE982432A2A70013A9EB /* LoginViewController.swift */,
@@ -351,7 +351,6 @@
 				56AD643D2433A13E000D88FE /* ParseApi.swift in Sources */,
 				56AD64412433AD9D000D88FE /* IdGenerator.swift in Sources */,
 				56AD643A2433A0D9000D88FE /* StudentLocationsResponseBody.swift in Sources */,
-				560EDAE5242FC0840011DB55 /* LocationDetailViewController.swift in Sources */,
 				56BDFE95243276FC0013A9EB /* ApiProperty.swift in Sources */,
 				5693EA1B243B89EE006BB1C7 /* ObservableProperty.swift in Sources */,
 				560EDAEF243095BE0011DB55 /* LocationsTableViewController.swift in Sources */,
@@ -377,6 +376,7 @@
 				56AD643F2433AD1B000D88FE /* PropertyObserverController.swift in Sources */,
 				5693EA23243C6B06006BB1C7 /* PostLocationResponseBody.swift in Sources */,
 				56DBD82F24366F17008819D0 /* ApiError.swift in Sources */,
+				5693EA2C243CDEED006BB1C7 /* GeocodeLocationProperty.swift in Sources */,
 				5693EA26243C6C7E006BB1C7 /* PostLocationRequestBody.swift in Sources */,
 				56FF8CA12434A2030093A2E1 /* DeleteSessionResposeBody.swift in Sources */,
 			);

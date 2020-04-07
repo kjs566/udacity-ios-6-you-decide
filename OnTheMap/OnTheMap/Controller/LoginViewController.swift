@@ -95,7 +95,7 @@ class LoginViewController : PropertyObserverController{
     }
     
     func updateLoginButtonEnabled(valid: Bool){
-        if(valid){
+        if valid {
             loginButton.backgroundColor = UIColor(named: "UdacityColor")
             loginButton.isEnabled = true
         }else{
@@ -137,7 +137,7 @@ class LoginViewController : PropertyObserverController{
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if(segue.destination is UITabBarController){
+        if segue.destination is UITabBarController {
             let vc = segue.destination as! UITabBarController
             vc.modalPresentationStyle = .fullScreen
         }

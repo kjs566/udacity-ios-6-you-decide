@@ -17,9 +17,9 @@ class LocationsMapViewController : BaseLocationsViewController, MKMapViewDelegat
     var annotations = [MKPointAnnotation]()
     
     override func locationsUpdated() {
-        if(locationsLoading){
+        if locationsLoading {
             loadingIndicator.isHidden = false
-        }else if(locationsError){
+        }else if locationsError {
             loadingIndicator.isHidden = true
             // TODO
         }else{

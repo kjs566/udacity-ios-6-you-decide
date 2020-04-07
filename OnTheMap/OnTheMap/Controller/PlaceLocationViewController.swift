@@ -18,11 +18,20 @@ class PlaceLocationViewController : PropertyObserverController, MKMapViewDelegat
     
     var address: String? = nil
     var url: String? = nil
+    var latitude: Double? = nil
+    var longitude: Double? = nil
     
     var userProfile: UserProfileResponseBody? = nil
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        if let lat = latitude, let lon = longitude{
+            mapView.setCenter(CLLocationCoordinate2D(latitude: lat, longitude: lon), animated: false)
+        }
+        if #available(iOS 13.0, *) {
+            mapView.setCameraZoomRange(MKMapView.CameraZoomRange(maxCenterCoordinateDistance: 100), animated: true)
+        }
         observeProperty(UdacityApi.shared.userProfileProperty) { (userResult) in
             guard let userResult = userResult else { return }
             

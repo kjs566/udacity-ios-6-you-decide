@@ -62,7 +62,7 @@ class KeyboardHeightHandler{
         let totalHeight = controller?.view.bounds.height ?? 0
         
         var y : CGFloat = -keyboardHeight + (totalHeight - viewCenterY) - 50 // Move view above keyboard (with  offset)
-        if(y < -keyboardHeight){
+        if y < -keyboardHeight {
             y = -keyboardHeight
         }
         controller?.view.frame.origin.y = y
