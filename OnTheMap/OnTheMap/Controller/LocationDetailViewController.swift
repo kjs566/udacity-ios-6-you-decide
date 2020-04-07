@@ -1,5 +1,5 @@
 //
-//  PinPostViewController.swift
+//  LocationDetailViewController.swift
 //  OnTheMap
 //
 //  Created by Jan Skála on 29/03/2020.
@@ -9,11 +9,11 @@
 import Foundation
 import UIKit
 
-class
-troller : UIViewController{
+class LocationDetailViewController : UIViewController{
     @IBOutlet weak var imageView: UIImageView!
     
     override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         self.tabBarController?.tabBar.isHidden = true
         setupView()
     }
@@ -23,5 +23,6 @@ troller : UIViewController{
     }
     
     func setupView(){
+        
     }
 }

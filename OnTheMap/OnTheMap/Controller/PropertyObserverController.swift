@@ -9,15 +9,18 @@
 import Foundation
 import UIKit
 
-class PropertyObserverController : UIViewController{
+open class PropertyObserverController : BaseViewController{
     let propertyObserver = PropertyObserver()
     
-    func observeProperty<T>(_ property: ApiProperty<T>,_ callback: @escaping ApiProperty<T>.ChangeCallback){
+    func observeProperty<T>(_ property: ObservableProperty<T>, _ callback: @escaping ObservableProperty<T>.ChangeCallback){
         propertyObserver.observeProperty(property, callback)
     }
     
-    override func viewWillDisappear(_ animated: Bool) {
-        // Is it necessary to clear callbacks? Is there another way to use Observer pattern without passing back clearing function and generating identifier?
+    func observeDependent<T,R>(_ property1: ObservableProperty<T>, _ property2: ObservableProperty<R>, _ callback: @escaping (T?,R?)->Void){
+        propertyObserver.observeDependent(property1, property2, callback: callback)
+    }
+    
+    deinit {
         propertyObserver.dispose()
     }
     

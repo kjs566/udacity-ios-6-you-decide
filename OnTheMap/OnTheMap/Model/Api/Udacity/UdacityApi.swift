@@ -23,9 +23,16 @@ class UdacityApi : BaseApi{
             .addHeader(key: "Content-Type", value: "application/json")
     }
     
+    func loadUserProfile(userId: String){
+        let request : ApiRequest<UserProfileResponseBody> = requestBuilder().path("/v1/users/\(userId)").build()
+        userProfileProperty.load(request: request)
+    }
+    
     lazy var createSessionProperty : ApiProperty<CreateSessionResponseBody> = apiProperty(id: "CreateSession")
     
     lazy var deleteSessionProperty : ApiProperty<DeleteSessionResponseBody> = apiProperty(id: "DeleteSession")
+    
+    lazy var userProfileProperty : ApiProperty<UserProfileResponseBody> = apiProperty(id: "UserProfile")
     
     func createSession(username: String, password: String){
         createSessionProperty.load(request:

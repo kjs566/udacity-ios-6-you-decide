@@ -9,6 +9,7 @@
 import Foundation
 import UIKit
 
-class PinsMapViewController : BasePinsViewController{
+class
+oller : BaseLocationsViewController{
     
 }

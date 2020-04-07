@@ -9,9 +9,30 @@
 import Foundation
 import UIKit
 
-open class BasePinsViewController: UIViewController{
+open class BaseLocationsViewController: PropertyObserverController {
+    var pinsLoading: Bool = true
+    var pinsError: Bool = false
+    var pins = [StudentLocationsResponseBody.StudentLocation]()
+    
     open override func viewWillAppear(_ animated: Bool) {
         self.tabBarController?.tabBar.isHidden = false
+        
+        observeProperty(ParseApi.shared.studentLocationsProperty) { (property) in
+            self.pinsLoading = false
+            self.pins = []
+            self.pinsError = false
+            
+            switch property.state {
+            case .loading:
+                self.pinsLoading = true
+            case .error:
+                self.pinsError = true
+            case .success:
+                if let locations = property.value?.results {
+                    self.pins = locations
+                }
+            default: break
+        }
     }
     
     func getAppDelegate() -> AppDelegate{
@@ -48,7 +69,5 @@ open class BasePinsViewController: UIViewController{
         performSegue(withIdentifier: "createPostSegue", sender: nil)
     }
     
-    open override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-
-    }
+    open func pinsUpdated(){}
 }

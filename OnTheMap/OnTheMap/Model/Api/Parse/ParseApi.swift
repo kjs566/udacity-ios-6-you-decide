@@ -16,7 +16,23 @@ class ParseApi : BaseApi{
         super.init(baseUrl: "https://onthemap-api.udacity.com")
     }
     
-    lazy var studentLocationsRequest : ApiRequest<StudentLocationsResponseBody> = requestBuilder().path("/v1/StudentLocation").build()
+    func placeLocation(firstName: String, lastName: String, address: String, url: String, lat: Double, lon: Double){
+        let random = Int.random(in: 0...999999)
+        let uniqueKey = "on-the-map-kjs566-\(random)"
+        let request : ApiRequest<PostLocationResponseBody> = requestBuilder().path("/v1/StudentLocation")
+            .method(.post)
+            .body(PostLocationRequestBody(uniqueKey: uniqueKey, firstName: firstName, lastName: lastName, mapString: address, mediaURL: url, latitude: lat, longitude: lon))
+            .build()
+        postLocationProperty.load(request: request)
+    }
+    
+    lazy var studentLocationsRequest : ApiRequest<StudentLocationsResponseBody> = requestBuilder().path("/v1/StudentLocation")
+        .addQueryArgument(key: "limit", value: "100")
+        .addQueryArgument(key: "order", value: "-updatedAt")
+            .build()
     
     lazy var studentLocationsProperty : ApiProperty<StudentLocationsResponseBody> = ApiProperty(withId:  "DeleteSession", andRequest: studentLocationsRequest)
+    
+    lazy var postLocationProperty : ApiProperty<PostLocationResponseBody> =
+        ApiProperty(withId: "PostLocation")
 }
