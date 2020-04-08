@@ -1,5 +1,5 @@
-# On The Map - Udacity iOS Nanodegree Project 4
-On The Map App implementation for Udacity iOS Nanodegree Program
+# Virtual Tourist - Udacity iOS Nanodegree Project 5
+Virtual Tourist implementation for Udacity iOS Nanodegree Program
 
 ## You should not use any of my code inside your Udacity project submission
 It would violate the terms of the Udacity and could lead to your ejection from the classes without any refund - read the terms carefully
