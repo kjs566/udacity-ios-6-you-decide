@@ -10,16 +10,12 @@ import Foundation
 import CoreLocation
 
 class GeocodeResult{
-    enum State{
-        case loading, success([CLPlacemark]?), error(Error?)
-    }
-    
     init(forAddress: String) {
         self.forAddress = forAddress
     }
     
     var forAddress: String
-    var state: State = .loading
+    var state: AsyncResult<[CLPlacemark]?> = .loading
     
     var canceled = false
     

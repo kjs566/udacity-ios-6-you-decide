@@ -10,21 +10,22 @@ import Foundation
 import UIKit
 import MapKit
 
-class LocationsMapViewController : BaseLocationsViewController, MKMapViewDelegate{
+class LocationsMapViewController : PropertyObserverController{
     @IBOutlet weak var loadingIndicator: UIActivityIndicatorView!
     @IBOutlet weak var mapView: MKMapView!
     
     var annotations = [MKPointAnnotation]()
     
-    override func locationsUpdated() {
-        if locationsLoading {
+    func locationsUpdated() {
+        /*
+        //if locationsLoading {
             loadingIndicator.isHidden = false
-        }else if locationsError {
+        //}else if locationsError {
             loadingIndicator.isHidden = true
             // TODO
-        }else{
+        //}else{
             loadingIndicator.isHidden = true
-            let locations = getData()
+            //let locations = getData()
             
             self.mapView.removeAnnotations(annotations)
             for location in locations {
@@ -40,19 +41,17 @@ class LocationsMapViewController : BaseLocationsViewController, MKMapViewDelegat
                 annotations.append(annotation)
             }
             self.mapView.addAnnotations(annotations)
-        }
+        //}
+         */
     }
     
-    @IBAction func addClicked(_ sender: Any) {
-        createLocation()
+    func showLocation(annotation: MKAnnotation?){
+        guard let annotation = annotation else { return }
+        // TODO
     }
-    @IBAction func reloadClicked(_ sender: Any) {
-        reloadLocations()
-    }
-    @IBAction func logoutClicked(_ sender: Any) {
-        logout()
-    }
-    
+}
+
+extension LocationsMapViewController: MKMapViewDelegate{
     // MARK: - MKMapViewDelegate
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
         let reuseId = "pin"
@@ -74,8 +73,7 @@ class LocationsMapViewController : BaseLocationsViewController, MKMapViewDelegat
 
     func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
         if control == view.rightCalloutAccessoryView {
-            showLocation(urlString: view.annotation?.subtitle ?? nil)
+            showLocation(annotation: view.annotation)
         }
     }
-    
 }

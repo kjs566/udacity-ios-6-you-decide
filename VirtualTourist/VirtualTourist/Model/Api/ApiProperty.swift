@@ -9,7 +9,6 @@
 import Foundation
 
 class ApiProperty<T : Decodable> : ObservableProperty<ApiResult<T>>{
-    let state = ApiResult<T>()
     var request : ApiRequest<T>?
     
     private var requestTask : URLSessionTask? = nil
@@ -27,20 +26,16 @@ class ApiProperty<T : Decodable> : ObservableProperty<ApiResult<T>>{
         
         //guard request != nil || !state.isLoading() else { return }
         cancelPreviousRequest()
-        state.setLoading()
-        setValue(state)
+        setValue(.loading)
         
         requestTask = req.execute(callback: { (data, error) in
             if error != nil {
                 print("Property error")
-                self.state.state = .error
-                self.state.error = error
+                self.setValue(.error(error))
             }else{
                 print("Property success")
-                self.state.state = .success
-                self.state.value = data
+                self.setValue(.success(data))
             }
-            self.setValue(self.state)
         })
     }
     
@@ -50,7 +45,7 @@ class ApiProperty<T : Decodable> : ObservableProperty<ApiResult<T>>{
     }
     
     override func beforeCallbackAdd() {
-        if state.isError() || state.isIdle() {
+        if value == nil || value!.isError(){
             load()
         }
     }
