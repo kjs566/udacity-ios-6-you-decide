@@ -156,14 +156,14 @@ struct ApiRequest<R: Decodable>{
                     print(String(data: data, encoding: .utf8) ?? "")
                     do{
                         let offseted = data.subdata(in: self.responseOffset..<data.count)
-                        let errorResult = try JSONDecoder().decode(ErrorResponse.self, from: offseted)
+                        //let errorResult = try JSONDecoder().decode(ErrorResponse.self, from: offseted)
                         
-                        if errorResult.error == nil{
+                        //if errorResult.error == nil{
                             // Not an error response
                             result = try JSONDecoder().decode(self.responseType, from: offseted)
-                        }else{
-                            err = .errorResponse(response: errorResult)
-                        }
+                        //}else{
+                        //    err = .errorResponse(response: errorResult)
+                        //}
                     }catch{
                         err = .parseError
                     }

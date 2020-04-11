@@ -11,9 +11,12 @@
 		560EDAF1243095D00011DB55 /* AddTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 560EDAF0243095D00011DB55 /* AddTableViewCell.swift */; };
 		560EDAF3243095D60011DB55 /* LocationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 560EDAF2243095D60011DB55 /* LocationTableViewCell.swift */; };
 		5634BFCD243FCB2D00FEF19B /* ApiResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5634BFCC243FCB2D00FEF19B /* ApiResult.swift */; };
-		5634BFD024408A8700FEF19B /* LocationsModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 5634BFCE24408A8700FEF19B /* LocationsModel.xcdatamodeld */; };
 		5634BFD324408BC900FEF19B /* FlickerApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5634BFD224408BC900FEF19B /* FlickerApi.swift */; };
 		5634BFD62440903D00FEF19B /* PhotosResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5634BFD52440903D00FEF19B /* PhotosResponse.swift */; };
+		5634BFDA2440AE8800FEF19B /* CoreDataCollectionProperty.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5634BFD92440AE8800FEF19B /* CoreDataCollectionProperty.swift */; };
+		5634BFDC2440AF3300FEF19B /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5634BFDB2440AF3300FEF19B /* DataController.swift */; };
+		5634BFDE2440B0CC00FEF19B /* CoreDataResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5634BFDD2440B0CC00FEF19B /* CoreDataResult.swift */; };
+		5636B00B2441C325005B7C2C /* LocalModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 5636B0092441C325005B7C2C /* LocalModel.xcdatamodeld */; };
 		5653570D20542E8700857C9B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5653570C20542E8700857C9B /* AppDelegate.swift */; };
 		5653571220542E8700857C9B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5653571020542E8700857C9B /* Main.storyboard */; };
 		5653571420542E8700857C9B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5653571320542E8700857C9B /* Assets.xcassets */; };
@@ -42,9 +45,12 @@
 		560EDAF0243095D00011DB55 /* AddTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddTableViewCell.swift; sourceTree = "<group>"; };
 		560EDAF2243095D60011DB55 /* LocationTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationTableViewCell.swift; sourceTree = "<group>"; };
 		5634BFCC243FCB2D00FEF19B /* ApiResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiResult.swift; sourceTree = "<group>"; };
-		5634BFCF24408A8700FEF19B /* LocationsModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = LocationsModel.xcdatamodel; sourceTree = "<group>"; };
 		5634BFD224408BC900FEF19B /* FlickerApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlickerApi.swift; sourceTree = "<group>"; };
 		5634BFD52440903D00FEF19B /* PhotosResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosResponse.swift; sourceTree = "<group>"; };
+		5634BFD92440AE8800FEF19B /* CoreDataCollectionProperty.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataCollectionProperty.swift; sourceTree = "<group>"; };
+		5634BFDB2440AF3300FEF19B /* DataController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataController.swift; sourceTree = "<group>"; };
+		5634BFDD2440B0CC00FEF19B /* CoreDataResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataResult.swift; sourceTree = "<group>"; };
+		5636B00A2441C325005B7C2C /* LocalModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = LocalModel.xcdatamodel; sourceTree = "<group>"; };
 		5653570920542E8700857C9B /* VirtualTourist.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VirtualTourist.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5653570C20542E8700857C9B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5653571120542E8700857C9B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -94,7 +100,10 @@
 		5634BFCB243FC6F300FEF19B /* Local */ = {
 			isa = PBXGroup;
 			children = (
-				5634BFCE24408A8700FEF19B /* LocationsModel.xcdatamodeld */,
+				5634BFDB2440AF3300FEF19B /* DataController.swift */,
+				5634BFD92440AE8800FEF19B /* CoreDataCollectionProperty.swift */,
+				5634BFDD2440B0CC00FEF19B /* CoreDataResult.swift */,
+				5636B0092441C325005B7C2C /* LocalModel.xcdatamodeld */,
 			);
 			path = Local;
 			sourceTree = "<group>";
@@ -192,8 +201,8 @@
 		56E6661F242D6A5B00C3B621 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				5693EA1E243B9A93006BB1C7 /* AsyncResult.swift */,
 				5634BFCB243FC6F300FEF19B /* Local */,
+				5693EA1E243B9A93006BB1C7 /* AsyncResult.swift */,
 				5693EA2B243CDEED006BB1C7 /* GeocodeLocationProperty.swift */,
 				56FF8CA22434B2340093A2E1 /* PropertyObserver.swift */,
 				5693EA1A243B89EE006BB1C7 /* ObservableProperty.swift */,
@@ -292,12 +301,13 @@
 				56AD64412433AD9D000D88FE /* IdGenerator.swift in Sources */,
 				56BDFE95243276FC0013A9EB /* ApiProperty.swift in Sources */,
 				5693EA1B243B89EE006BB1C7 /* ObservableProperty.swift in Sources */,
+				5634BFDC2440AF3300FEF19B /* DataController.swift in Sources */,
 				565357212055329D00857C9B /* AboutViewController.swift in Sources */,
 				5693EA1F243B9A93006BB1C7 /* AsyncResult.swift in Sources */,
 				560EDAF1243095D00011DB55 /* AddTableViewCell.swift in Sources */,
-				5634BFD024408A8700FEF19B /* LocationsModel.xcdatamodeld in Sources */,
 				560EDAED2430927A0011DB55 /* LocationsMapViewController.swift in Sources */,
 				56DBD83A243794E2008819D0 /* TextFieldStyles.swift in Sources */,
+				5634BFDE2440B0CC00FEF19B /* CoreDataResult.swift in Sources */,
 				56BDFE91243258F40013A9EB /* ApiRequest.swift in Sources */,
 				56DBD83124367EE9008819D0 /* LoadingTableViewCell.swift in Sources */,
 				5693EA2A243C7BAF006BB1C7 /* BaseViewController.swift in Sources */,
@@ -309,8 +319,10 @@
 				56DBD83E24379521008819D0 /* ValidationRules.swift in Sources */,
 				56AD643F2433AD1B000D88FE /* PropertyObserverController.swift in Sources */,
 				56DBD82F24366F17008819D0 /* ApiError.swift in Sources */,
+				5634BFDA2440AE8800FEF19B /* CoreDataCollectionProperty.swift in Sources */,
 				5693EA2C243CDEED006BB1C7 /* GeocodeLocationProperty.swift in Sources */,
 				5634BFD62440903D00FEF19B /* PhotosResponse.swift in Sources */,
+				5636B00B2441C325005B7C2C /* LocalModel.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -503,13 +515,13 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		5634BFCE24408A8700FEF19B /* LocationsModel.xcdatamodeld */ = {
+		5636B0092441C325005B7C2C /* LocalModel.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				5634BFCF24408A8700FEF19B /* LocationsModel.xcdatamodel */,
+				5636B00A2441C325005B7C2C /* LocalModel.xcdatamodel */,
 			);
-			currentVersion = 5634BFCF24408A8700FEF19B /* LocationsModel.xcdatamodel */;
-			path = LocationsModel.xcdatamodeld;
+			currentVersion = 5636B00A2441C325005B7C2C /* LocalModel.xcdatamodel */;
+			path = LocalModel.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};

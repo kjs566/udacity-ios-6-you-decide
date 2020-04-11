@@ -19,7 +19,7 @@ class BaseApi{
         return ApiRequest<R>.Builder(baseUrl: baseUrl)
     }
     
-    open func apiProperty<R: Decodable>(id: String? = nil, request: ApiRequest<R>? = nil) -> ApiProperty<R>{
+    open func apiProperty<R: Decodable>(id: String = "", request: ApiRequest<R>? = nil) -> ApiProperty<R>{
         return ApiProperty<R>(withId: id, andRequest: request)
     }
     

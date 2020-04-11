@@ -13,7 +13,7 @@ class ApiProperty<T : Decodable> : ObservableProperty<ApiResult<T>>{
     
     private var requestTask : URLSessionTask? = nil
     
-    init(withId id: String? = nil, andRequest request: ApiRequest<T>? = nil){
+    init(withId id: String = "", andRequest request: ApiRequest<T>? = nil){
         super.init(withId: id)
         self.request = request
         callbacks = [:]
@@ -44,7 +44,7 @@ class ApiProperty<T : Decodable> : ObservableProperty<ApiResult<T>>{
         requestTask = nil
     }
     
-    override func beforeCallbackAdd() {
+    override func afterCallbackAdd() {
         if value == nil || value!.isError(){
             load()
         }

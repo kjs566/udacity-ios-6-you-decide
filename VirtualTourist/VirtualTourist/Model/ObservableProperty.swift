@@ -9,7 +9,7 @@
 import Foundation
 
 class ObservableProperty<T>{
-    var id: String?
+    var id: String = ""
     
     typealias ChangeCallback = (T?)->Void
     typealias DisposeCallback = (String)->Void
@@ -17,7 +17,7 @@ class ObservableProperty<T>{
     var value: T? = nil
     var callbacks : [String: ChangeCallback] = [:]
     
-    init(withId id: String? = nil) {
+    init(withId id: String = "") {
         self.id = id
     }
     
@@ -32,7 +32,7 @@ class ObservableProperty<T>{
         return value
     }
     
-    open func beforeCallbackAdd(){
+    open func afterCallbackAdd(){
         
     }
     
@@ -43,7 +43,7 @@ class ObservableProperty<T>{
     open func addCallback(identifier: String, callback: @escaping ChangeCallback) -> (String)->Void{
         callbacks[identifier] = callback
         
-        beforeCallbackAdd()
+        afterCallbackAdd()
         callback(value)
         
         return removeCallback(identifier:)

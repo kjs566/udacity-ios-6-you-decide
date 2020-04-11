@@ -15,8 +15,8 @@ open class BaseViewController : UIViewController{
             switch error as! ApiError{
             case .networkError:
                 showError("Connection error.")
-            case .errorResponse(let response):
-                showError(response.error)
+            //case .errorResponse(let response):
+            //    showError(response.error)
             default:
                 showError("Unexpected error")
             }

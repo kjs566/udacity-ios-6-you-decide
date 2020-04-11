@@ -10,6 +10,6 @@ import Foundation
 
 enum ApiError : Error{
     case networkError(error: Error)
-    case errorResponse(response: ErrorResponse)
+    //case errorResponse(response: ErrorResponse)
     case parseError
 }

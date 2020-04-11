@@ -15,34 +15,59 @@ class LocationsMapViewController : PropertyObserverController{
     @IBOutlet weak var mapView: MKMapView!
     
     var annotations = [MKPointAnnotation]()
+    let pinsProperty = CoreDataCollectionProperty<Pin>()
     
-    func locationsUpdated() {
-        /*
-        //if locationsLoading {
-            loadingIndicator.isHidden = false
-        //}else if locationsError {
-            loadingIndicator.isHidden = true
-            // TODO
-        //}else{
-            loadingIndicator.isHidden = true
-            //let locations = getData()
+    override func viewDidLoad() {
+        let longPressRecognizer = UILongPressGestureRecognizer(target: self, action: #selector(addPin(gestureRecognizer:)))
+        longPressRecognizer.minimumPressDuration = 1
+        mapView.addGestureRecognizer(longPressRecognizer)
+        
+        observeProperty(pinsProperty){ result in
+            self.loadingIndicator.isHidden = true
+            result?.handle(success: { (pins) in
+                self.updateAnnotations(pins)
+            }, error: { (error) in
+                self.handleError(error)
+            }, loading: {
+                self.loadingIndicator.isHidden = false
+            })
+        }
+    }
+    
+    @objc
+    func addPin(gestureRecognizer:UIGestureRecognizer){
+        if gestureRecognizer.state == UIGestureRecognizer.State.began {
+            let touchPoint = gestureRecognizer.location(in: mapView)
+            let coordinates = mapView.convert(touchPoint, toCoordinateFrom: mapView)
             
-            self.mapView.removeAnnotations(annotations)
-            for location in locations {
-                guard let lat = location.latitude, let long = location.longitude else { return }
-
-                let coordinate = CLLocationCoordinate2D(latitude: lat, longitude: long)
-                
-                let annotation = MKPointAnnotation()
-                annotation.coordinate = coordinate
-                annotation.title = "\(location.firstName ?? "") \(location.lastName ?? "")"
-                annotation.subtitle = location.mediaURL
-                
-                annotations.append(annotation)
+            //let annotation = MKPointAnnotation()
+            //annotation.coordinate = coordinates
+            
+            DataController.shared.createAndSave(initializer: { (pin: Pin) in
+                pin.lat = coordinates.latitude
+                pin.lon = coordinates.longitude
+            }) { (error) in
+                handleError(error)
             }
-            self.mapView.addAnnotations(annotations)
-        //}
-         */
+        }
+    }
+    
+    func updateAnnotations(_ pins: Array<Pin>?){
+        guard let pins = pins else { return }
+        
+        mapView.removeAnnotations(annotations)
+        annotations = []
+        for pin in pins{
+           // guard let lat = pin.lat, let long = pin.lon else { return }
+
+            let coordinate = CLLocationCoordinate2D(latitude: pin.lat, longitude: pin.lon)
+            
+            let annotation = MKPointAnnotation()
+            annotation.coordinate = coordinate
+            
+            annotations.append(annotation)
+        }
+        mapView.addAnnotations(annotations)
     }
     
     func showLocation(annotation: MKAnnotation?){
@@ -51,8 +76,8 @@ class LocationsMapViewController : PropertyObserverController{
     }
 }
 
+// MARK: - MKMapViewDelegate
 extension LocationsMapViewController: MKMapViewDelegate{
-    // MARK: - MKMapViewDelegate
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
         let reuseId = "pin"
         
