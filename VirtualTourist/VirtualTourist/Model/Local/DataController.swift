@@ -38,18 +38,24 @@ class DataController{
         }
     }
     
-    func createAndSave<T: NSManagedObject>(initializer: (T)->Void, errorHandler: (Error)->Void, background: Bool = false){
+    func createAndSave<T: NSManagedObject>(initializer: (T)->Void, errorHandler: ((Error)->Void)?, background: Bool = false){
         let context = background ? backgroundContext : viewContext
 
         initializer(T(context: context))
         saveContext(context, errorHandler: errorHandler)
     }
     
-    private func saveContext(_ context: NSManagedObjectContext, errorHandler: (Error)->Void){
+    func updateBackground<T: NSManagedObject>(id: NSManagedObjectID, updater: (T)->Void, errorHandler: ((Error)->Void)? = nil){
+        let object = backgroundContext.object(with: id) as! T
+        updater(object)
+        saveContext(backgroundContext, errorHandler: errorHandler)
+    }
+    
+    private func saveContext(_ context: NSManagedObjectContext, errorHandler: ((Error)->Void)? = nil){
         do{
             try context.save()
         }catch{
-            errorHandler(error)
+            errorHandler?(error)
         }
     }
 }

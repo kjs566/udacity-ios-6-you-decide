@@ -9,14 +9,18 @@
 import Foundation
 
 struct PhotosResponse : Decodable{
-    let page: Int
-    let pages: Int
-    let total: Int
-    let perPage: Int
-    let photo: [Photo]
+    let photos: Photos
+    
+    struct Photos: Decodable{
+        let page: Int
+        let pages: Int
+        let total: String
+        let perpage: Int
+        let photo: [Photo]
+    }
     
     struct Photo : Decodable {
-        let id: String
-        let title: String
+        let id: String?
+        let title: String?
     }
 }

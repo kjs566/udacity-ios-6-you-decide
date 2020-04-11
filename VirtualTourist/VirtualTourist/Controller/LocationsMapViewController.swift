@@ -15,12 +15,21 @@ class LocationsMapViewController : PropertyObserverController{
     @IBOutlet weak var mapView: MKMapView!
     
     var annotations = [MKPointAnnotation]()
+    var annotationPins = [MKPointAnnotation:Pin]()
     let pinsProperty = CoreDataCollectionProperty<Pin>()
     
     override func viewDidLoad() {
         let longPressRecognizer = UILongPressGestureRecognizer(target: self, action: #selector(addPin(gestureRecognizer:)))
         longPressRecognizer.minimumPressDuration = 1
         mapView.addGestureRecognizer(longPressRecognizer)
+        
+        let userDefaults = UserDefaults.standard
+        if userDefaults.object(forKey: "mapLon") != nil{
+            // Restore last position
+            let mapLon = UserDefaults.standard.double(forKey: "mapLon")
+            let mapLat = UserDefaults.standard.double(forKey: "mapLat")
+            mapView.setCenter(CLLocationCoordinate2D(latitude: mapLat, longitude: mapLon), animated: false)
+        }
         
         observeProperty(pinsProperty){ result in
             self.loadingIndicator.isHidden = true
@@ -40,15 +49,13 @@ class LocationsMapViewController : PropertyObserverController{
             let touchPoint = gestureRecognizer.location(in: mapView)
             let coordinates = mapView.convert(touchPoint, toCoordinateFrom: mapView)
             
-            //let annotation = MKPointAnnotation()
-            //annotation.coordinate = coordinates
-            
             DataController.shared.createAndSave(initializer: { (pin: Pin) in
                 pin.lat = coordinates.latitude
                 pin.lon = coordinates.longitude
-            }) { (error) in
-                handleError(error)
-            }
+                pin.isNew = true
+            }, errorHandler: { (error) in
+                self.handleError(error)
+            })
         }
     }
     
@@ -57,6 +64,7 @@ class LocationsMapViewController : PropertyObserverController{
         
         mapView.removeAnnotations(annotations)
         annotations = []
+        annotationPins = [:]
         for pin in pins{
            // guard let lat = pin.lat, let long = pin.lon else { return }
 
@@ -66,13 +74,20 @@ class LocationsMapViewController : PropertyObserverController{
             annotation.coordinate = coordinate
             
             annotations.append(annotation)
+            annotationPins[annotation] = pin
         }
         mapView.addAnnotations(annotations)
     }
     
     func showLocation(annotation: MKAnnotation?){
-        guard let annotation = annotation else { return }
-        // TODO
+        guard let annotation = annotation as? MKPointAnnotation, let pin = annotationPins[annotation] else { return }
+        
+        performSegue(withIdentifier: "pinDetailSegue", sender: pin)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let vc = segue.destination as? PinDetailViewController, let pin = sender as! Pin? else { return }
+        vc.pin = pin
     }
 }
 
@@ -96,9 +111,16 @@ extension LocationsMapViewController: MKMapViewDelegate{
         return pinView
     }
 
-    func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
-        if control == view.rightCalloutAccessoryView {
-            showLocation(annotation: view.annotation)
-        }
+    func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
+        showLocation(annotation: view.annotation)
+    }
+    
+    func mapView(_ mapView: MKMapView, regionDidChangeAnimated animated: Bool) {
+        // Save current position
+        let mapLat = mapView.centerCoordinate.latitude
+        let mapLon = mapView.centerCoordinate.longitude
+        
+        UserDefaults.standard.set(mapLon, forKey: "mapLon")
+        UserDefaults.standard.set(mapLat, forKey: "mapLat")
     }
 }

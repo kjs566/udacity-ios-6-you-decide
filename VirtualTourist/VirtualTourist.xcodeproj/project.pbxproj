@@ -10,6 +10,7 @@
 		560EDAED2430927A0011DB55 /* LocationsMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 560EDAEC2430927A0011DB55 /* LocationsMapViewController.swift */; };
 		560EDAF1243095D00011DB55 /* AddTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 560EDAF0243095D00011DB55 /* AddTableViewCell.swift */; };
 		560EDAF3243095D60011DB55 /* LocationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 560EDAF2243095D60011DB55 /* LocationTableViewCell.swift */; };
+		562D58432441E03F002D2EC9 /* PinDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562D58422441E03F002D2EC9 /* PinDetailViewController.swift */; };
 		5634BFCD243FCB2D00FEF19B /* ApiResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5634BFCC243FCB2D00FEF19B /* ApiResult.swift */; };
 		5634BFD324408BC900FEF19B /* FlickerApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5634BFD224408BC900FEF19B /* FlickerApi.swift */; };
 		5634BFD62440903D00FEF19B /* PhotosResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5634BFD52440903D00FEF19B /* PhotosResponse.swift */; };
@@ -44,6 +45,7 @@
 		560EDAEC2430927A0011DB55 /* LocationsMapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationsMapViewController.swift; sourceTree = "<group>"; };
 		560EDAF0243095D00011DB55 /* AddTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddTableViewCell.swift; sourceTree = "<group>"; };
 		560EDAF2243095D60011DB55 /* LocationTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationTableViewCell.swift; sourceTree = "<group>"; };
+		562D58422441E03F002D2EC9 /* PinDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinDetailViewController.swift; sourceTree = "<group>"; };
 		5634BFCC243FCB2D00FEF19B /* ApiResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiResult.swift; sourceTree = "<group>"; };
 		5634BFD224408BC900FEF19B /* FlickerApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlickerApi.swift; sourceTree = "<group>"; };
 		5634BFD52440903D00FEF19B /* PhotosResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosResponse.swift; sourceTree = "<group>"; };
@@ -218,6 +220,7 @@
 				560EDAEC2430927A0011DB55 /* LocationsMapViewController.swift */,
 				56AD643E2433AD1B000D88FE /* PropertyObserverController.swift */,
 				5693EA29243C7BAF006BB1C7 /* BaseViewController.swift */,
+				562D58422441E03F002D2EC9 /* PinDetailViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -313,6 +316,7 @@
 				5693EA2A243C7BAF006BB1C7 /* BaseViewController.swift in Sources */,
 				56DBD83324375B54008819D0 /* KeyboardHeightHandler.swift in Sources */,
 				5653570D20542E8700857C9B /* AppDelegate.swift in Sources */,
+				562D58432441E03F002D2EC9 /* PinDetailViewController.swift in Sources */,
 				56DBD83524378859008819D0 /* InputValidator.swift in Sources */,
 				5634BFD324408BC900FEF19B /* FlickerApi.swift in Sources */,
 				56BDFE93243262AA0013A9EB /* BaseApi.swift in Sources */,

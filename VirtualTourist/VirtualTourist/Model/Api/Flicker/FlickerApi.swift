@@ -15,7 +15,7 @@ class FlickerApi: BaseApi{
     static let shared = FlickerApi()
     
     private init(){
-        super.init(baseUrl: "https://VirtualTourist-api.udacity.com")
+        super.init(baseUrl: "https://api.flickr.com/services/rest/")
     }
     
     override func requestBuilder<R>() -> ApiRequest<R>.Builder where R : Decodable {
@@ -23,10 +23,13 @@ class FlickerApi: BaseApi{
             .requestBuilder()
             .addHeader(key: "Accept", value: "application/json")
             .addHeader(key: "Content-Type", value: "application/json")
+            .addQueryArgument(key: "format", value: "json")
+            .addQueryArgument(key: "nojsoncallback", value: "1")
     }
     
     func getSeachPhotosRequest(lon: Double, lat: Double, page: Int) -> ApiRequest<PhotosResponse>{
         return requestBuilder()
+            .addQueryArgument(key: "method", value: "flickr.photos.search")
             .addQueryArgument(key: "api_key", value: FlickerApi.API_KEY)
             .addQueryArgument(key: "lon", value: String(lon))
             .addQueryArgument(key: "lat", value: String(lat))
