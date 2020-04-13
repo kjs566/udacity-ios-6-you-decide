@@ -11,6 +11,7 @@
 		560EDAF1243095D00011DB55 /* AddTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 560EDAF0243095D00011DB55 /* AddTableViewCell.swift */; };
 		560EDAF3243095D60011DB55 /* LocationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 560EDAF2243095D60011DB55 /* LocationTableViewCell.swift */; };
 		562D58432441E03F002D2EC9 /* PinDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562D58422441E03F002D2EC9 /* PinDetailViewController.swift */; };
+		562D584724422BB4002D2EC9 /* SizesResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562D584624422BB3002D2EC9 /* SizesResponse.swift */; };
 		5634BFCD243FCB2D00FEF19B /* ApiResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5634BFCC243FCB2D00FEF19B /* ApiResult.swift */; };
 		5634BFD324408BC900FEF19B /* FlickerApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5634BFD224408BC900FEF19B /* FlickerApi.swift */; };
 		5634BFD62440903D00FEF19B /* PhotosResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5634BFD52440903D00FEF19B /* PhotosResponse.swift */; };
@@ -27,6 +28,7 @@
 		5693EA1F243B9A93006BB1C7 /* AsyncResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5693EA1E243B9A93006BB1C7 /* AsyncResult.swift */; };
 		5693EA2A243C7BAF006BB1C7 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5693EA29243C7BAF006BB1C7 /* BaseViewController.swift */; };
 		5693EA2C243CDEED006BB1C7 /* GeocodeLocationProperty.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5693EA2B243CDEED006BB1C7 /* GeocodeLocationProperty.swift */; };
+		5695A5B42444A1C400EC5434 /* PhotoCollectionDownloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5695A5B32444A1C400EC5434 /* PhotoCollectionDownloader.swift */; };
 		56AD643F2433AD1B000D88FE /* PropertyObserverController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56AD643E2433AD1B000D88FE /* PropertyObserverController.swift */; };
 		56AD64412433AD9D000D88FE /* IdGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56AD64402433AD9D000D88FE /* IdGenerator.swift */; };
 		56BDFE91243258F40013A9EB /* ApiRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56BDFE90243258F40013A9EB /* ApiRequest.swift */; };
@@ -46,6 +48,7 @@
 		560EDAF0243095D00011DB55 /* AddTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddTableViewCell.swift; sourceTree = "<group>"; };
 		560EDAF2243095D60011DB55 /* LocationTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationTableViewCell.swift; sourceTree = "<group>"; };
 		562D58422441E03F002D2EC9 /* PinDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinDetailViewController.swift; sourceTree = "<group>"; };
+		562D584624422BB3002D2EC9 /* SizesResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SizesResponse.swift; sourceTree = "<group>"; };
 		5634BFCC243FCB2D00FEF19B /* ApiResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiResult.swift; sourceTree = "<group>"; };
 		5634BFD224408BC900FEF19B /* FlickerApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlickerApi.swift; sourceTree = "<group>"; };
 		5634BFD52440903D00FEF19B /* PhotosResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosResponse.swift; sourceTree = "<group>"; };
@@ -64,6 +67,7 @@
 		5693EA1E243B9A93006BB1C7 /* AsyncResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsyncResult.swift; sourceTree = "<group>"; };
 		5693EA29243C7BAF006BB1C7 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		5693EA2B243CDEED006BB1C7 /* GeocodeLocationProperty.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeocodeLocationProperty.swift; sourceTree = "<group>"; };
+		5695A5B32444A1C400EC5434 /* PhotoCollectionDownloader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCollectionDownloader.swift; sourceTree = "<group>"; };
 		56AD643E2433AD1B000D88FE /* PropertyObserverController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PropertyObserverController.swift; sourceTree = "<group>"; };
 		56AD64402433AD9D000D88FE /* IdGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IdGenerator.swift; sourceTree = "<group>"; };
 		56BDFE90243258F40013A9EB /* ApiRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiRequest.swift; sourceTree = "<group>"; };
@@ -123,6 +127,7 @@
 			isa = PBXGroup;
 			children = (
 				5634BFD52440903D00FEF19B /* PhotosResponse.swift */,
+				562D584624422BB3002D2EC9 /* SizesResponse.swift */,
 			);
 			path = Response;
 			sourceTree = "<group>";
@@ -209,6 +214,7 @@
 				56FF8CA22434B2340093A2E1 /* PropertyObserver.swift */,
 				5693EA1A243B89EE006BB1C7 /* ObservableProperty.swift */,
 				56BDFE8D243258BF0013A9EB /* Api */,
+				5695A5B32444A1C400EC5434 /* PhotoCollectionDownloader.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -322,11 +328,13 @@
 				56BDFE93243262AA0013A9EB /* BaseApi.swift in Sources */,
 				56DBD83E24379521008819D0 /* ValidationRules.swift in Sources */,
 				56AD643F2433AD1B000D88FE /* PropertyObserverController.swift in Sources */,
+				5695A5B42444A1C400EC5434 /* PhotoCollectionDownloader.swift in Sources */,
 				56DBD82F24366F17008819D0 /* ApiError.swift in Sources */,
 				5634BFDA2440AE8800FEF19B /* CoreDataCollectionProperty.swift in Sources */,
 				5693EA2C243CDEED006BB1C7 /* GeocodeLocationProperty.swift in Sources */,
 				5634BFD62440903D00FEF19B /* PhotosResponse.swift in Sources */,
 				5636B00B2441C325005B7C2C /* LocalModel.xcdatamodeld in Sources */,
+				562D584724422BB4002D2EC9 /* SizesResponse.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

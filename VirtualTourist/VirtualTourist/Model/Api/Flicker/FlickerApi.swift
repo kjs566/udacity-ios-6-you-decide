@@ -25,16 +25,23 @@ class FlickerApi: BaseApi{
             .addHeader(key: "Content-Type", value: "application/json")
             .addQueryArgument(key: "format", value: "json")
             .addQueryArgument(key: "nojsoncallback", value: "1")
+            .addQueryArgument(key: "api_key", value: FlickerApi.API_KEY)
     }
     
     func getSeachPhotosRequest(lon: Double, lat: Double, page: Int) -> ApiRequest<PhotosResponse>{
         return requestBuilder()
             .addQueryArgument(key: "method", value: "flickr.photos.search")
-            .addQueryArgument(key: "api_key", value: FlickerApi.API_KEY)
             .addQueryArgument(key: "lon", value: String(lon))
             .addQueryArgument(key: "lat", value: String(lat))
             .addQueryArgument(key: "per_page", value: String(FlickerApi.PAGE_SIZE))
             .addQueryArgument(key: "page",value: String(page))
+            .build()
+    }
+    
+    func getSizesRequest(photoId: String) -> ApiRequest<SizesResponse>{
+        return requestBuilder()
+            .addQueryArgument(key: "method", value: "flickr.photos.getSizes")
+            .addQueryArgument(key: "photo_id", value: photoId)
             .build()
     }
     

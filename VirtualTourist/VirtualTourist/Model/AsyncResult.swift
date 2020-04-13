@@ -17,32 +17,32 @@ enum AsyncResult<T>{
     case loading
     case error(_ error: Error?)
     
-    func onSuccess(_ completionHandler: SuccessHandler){
+    func onSuccess(_ completionHandler: SuccessHandler?){
         if case .success(let value) = self {
-            completionHandler(value)
+            completionHandler?(value)
         }
     }
     
-    func onLoading(_ completionHandler: LoadingHandler){
+    func onLoading(_ completionHandler: LoadingHandler?){
         if case .loading = self {
-            completionHandler()
+            completionHandler?()
         }
     }
     
-    func onError(_ completionHandler: ErrorHandler){
+    func onError(_ completionHandler: ErrorHandler?){
         if case .error(let error) = self{
-            completionHandler(error)
+            completionHandler?(error)
         }
     }
     
-    func handle(success: SuccessHandler, error: ErrorHandler, loading: LoadingHandler){
+    func handle(success: SuccessHandler? = nil, error: ErrorHandler? = nil, loading: LoadingHandler? = nil){
         onSuccess(success)
         onError(error)
         onLoading(loading)
     }
     
     func isError() -> Bool{
-        if case .loading = self {
+        if case .error = self {
             return true
         }
         return false

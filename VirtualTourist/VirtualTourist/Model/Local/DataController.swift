@@ -15,47 +15,67 @@ class DataController{
     
     let persistentContainer: NSPersistentContainer
     
-    lazy var viewContext =  persistentContainer.viewContext
+    let viewContext: NSManagedObjectContext
     
-    lazy var backgroundContext = persistentContainer.newBackgroundContext()
+    let backgroundContext: NSManagedObjectContext
     
     init(modelName: String){
         persistentContainer = NSPersistentContainer(name: modelName)
+        viewContext = persistentContainer.viewContext
+        backgroundContext = persistentContainer.newBackgroundContext()
+        viewContext.automaticallyMergesChangesFromParent = true
+        viewContext.mergePolicy = NSMergePolicy.mergeByPropertyStoreTrump
+        backgroundContext.automaticallyMergesChangesFromParent = true
+        backgroundContext.mergePolicy = NSMergePolicy.mergeByPropertyObjectTrump
         load()
+
     }
     
     func load(completion: (()->Void)? = nil){
         persistentContainer.loadPersistentStores { (storeDescription, error) in
             guard error == nil else { fatalError(error!.localizedDescription) }
-            
-            self.viewContext.automaticallyMergesChangesFromParent = true
-            self.viewContext.mergePolicy = NSMergePolicy.mergeByPropertyStoreTrump
-            self.backgroundContext.automaticallyMergesChangesFromParent = true
-            self.backgroundContext.mergePolicy = NSMergePolicy.mergeByPropertyObjectTrump
-            
+                        
             self.ready = true
             completion?()
         }
     }
     
-    func createAndSave<T: NSManagedObject>(initializer: (T)->Void, errorHandler: ((Error)->Void)?, background: Bool = false){
+    @discardableResult
+    func createAndSave<T: NSManagedObject>(initializer: (T)->Void, errorHandler: ((Error)->Void)?, background: Bool = false) -> NSManagedObjectID?{
         let context = background ? backgroundContext : viewContext
 
-        initializer(T(context: context))
+        let object = T(context: context)
+        initializer(object)
         saveContext(context, errorHandler: errorHandler)
+        
+        if !object.objectID.isTemporaryID {
+            return object.objectID
+        } else {
+            print("Temporary object id deteced")
+            return nil
+        }
     }
     
-    func updateBackground<T: NSManagedObject>(id: NSManagedObjectID, updater: (T)->Void, errorHandler: ((Error)->Void)? = nil){
-        let object = backgroundContext.object(with: id) as! T
-        updater(object)
-        saveContext(backgroundContext, errorHandler: errorHandler)
+    func updateBackground<T: NSManagedObject>(id: NSManagedObjectID, updater: @escaping (T)->Void, errorHandler: ((Error)->Void)? = nil){
+        backgroundContext.perform {
+            let object = self.backgroundContext.object(with: id) as! T
+            updater(object)
+            self.saveContext(self.backgroundContext, errorHandler: errorHandler, fromBackground:  true)
+        }
     }
     
-    private func saveContext(_ context: NSManagedObjectContext, errorHandler: ((Error)->Void)? = nil){
+    func saveContext(_ context: NSManagedObjectContext, errorHandler: ((Error)->Void)? = nil, fromBackground: Bool = false){
         do{
             try context.save()
         }catch{
-            errorHandler?(error)
+            guard let errorHandler = errorHandler else { return }
+            if fromBackground {
+                DispatchQueue.main.async {
+                    errorHandler(error)
+                }
+            }else{
+                errorHandler(error)
+            }
         }
     }
 }

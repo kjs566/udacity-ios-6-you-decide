@@ -9,6 +9,7 @@
 import Foundation
 import UIKit
 import MapKit
+import CoreData
 
 class PinDetailViewController : PropertyObserverController{
     @IBOutlet weak var loadingIndicator: UIActivityIndicatorView!
@@ -17,74 +18,29 @@ class PinDetailViewController : PropertyObserverController{
     @IBOutlet weak var collectionView: UICollectionView!
     
     var pin: Pin!
+    var loadingPhotos = Set<String>()
+    
+    var photoCollectionDownloader: PhotoCollectionDownloader? = nil
     
     override func viewDidLoad() {
-        let longPressRecognizer = UILongPressGestureRecognizer(target: self, action: #selector(addPin(gestureRecognizer:)))
-        longPressRecognizer.minimumPressDuration = 1
-        mapView.addGestureRecognizer(longPressRecognizer)
-        
         showAnnotation()
         centerPin()
         
-        if pin.isNew{
-            startApiLoading(page: pin.flickerPage)
-        }
-        /*observeProperty(pinsProperty){ result in
-            self.loadingIndicator.isHidden = true
-            result?.handle(success: { (pins) in
-                self.updateAnnotations(pins)
+        photoCollectionDownloader = PhotoCollectionDownloader(pin: pin)
+        observeProperty(photoCollectionDownloader!.state){ state in
+            guard let state = state else { return }
+            
+            state.handle(success: { (_) in
+                self.newCollectionButton.isEnabled = true
+                self.loadingIndicator.isHidden = true
             }, error: { (error) in
+                self.newCollectionButton.isEnabled = true
                 self.handleError(error)
-            }, loading: {
+                self.loadingIndicator.isHidden = true
+            }) {
+                self.newCollectionButton.isEnabled = false
                 self.loadingIndicator.isHidden = false
-            })
-        }*/
-    }
-    
-    func startApiLoading(page: Int32){
-        let photosListLoadingProperty = FlickerApi.shared.getSearchPhotosProperty(lon: pin.lon, lat: pin.lat, page: Int(page))
-        
-        observeProperty(photosListLoadingProperty) { (result) in
-            self.loadingIndicator.isHidden = true
-            guard let result = result else { return }
-            result.handle(success: { (response) in
-                self.savePhotosCollection(response)
-            }, error: { error in
-                self.handleError(error)
-            }, loading: {
-                self.loadingIndicator.isHidden = false
-            })
-        }
-    }
-    
-    func savePhotosCollection(_ response: PhotosResponse?){
-        
-    }
-    
-    func loadNextPage(){
-        let page = pin.flickerPage + 1
-        DataController.shared.updateBackground(id: pin.objectID, updater: { (pin: Pin) in
-            pin.flickerPage = page
-            pin.isNew = true
-        }, errorHandler:  nil)
-        startApiLoading(page: page)
-    }
-    
-    @objc
-    func addPin(gestureRecognizer:UIGestureRecognizer){
-        if gestureRecognizer.state == UIGestureRecognizer.State.began {
-            let touchPoint = gestureRecognizer.location(in: mapView)
-            let coordinates = mapView.convert(touchPoint, toCoordinateFrom: mapView)
-            
-            //let annotation = MKPointAnnotation()
-            //annotation.coordinate = coordinates
-            
-            DataController.shared.createAndSave(initializer: { (pin: Pin) in
-                pin.lat = coordinates.latitude
-                pin.lon = coordinates.longitude
-            }, errorHandler:  { (error) in
-                self.handleError(error)
-            })
+            }
         }
     }
     

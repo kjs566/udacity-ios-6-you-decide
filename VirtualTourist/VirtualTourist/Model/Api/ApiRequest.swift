@@ -138,7 +138,6 @@ struct ApiRequest<R: Decodable>{
     }
     
     
-    // TODO might be an good idea to move this to another class
     @discardableResult
     func execute(callback: @escaping (R?, ApiError?)->Void) -> URLSessionDataTask{
         let request = createURLRequest()
@@ -156,14 +155,8 @@ struct ApiRequest<R: Decodable>{
                     print(String(data: data, encoding: .utf8) ?? "")
                     do{
                         let offseted = data.subdata(in: self.responseOffset..<data.count)
-                        //let errorResult = try JSONDecoder().decode(ErrorResponse.self, from: offseted)
                         
-                        //if errorResult.error == nil{
-                            // Not an error response
-                            result = try JSONDecoder().decode(self.responseType, from: offseted)
-                        //}else{
-                        //    err = .errorResponse(response: errorResult)
-                        //}
+                        result = try JSONDecoder().decode(self.responseType, from: offseted)
                     }catch{
                         err = .parseError
                     }
