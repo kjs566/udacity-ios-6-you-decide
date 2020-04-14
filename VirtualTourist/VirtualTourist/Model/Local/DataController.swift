@@ -56,6 +56,17 @@ class DataController{
         }
     }
     
+    func remove<T: NSManagedObject>(_ toRemove: T, errorHandler: ((Error)->Void)?){
+        viewContext.delete(toRemove)
+        saveContext(viewContext, errorHandler: errorHandler)
+    }
+    
+    func update<T: NSManagedObject>(id: NSManagedObjectID, updater: @escaping (T)->Void, errorHandler: ((Error)->Void)? = nil){
+        let object = self.viewContext.object(with: id) as! T
+        updater(object)
+        self.saveContext(self.viewContext, errorHandler: errorHandler)
+    }
+    
     func updateBackground<T: NSManagedObject>(id: NSManagedObjectID, updater: @escaping (T)->Void, errorHandler: ((Error)->Void)? = nil){
         backgroundContext.perform {
             let object = self.backgroundContext.object(with: id) as! T

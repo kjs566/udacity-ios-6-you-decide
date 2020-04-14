@@ -20,7 +20,7 @@ class LocationsMapViewController : PropertyObserverController{
     
     override func viewDidLoad() {
         let longPressRecognizer = UILongPressGestureRecognizer(target: self, action: #selector(addPin(gestureRecognizer:)))
-        longPressRecognizer.minimumPressDuration = 1
+        longPressRecognizer.minimumPressDuration = 0.5
         mapView.addGestureRecognizer(longPressRecognizer)
         
         let userDefaults = UserDefaults.standard
@@ -53,6 +53,8 @@ class LocationsMapViewController : PropertyObserverController{
                 pin.lat = coordinates.latitude
                 pin.lon = coordinates.longitude
                 pin.isNew = true
+                pin.flickerPage = 1
+                self.showLocation(pin: pin)
             }, errorHandler: { (error) in
                 self.handleError(error)
             })
@@ -79,10 +81,13 @@ class LocationsMapViewController : PropertyObserverController{
         mapView.addAnnotations(annotations)
     }
     
+    func showLocation(pin: Pin){
+        performSegue(withIdentifier: "pinDetailSegue", sender: pin)
+    }
+    
     func showLocation(annotation: MKAnnotation?){
         guard let annotation = annotation as? MKPointAnnotation, let pin = annotationPins[annotation] else { return }
-        
-        performSegue(withIdentifier: "pinDetailSegue", sender: pin)
+        showLocation(pin: pin)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

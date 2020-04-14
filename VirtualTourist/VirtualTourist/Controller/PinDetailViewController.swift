@@ -19,6 +19,7 @@ class PinDetailViewController : PropertyObserverController{
     
     var pin: Pin!
     var loadingPhotos = Set<String>()
+    var dataSource: FetchedCollectionViewDataSource? = nil
     
     var photoCollectionDownloader: PhotoCollectionDownloader? = nil
     
@@ -44,6 +45,19 @@ class PinDetailViewController : PropertyObserverController{
         }
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        let fetchRequest: NSFetchRequest<Photo> = Photo.fetchRequest()
+        fetchRequest.predicate = NSPredicate(format: "pin == %@", pin.objectID)
+        dataSource = FetchedCollectionViewDataSource(collectionView: collectionView, sortDescriptors: [NSSortDescriptor(key: "photoId", ascending: true)], fetchRequest: fetchRequest as! NSFetchRequest<NSManagedObject>)
+        dataSource?.delegate = self
+        
+        dataSource?.fetch()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        dataSource = nil
+    }
+    
     func showAnnotation(){
         let coordinate = CLLocationCoordinate2D(latitude: pin.lat, longitude: pin.lon)
         
@@ -58,6 +72,7 @@ class PinDetailViewController : PropertyObserverController{
     }
     
     @IBAction func newCollectionClicked(_ sender: Any) {
+        photoCollectionDownloader?.loadNextPage()
     }
 }
 
@@ -80,10 +95,39 @@ extension PinDetailViewController: MKMapViewDelegate{
         
         return pinView
     }
+}
 
-    func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
-        if control == view.rightCalloutAccessoryView {
-            
+// MARK: - FetchedTableViewDataSourceDelegate
+extension PinDetailViewController: FetchedCollectionViewDataSourceDelegate{
+    func collectionViewCellIdentifier(atIndex: IndexPath, forObject: NSManagedObject) -> String {
+        let photo = forObject as! Photo
+        
+        if photo.error{
+            return "loadingFailedCollectionCell"
+        } else if photo.isNew {
+            return "loadingCollectionCell"
+        } else {
+            return "imageCollectionCell"
         }
+    }
+    
+    func collectionViewCellConfigure(cell: UICollectionViewCell, atIndex: IndexPath, forObject: NSManagedObject) {
+        let photo = forObject as! Photo
+        
+        if !photo.isNew && !photo.error{
+            let imageCell = cell as! ImageCollectionViewCell
+            if let data = photo.image{
+                imageCell.imageView.image = UIImage(data: data)
+            }
+        }
+    }
+    
+    func collectionViewCellDidSelect(atIndex: IndexPath, forObject: NSManagedObject){
+        let photo = forObject as! Photo
+        
+        DataController.shared.remove(photo, errorHandler: {
+            error in
+            self.handleError(error)
+        })
     }
 }

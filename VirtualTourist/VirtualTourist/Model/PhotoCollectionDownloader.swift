@@ -9,7 +9,6 @@
 import Foundation
 import CoreData
 
-
 class PhotoCollectionDownloader{
     let propertyObserver = PropertyObserver()
     
@@ -60,8 +59,9 @@ class PhotoCollectionDownloader{
         expectedPhotosResults = photos.count
         for photoMeta in photos{
             let objectId = DataController.shared.createAndSave(initializer: { (photo: Photo) in
-                photo.pin = pin
+                photo.pin = self.pin
                 photo.isNew = true
+                photo.photoId = photoMeta.id
             }, errorHandler:  { (error) in
                 self.setError(error)
             })
@@ -102,6 +102,7 @@ class PhotoCollectionDownloader{
         DataController.shared.updateBackground(id: objectId, updater: {(photo: Photo) in
             photo.isNew = false
             photo.image = data
+            photo.error = false
         }, errorHandler: { error in
             self.setError(error)
         })
@@ -129,9 +130,10 @@ class PhotoCollectionDownloader{
 
     func loadNextPage(){
         let page = pin.flickerPage + 1
-        DataController.shared.updateBackground(id: pin.objectID, updater: { (pin: Pin) in
+        DataController.shared.update(id: pin.objectID, updater: { (pin: Pin) in
             pin.flickerPage = page
             pin.isNew = true
+            pin.photos = []
         }, errorHandler:  nil)
         startApiLoading(page: page)
     }
