@@ -51,7 +51,7 @@ class GeocodeLocationPropety: ObservableProperty<GeocodeResult>{
             }else {
                 result.setSuccess(places)
             }
-            if(!result.isCanceled()){
+            if !result.isCanceled(){
                 self.setValue(result)
             }
         }

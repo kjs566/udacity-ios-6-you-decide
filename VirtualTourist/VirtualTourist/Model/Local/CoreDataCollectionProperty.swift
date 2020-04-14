@@ -15,7 +15,7 @@ class CoreDataCollectionProperty<T: NSManagedObject> : ObservableProperty<CoreDa
     private let dataController = DataController.shared
     
     func load(notifyLoading: Bool = true){
-        if(notifyLoading){
+        if notifyLoading{
             setValue(.loading)
         }
         let fetchRequest = NSFetchRequest<T>(entityName: "Pin")
@@ -39,7 +39,7 @@ class CoreDataCollectionProperty<T: NSManagedObject> : ObservableProperty<CoreDa
                     return object is T
                 }
                 
-                if(changeFlag){
+                if changeFlag{
                     print("Insert detected \(self.id)")
                 }
             }
@@ -49,7 +49,7 @@ class CoreDataCollectionProperty<T: NSManagedObject> : ObservableProperty<CoreDa
                       return object is T
                 }
                 
-                if(changeFlag){
+                if changeFlag{
                     print("Update detected \(self.id)")
                 }
             }
@@ -59,12 +59,12 @@ class CoreDataCollectionProperty<T: NSManagedObject> : ObservableProperty<CoreDa
                       return object is T
                 }
                 
-                if(changeFlag){
+                if changeFlag{
                     print("Delete detected \(self.id)")
                 }
             }
             
-            if(changeFlag){
+            if changeFlag{
                 DispatchQueue.main.async {
                     self.load(notifyLoading: false)
                 }
@@ -89,7 +89,7 @@ class CoreDataCollectionProperty<T: NSManagedObject> : ObservableProperty<CoreDa
     }
     
     override func afterCallbackAdd() {
-        if(callbacks.count == 1){
+        if callbacks.count == 1{
             NotificationCenter.default.addObserver(self, selector: #selector(changeNotificationReceived(notification:)), name: .NSManagedObjectContextObjectsDidChange, object: nil)
         }
         if value == nil || value!.isError(){
@@ -98,7 +98,7 @@ class CoreDataCollectionProperty<T: NSManagedObject> : ObservableProperty<CoreDa
     }
     
     override func afterCallbackRemove() {
-        if(callbacks.isEmpty){
+        if callbacks.isEmpty{
             NotificationCenter.default.removeObserver(self)
         }
     }

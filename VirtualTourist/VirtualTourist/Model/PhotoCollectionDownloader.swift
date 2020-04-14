@@ -76,7 +76,7 @@ class PhotoCollectionDownloader{
 
     func downloadPhoto(objectId: NSManagedObjectID, photoId: String){
         let downloadTask = FlickerApi.shared.getSizesRequest(photoId: photoId).execute { (sizes, error) in
-            if(error != nil){
+            if error != nil{
                 self.setPhotoLoadingError(objectId, photoId)
             }else{
                 self.downloadImage(objectId: objectId, id: photoId, sizes: sizes)
@@ -117,7 +117,7 @@ class PhotoCollectionDownloader{
         }){
             BaseApi.rawRequest(url: size.source, callback: {
                 (data, error) in
-                if(error != nil){
+                if error != nil{
                     self.setPhotoLoadingError(objectId, id)
                 }else{
                     self.setPhotoLoadingSuccess(objectId: objectId, data: data!)
@@ -152,7 +152,7 @@ class PhotoCollectionDownloader{
     
     func checkResults(){
         let isError = state.getValue()?.isError() ?? false
-        if(!isError && receivedPhotosResults == expectedPhotosResults){
+        if !isError && receivedPhotosResults == expectedPhotosResults{
             saveCollectionState()
             state.setValue(.success(nil))
         }
