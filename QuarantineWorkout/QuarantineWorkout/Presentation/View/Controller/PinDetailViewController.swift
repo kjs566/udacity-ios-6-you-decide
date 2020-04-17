@@ -11,7 +11,8 @@ import UIKit
 import MapKit
 import CoreData
 
-class PinDetailViewController : PropertyObserverController{
+/*
+class PinDetailViewController : BaseViewController{
     @IBOutlet weak var loadingIndicator: UIActivityIndicatorView!
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var newCollectionButton: UIButton!
@@ -130,4 +131,4 @@ extension PinDetailViewController: FetchedCollectionViewDataSourceDelegate{
             self.handleError(error)
         })
     }
-}
+}*/

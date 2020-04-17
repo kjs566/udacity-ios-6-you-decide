@@ -67,6 +67,8 @@ fastlane/Preview.html
 fastlane/screenshots
 fastlane/test_output
 
+#Pods
+Pods/
 
 # Mac
 *.DS_Store

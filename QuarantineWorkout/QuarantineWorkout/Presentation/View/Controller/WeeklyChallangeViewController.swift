@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 import MapKit
 
-class LocationsMapViewController : PropertyObserverController{
+class WeeklyChallangeViewController : BaseViewController{
     @IBOutlet weak var loadingIndicator: UIActivityIndicatorView!
     @IBOutlet weak var mapView: MKMapView!
     
@@ -97,7 +97,7 @@ class LocationsMapViewController : PropertyObserverController{
 }
 
 // MARK: - MKMapViewDelegate
-extension LocationsMapViewController: MKMapViewDelegate{
+extension WeeklyChallangeViewController: MKMapViewDelegate{
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
         let reuseId = "pin"
         

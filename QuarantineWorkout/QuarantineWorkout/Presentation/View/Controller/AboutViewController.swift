@@ -18,7 +18,7 @@ class AboutViewController: UIViewController {
     var currentSegment = 0;
     let aboutTexts = [
         0: "Hi, my name is Jan Skála.\n\nMy hobbies are squash, programming and biking. I've been working as an Android developer for nearly 5 years.\n\nAnd now I'm trying a new platform - that's why this app was created.\n\nHope you will enjoy it!",
-        1: "This app was created as the fifth project during Udacity's iOS Developer Nanodegree program.\n\nThe purpose doing this app was to learn to work Core Data Framework. It is not intended to be published to users."
+        1: "This app demonstrates knowledge in iOS development and it's frameworks - UIKit and Core Data. It uses Swift 5, Storyboards, MVVM architecture and clean architecture. This app was created as the sixth project during Udacity's iOS Developer Nanodegree program.\n\n"
     ]
     
     override func viewDidLoad() {

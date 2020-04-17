@@ -1,5 +1,5 @@
 //
-//  BaseUiController.swift
+//  BaseViewController.swift
 //  QuarantineWorkout
 //
 //  Created by Jan Skála on 07/04/2020.
@@ -9,14 +9,17 @@
 import Foundation
 import UIKit
 
-open class BaseViewController : UIViewController{
+open class BaseViewController<VM: BaseViewModel, FC: BaseFlowCoordinator> : UIViewController{
+    let propertyObserver = PropertyObserver()
+    
+    var flowCoordinator : FC! = nil
+    var viewModel: VM! = nil
+    
     func handleError(_ error: Error?){
         if error is ApiError {
             switch error as! ApiError{
             case .networkError:
                 showError("Connection error.")
-            //case .errorResponse(let response):
-            //    showError(response.error)
             default:
                 showError("Unexpected error")
             }
@@ -35,5 +38,22 @@ open class BaseViewController : UIViewController{
         DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 4){
             alertController.dismiss(animated: true, completion: nil)
         }
+    }
+    
+    
+    func observeProperty<T>(_ property: ObservableProperty<T>, _ callback: @escaping ObservableProperty<T>.ChangeCallback){
+        propertyObserver.observeProperty(property, callback)
+    }
+    
+    func observeDependent<T,R>(_ property1: ObservableProperty<T>, _ property2: ObservableProperty<R>, _ callback: @escaping (T?,R?)->Void){
+        propertyObserver.observeDependent(property1, property2, callback: callback)
+    }
+    
+    open override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        flowCoordinator.prepareSegue(segue: segue, sender: sender)
+    }
+    
+    deinit {
+        propertyObserver.dispose()
     }
 }

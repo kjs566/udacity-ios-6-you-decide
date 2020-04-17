@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>917246081110-rjnr38skkaib103srlbnfqho2uvkldqq.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.917246081110-rjnr38skkaib103srlbnfqho2uvkldqq</string>
+	<key>API_KEY</key>
+	<string>AIzaSyB0p04XAuJi5-RXX6FIQBZG3Em14J30OnE</string>
+	<key>GCM_SENDER_ID</key>
+	<string>917246081110</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.kjs566.quarantineworkout</string>
+	<key>PROJECT_ID</key>
+	<string>quarantine-workout-cc7ea</string>
+	<key>STORAGE_BUCKET</key>
+	<string>quarantine-workout-cc7ea.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:917246081110:ios:58035479cd8076527823f7</string>
+	<key>DATABASE_URL</key>
+	<string>https://quarantine-workout-cc7ea.firebaseio.com</string>
+</dict>
+</plist>
