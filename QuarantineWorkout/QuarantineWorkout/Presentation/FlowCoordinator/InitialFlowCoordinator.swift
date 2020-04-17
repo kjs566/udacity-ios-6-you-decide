@@ -39,7 +39,7 @@ class InitialFlowCoordinator: BaseFlowCoordinator{
                 
                 if let weeklyChallangeVC = topVC as? WeeklyChallangeViewController{
                     self.prepareDestination(targetController: weeklyChallangeVC, data: FlowPrepareData(vmFactory: { _ in
-                        return WeeklyChallangeViewModel()
+                        return WeeklyChallangeViewModel(logoutUC: LogoutUseCase(authRepo: self.authRepository))
                     }, flowCoordinatorFactory: { (_) -> Any? in
                         return WeeklyChallangeFlowCoordinator()
                     }))
@@ -51,7 +51,7 @@ class InitialFlowCoordinator: BaseFlowCoordinator{
                     }))
                 }else if let profileVC = topVC as? ProfileViewController{
                     self.prepareDestination(targetController: profileVC, data: FlowPrepareData(vmFactory: { _ in
-                        return ProfileViewModel()
+                        return ProfileViewModel(logoutUC: LogoutUseCase(authRepo: self.authRepository))
                     }, flowCoordinatorFactory: { (_) -> Any? in
                         return ProfileFlowCoordinator()
                     }))

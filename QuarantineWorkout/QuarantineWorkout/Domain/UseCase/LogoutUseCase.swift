@@ -7,3 +7,27 @@
 //
 
 import Foundation
+
+class LogoutUseCase: BgUseCase{
+    typealias Input = None
+    typealias Result = LogoutResult
+    typealias RepositoryResult = AuthRepository.LogoutRepoResult
+    
+    let authRepo: AuthRepository
+    
+    init(authRepo: AuthRepository){
+        self.authRepo = authRepo
+    }
+    
+    func executeBackground(input: None, completion: @escaping (AsyncCallback<AuthRepository.LogoutRepoResult>) -> Void) {
+        self.authRepo.logout(completion: completion)
+    }
+    
+    func mapResult(_ repositoryResult: AuthRepository.LogoutRepoResult?) -> LogoutResult? {
+        return LogoutResult()
+    }
+    
+    
+}
+
+struct LogoutResult{}

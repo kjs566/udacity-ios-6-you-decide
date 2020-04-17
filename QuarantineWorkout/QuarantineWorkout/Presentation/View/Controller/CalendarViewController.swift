@@ -46,15 +46,19 @@ class CalendarViewController : BaseViewController<CalendarViewModel, ProfileFlow
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         /*let fetchRequest: NSFetchRequest<Photo> = Photo.fetchRequest()
         fetchRequest.predicate = NSPredicate(format: "pin == %@", pin.objectID)
         dataSource = FetchedCollectionViewDataSource(collectionView: collectionView, sortDescriptors: [NSSortDescriptor(key: "photoId", ascending: true)], fetchRequest: fetchRequest as! NSFetchRequest<NSManagedObject>)
         dataSource?.delegate = self
         
         dataSource?.fetch()*/
+        hideTabBar()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        showTabBar()
         dataSource = nil
     }
     

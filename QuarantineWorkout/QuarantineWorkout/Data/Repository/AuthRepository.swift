@@ -26,7 +26,17 @@ class AuthRepository: Repository{
         }
     }
     
+    func logout(completion: @escaping AsyncCompletion<LogoutRepoResult>){
+        do{
+            try Auth.auth().signOut()
+            completion(.success(LogoutRepoResult()))
+        }catch{
+            completion(.error(error))
+        }
+    }
+    
     
     struct LoginRepoResult{}
     struct SignUpRepoResult{}
+    struct LogoutRepoResult{}
 }

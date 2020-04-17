@@ -8,6 +8,6 @@
 
 import Foundation
 
-class ProfileViewModel: BaseViewModel{
+class ProfileViewModel: TabRootViewModel{
     
 }

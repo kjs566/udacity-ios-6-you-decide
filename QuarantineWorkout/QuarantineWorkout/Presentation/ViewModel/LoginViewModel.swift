@@ -17,11 +17,9 @@ class LoginViewModel: BaseViewModel{
     }
     
     func login(username: String, password: String){
-        if loginState.getValue()?.isLoading() != true {
-            loginState.setValue(.loading)
-            loginUC.execute(input: LoginInput(username: username, password: password)) { callbackResult in
-                self.loginState.setValue(callbackResult.toResult())
-            }
+        loginState.setValue(.loading)
+        loginUC.execute(input: LoginInput(username: username, password: password)) { callbackResult in
+            self.loginState.setValue(callbackResult.toResult())
         }
     }
 }

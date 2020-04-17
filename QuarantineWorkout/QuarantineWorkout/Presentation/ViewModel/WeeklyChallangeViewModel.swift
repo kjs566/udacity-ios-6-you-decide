@@ -8,6 +8,6 @@
 
 import Foundation
 
-class WeeklyChallangeViewModel:BaseViewModel{
+class WeeklyChallangeViewModel: TabRootViewModel{
     
 }

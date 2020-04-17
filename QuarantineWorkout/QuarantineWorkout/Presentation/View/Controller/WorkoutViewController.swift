@@ -13,4 +13,14 @@ class WorkoutViewController: BaseViewController<WorkoutViewModel, WeeklyChallang
     @IBAction func showResultClicked(_ sender: Any) {
         getFlowCoordinator().showWorkoutResult(vc: self)
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        hideTabBar()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        showTabBar()
+    }
 }

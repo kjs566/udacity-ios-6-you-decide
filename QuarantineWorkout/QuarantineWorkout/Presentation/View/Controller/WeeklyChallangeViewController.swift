@@ -10,9 +10,13 @@ import Foundation
 import UIKit
 import MapKit
 
-class WeeklyChallangeViewController : BaseViewController<WeeklyChallangeViewModel, WeeklyChallangeFlowCoordinator>{
-    @IBOutlet weak var loadingIndicator: UIActivityIndicatorView!
+class WeeklyChallangeViewController : TabRootViewController<WeeklyChallangeViewModel, WeeklyChallangeFlowCoordinator>{
     @IBAction func startWorkoutClicked(_ sender: Any) {
         getFlowCoordinator().showWorkout(vc: self)
+    }
+    @IBAction func reloadClicked(_ sender: Any) {
+    }
+    @IBAction func logoutClicked(_ sender: Any) {
+        logout()
     }
 }

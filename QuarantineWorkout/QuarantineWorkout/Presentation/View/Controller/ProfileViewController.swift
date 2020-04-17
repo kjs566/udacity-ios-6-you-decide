@@ -8,9 +8,16 @@
 
 import Foundation
 
-class ProfileViewController: BaseViewController<ProfileViewModel, ProfileFlowCoordinator>{
+class ProfileViewController: TabRootViewController<ProfileViewModel, ProfileFlowCoordinator>{
     
     @IBAction func showCalendarClicked(_ sender: Any) {
         getFlowCoordinator().showCalendar(vc: self)
+    }
+    
+    @IBAction func reloadClicked(_ sender: Any) {
+    }
+    
+    @IBAction func logoutClicked(_ sender: Any) {
+        logout()
     }
 }

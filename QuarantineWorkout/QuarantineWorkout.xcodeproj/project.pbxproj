@@ -43,6 +43,8 @@
 		56D108062449F2B300256973 /* WorkoutResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56D108052449F2B300256973 /* WorkoutResultViewController.swift */; };
 		56D108082449F2C200256973 /* WorkoutResultViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56D108072449F2C200256973 /* WorkoutResultViewModel.swift */; };
 		56D1080A244A05AE00256973 /* SignUpUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56D10809244A05AE00256973 /* SignUpUseCase.swift */; };
+		56D1080C244A295F00256973 /* TabRootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56D1080B244A295F00256973 /* TabRootViewController.swift */; };
+		56D1080E244A2B5E00256973 /* TabRootViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56D1080D244A2B5E00256973 /* TabRootViewModel.swift */; };
 		56DBD82F24366F17008819D0 /* ApiError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56DBD82E24366F17008819D0 /* ApiError.swift */; };
 		56DBD83324375B54008819D0 /* KeyboardHeightHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56DBD83224375B54008819D0 /* KeyboardHeightHandler.swift */; };
 		56DBD83524378859008819D0 /* InputValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56DBD83424378859008819D0 /* InputValidator.swift */; };
@@ -119,6 +121,8 @@
 		56D108052449F2B300256973 /* WorkoutResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutResultViewController.swift; sourceTree = "<group>"; };
 		56D108072449F2C200256973 /* WorkoutResultViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutResultViewModel.swift; sourceTree = "<group>"; };
 		56D10809244A05AE00256973 /* SignUpUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpUseCase.swift; sourceTree = "<group>"; };
+		56D1080B244A295F00256973 /* TabRootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabRootViewController.swift; sourceTree = "<group>"; };
+		56D1080D244A2B5E00256973 /* TabRootViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabRootViewModel.swift; sourceTree = "<group>"; };
 		56DBD82E24366F17008819D0 /* ApiError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiError.swift; sourceTree = "<group>"; };
 		56DBD83224375B54008819D0 /* KeyboardHeightHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardHeightHandler.swift; sourceTree = "<group>"; };
 		56DBD83424378859008819D0 /* InputValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputValidator.swift; sourceTree = "<group>"; };
@@ -362,6 +366,7 @@
 				56E77C822449B8790036C6CA /* ProfileViewModel.swift */,
 				56E77C882449BA390036C6CA /* PlanDetailViewModel.swift */,
 				56D108072449F2C200256973 /* WorkoutResultViewModel.swift */,
+				56D1080D244A2B5E00256973 /* TabRootViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -427,6 +432,7 @@
 				56E77C802449B7A60036C6CA /* CreatePlanViewController.swift */,
 				56E77C842449B8900036C6CA /* ProfileViewController.swift */,
 				56E77C8A2449BA500036C6CA /* PlanDetailViewController.swift */,
+				56D1080B244A295F00256973 /* TabRootViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -565,6 +571,7 @@
 				5695A5B82444B32400EC5434 /* ImageCollectionViewCell.swift in Sources */,
 				56E77C852449B8900036C6CA /* ProfileViewController.swift in Sources */,
 				565357212055329D00857C9B /* AboutViewController.swift in Sources */,
+				56D1080E244A2B5E00256973 /* TabRootViewModel.swift in Sources */,
 				5693EA1F243B9A93006BB1C7 /* AsyncResult.swift in Sources */,
 				560EDAED2430927A0011DB55 /* WeeklyChallangeViewController.swift in Sources */,
 				56E77C7B2449B5AF0036C6CA /* WorkoutPlansViewModel.swift in Sources */,
@@ -580,6 +587,7 @@
 				5695A5B62444ACB000EC5434 /* FetchedCollectionViewDataSource.swift in Sources */,
 				56E77C732449B3B20036C6CA /* SignUpViewModel.swift in Sources */,
 				56CB51DC2445F1CB008B1EAA /* WorkoutPlansViewController.swift in Sources */,
+				56D1080C244A295F00256973 /* TabRootViewController.swift in Sources */,
 				56DBD83324375B54008819D0 /* KeyboardHeightHandler.swift in Sources */,
 				56E77C6F2449B34B0036C6CA /* CalendarViewModel.swift in Sources */,
 				56DD8A872446398E000728BC /* LoginUseCase.swift in Sources */,
