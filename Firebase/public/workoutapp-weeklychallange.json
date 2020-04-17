@@ -1,0 +1,99 @@
+{
+    "weeklyChallange":{
+        "dificulty": "Medium",
+        "totalTime": "10 minutes",
+        "calories": 198,
+        "plan":[
+            {
+                "name": "Warm-up: Jumping jacks",
+                "type": "duration",
+                "duration": 60
+            },
+            {
+                "name": "Plank",
+                "type": "duration",
+                "duration": 30
+            },
+            {
+                "name": "Rest",
+                "type": "rest",
+                "duration": 10
+            },
+            {
+                "name": "Squat",
+                "type": "reps",
+                "reps": 10
+            },
+            {
+                "name": "Rest",
+                "type": "rest",
+                "duration": 10
+            },
+            {
+                "name": "Push-up",
+                "type": "reps",
+                "reps": 10
+            },
+            {
+                "name": "Rest",
+                "type": "rest",
+                "duration": 10
+            },
+            {
+                "name": "Lunge",
+                "type": "reps",
+                "reps": 20
+            },
+            {
+                "name": "Rest",
+                "type": "rest",
+                "duration": 10
+            },
+            {
+                "name": "Plank",
+                "type": "duration",
+                "duration": 30
+            },
+            {
+                "name": "Rest",
+                "type": "rest",
+                "duration": 10
+            },
+            {
+                "name": "Squat",
+                "type": "reps",
+                "reps": 10
+            },
+            {
+                "name": "Rest",
+                "type": "rest",
+                "duration": 10
+            },
+            {
+                "name": "Push-up",
+                "type": "reps",
+                "reps": 10
+            },
+            {
+                "name": "Rest",
+                "type": "rest",
+                "duration": 10
+            },
+            {
+                "name": "Lunge",
+                "type": "reps",
+                "reps": 20
+            },
+            {
+                "name": "Rest",
+                "type": "rest",
+                "duration": 10
+            },
+            {
+                "name": "Cool-down: Jumping jacks",
+                "type": "duration",
+                "duration": 60
+            },
+        ]
+    }
+}
