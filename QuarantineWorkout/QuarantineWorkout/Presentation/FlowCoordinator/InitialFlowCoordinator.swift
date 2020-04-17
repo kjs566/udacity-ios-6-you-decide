@@ -24,8 +24,43 @@ class InitialFlowCoordinator: BaseFlowCoordinator{
     }
     
     func showMain<VM : BaseViewModel, FC: BaseFlowCoordinator, VC: BaseViewController<VM, FC>>(source: VC){
-        performSegue(source: source, segueIdentifier: "showMainSegue", flowAction: FlowData(vmFactory: { (_: None?) in
+        performSegue(source: source, segueIdentifier: "showMainSegue", flowAction: FlowPrepareData(vmFactory: { (_) in
                 return BaseViewModel()
+        }, setupVC: { (vm, data, vc) in
+            vc.modalPresentationStyle = .overFullScreen
+            
+            // TODO MAKE UNIVERSAL
+            let tabCtrl = vc as! UITabBarController
+            for controller in tabCtrl.customizableViewControllers!{
+                let navVC = controller as! UINavigationController
+                let topVC = navVC.topViewController
+                
+                if let weeklyChallangeVC = topVC as? WeeklyChallangeViewController{
+                    self.prepareDestination(targetController: weeklyChallangeVC, data: FlowPrepareData(vmFactory: { _ in
+                        return WeeklyChallangeViewModel()
+                    }, flowCoordinatorFactory: { (_) -> Any? in
+                        return WeeklyChallangeFlowCoordinator()
+                    }))
+                }else if let plansVC = topVC as? WorkoutPlansViewController{
+                    self.prepareDestination(targetController: plansVC, data: FlowPrepareData(vmFactory: { _ in
+                        return WorkoutPlansViewModel()
+                    }, flowCoordinatorFactory: { (_) -> Any? in
+                        return WorkoutPlansFlowCoordinator()
+                    }))
+                }else if let profileVC = topVC as? ProfileViewController{
+                    self.prepareDestination(targetController: profileVC, data: FlowPrepareData(vmFactory: { _ in
+                        return ProfileViewModel()
+                    }, flowCoordinatorFactory: { (_) -> Any? in
+                        return ProfileFlowCoordinator()
+                    }))
+                }
+            }
+        }))
+    }
+    
+    func showSignUp<VM : BaseViewModel, FC: BaseFlowCoordinator, VC: BaseViewController<VM, FC>>(source: VC){
+        performSegue(source: source, segueIdentifier: "showSignUpSegue", flowAction: FlowPrepareData(vmFactory: { (_) in
+                return SignUpViewModel()
         }, data: None.NONE))
     }
     

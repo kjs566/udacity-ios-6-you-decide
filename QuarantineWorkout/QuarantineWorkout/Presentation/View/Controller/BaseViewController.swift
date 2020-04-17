@@ -9,12 +9,74 @@
 import Foundation
 import UIKit
 
-open class BaseViewController<VM: BaseViewModel, FC: BaseFlowCoordinator> : UIViewController{
-    let propertyObserver = PropertyObserver()
+open class BaseTabController<VM: BaseViewModel, FC: BaseFlowCoordinator> : UITabBarController, BaseController{
+    var propertyObserver: PropertyObserver = PropertyObserver()
     
-    var flowCoordinator : FC! = nil
-    var viewModel: VM! = nil
+    var flowCoordinator: Any! = nil
+    var viewModel: Any! = nil
     
+    func getVM() -> VM{
+        return viewModel as! VM
+    }
+    
+    func getFlowCoordinator() -> FC{
+        return flowCoordinator as! FC
+    }
+    
+    open override func viewDidLoad() {
+        if viewModel != nil && flowCoordinator != nil{
+            print(String(describing: self) + " Set up successfull!")
+        }
+    }
+    
+    open override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        super.prepare(for: segue, sender: sender)
+        (flowCoordinator as! BaseFlowCoordinator).prepareSegue(sourceController: self, segue: segue, sender: sender)
+    }
+    
+    deinit {
+        propertyObserver.dispose()
+    }
+}
+
+open class BaseViewController<VM: BaseViewModel, FC: BaseFlowCoordinator>: UIViewController, BaseController{
+    var propertyObserver = PropertyObserver()
+    
+    var flowCoordinator: Any! = nil
+    var viewModel: Any! = nil
+    
+    func getVM() -> VM{
+        return viewModel as! VM
+    }
+    
+    func getFlowCoordinator() -> FC{
+        return flowCoordinator as! FC
+    }
+    
+    open override func viewDidLoad() {
+        if viewModel != nil && flowCoordinator != nil{
+            print(String(describing: self) + " Set up successfull!")
+        }
+    }
+    
+    open override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        super.prepare(for: segue, sender: sender)
+        (flowCoordinator as! BaseFlowCoordinator).prepareSegue(sourceController: self, segue: segue, sender: sender)
+    }
+    
+    deinit {
+        propertyObserver.dispose()
+    }
+}
+
+protocol BaseController : UIViewController{
+    var flowCoordinator: Any! { get set }
+    var viewModel: Any! { get set }
+    
+    var propertyObserver: PropertyObserver { get set }
+}
+
+extension BaseController{
     func handleError(_ error: Error?){
         if error is ApiError {
             switch error as! ApiError{
@@ -47,13 +109,5 @@ open class BaseViewController<VM: BaseViewModel, FC: BaseFlowCoordinator> : UIVi
     
     func observeDependent<T,R>(_ property1: ObservableProperty<T>, _ property2: ObservableProperty<R>, _ callback: @escaping (T?,R?)->Void){
         propertyObserver.observeDependent(property1, property2, callback: callback)
-    }
-    
-    open override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        flowCoordinator.prepareSegue(segue: segue, sender: sender)
-    }
-    
-    deinit {
-        propertyObserver.dispose()
     }
 }

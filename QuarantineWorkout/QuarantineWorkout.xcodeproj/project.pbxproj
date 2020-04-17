@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		560EDAED2430927A0011DB55 /* WeeklyChallangeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 560EDAEC2430927A0011DB55 /* WeeklyChallangeViewController.swift */; };
-		562D58432441E03F002D2EC9 /* PinDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562D58422441E03F002D2EC9 /* PinDetailViewController.swift */; };
+		562D58432441E03F002D2EC9 /* CalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562D58422441E03F002D2EC9 /* CalendarViewController.swift */; };
 		562D584724422BB4002D2EC9 /* SizesResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562D584624422BB3002D2EC9 /* SizesResponse.swift */; };
 		5634BFCD243FCB2D00FEF19B /* ApiResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5634BFCC243FCB2D00FEF19B /* ApiResult.swift */; };
 		5634BFD324408BC900FEF19B /* FlickerApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5634BFD224408BC900FEF19B /* FlickerApi.swift */; };
@@ -39,7 +39,9 @@
 		56BDFE93243262AA0013A9EB /* BaseApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56BDFE92243262AA0013A9EB /* BaseApi.swift */; };
 		56BDFE95243276FC0013A9EB /* ApiProperty.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56BDFE94243276FC0013A9EB /* ApiProperty.swift */; };
 		56CB51DA2445F1BC008B1EAA /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56CB51D92445F1BC008B1EAA /* LoginViewController.swift */; };
-		56CB51DC2445F1CB008B1EAA /* LocationsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56CB51DB2445F1CB008B1EAA /* LocationsTableViewController.swift */; };
+		56CB51DC2445F1CB008B1EAA /* WorkoutPlansViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56CB51DB2445F1CB008B1EAA /* WorkoutPlansViewController.swift */; };
+		56D108062449F2B300256973 /* WorkoutResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56D108052449F2B300256973 /* WorkoutResultViewController.swift */; };
+		56D108082449F2C200256973 /* WorkoutResultViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56D108072449F2C200256973 /* WorkoutResultViewModel.swift */; };
 		56DBD82F24366F17008819D0 /* ApiError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56DBD82E24366F17008819D0 /* ApiError.swift */; };
 		56DBD83324375B54008819D0 /* KeyboardHeightHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56DBD83224375B54008819D0 /* KeyboardHeightHandler.swift */; };
 		56DBD83524378859008819D0 /* InputValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56DBD83424378859008819D0 /* InputValidator.swift */; };
@@ -54,6 +56,24 @@
 		56DD8A9224463C52000728BC /* Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56DD8A9124463C52000728BC /* Repository.swift */; };
 		56DD8A9624464626000728BC /* AsyncCallback.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56DD8A9524464626000728BC /* AsyncCallback.swift */; };
 		56E77C672448DAA00036C6CA /* None.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56E77C662448DAA00036C6CA /* None.swift */; };
+		56E77C69244992AA0036C6CA /* WeeklyChallangeFlowCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56E77C68244992AA0036C6CA /* WeeklyChallangeFlowCoordinator.swift */; };
+		56E77C6B244997810036C6CA /* WeeklyChallangeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56E77C6A244997810036C6CA /* WeeklyChallangeViewModel.swift */; };
+		56E77C6D24499BBB0036C6CA /* MainTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56E77C6C24499BBB0036C6CA /* MainTabViewController.swift */; };
+		56E77C6F2449B34B0036C6CA /* CalendarViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56E77C6E2449B34B0036C6CA /* CalendarViewModel.swift */; };
+		56E77C712449B39E0036C6CA /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56E77C702449B39E0036C6CA /* SignUpViewController.swift */; };
+		56E77C732449B3B20036C6CA /* SignUpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56E77C722449B3B20036C6CA /* SignUpViewModel.swift */; };
+		56E77C752449B4820036C6CA /* WorkoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56E77C742449B4820036C6CA /* WorkoutViewController.swift */; };
+		56E77C772449B48F0036C6CA /* WorkoutViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56E77C762449B48F0036C6CA /* WorkoutViewModel.swift */; };
+		56E77C792449B4AB0036C6CA /* MainFlowCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56E77C782449B4AB0036C6CA /* MainFlowCoordinator.swift */; };
+		56E77C7B2449B5AF0036C6CA /* WorkoutPlansViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56E77C7A2449B5AF0036C6CA /* WorkoutPlansViewModel.swift */; };
+		56E77C7D2449B5F80036C6CA /* WorkoutPlansFlowCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56E77C7C2449B5F80036C6CA /* WorkoutPlansFlowCoordinator.swift */; };
+		56E77C7F2449B7880036C6CA /* CreatePlanViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56E77C7E2449B7880036C6CA /* CreatePlanViewModel.swift */; };
+		56E77C812449B7A60036C6CA /* CreatePlanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56E77C802449B7A60036C6CA /* CreatePlanViewController.swift */; };
+		56E77C832449B8790036C6CA /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56E77C822449B8790036C6CA /* ProfileViewModel.swift */; };
+		56E77C852449B8900036C6CA /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56E77C842449B8900036C6CA /* ProfileViewController.swift */; };
+		56E77C872449B8B10036C6CA /* ProfileFlowCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56E77C862449B8B10036C6CA /* ProfileFlowCoordinator.swift */; };
+		56E77C892449BA390036C6CA /* PlanDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56E77C882449BA390036C6CA /* PlanDetailViewModel.swift */; };
+		56E77C8B2449BA500036C6CA /* PlanDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56E77C8A2449BA500036C6CA /* PlanDetailViewController.swift */; };
 		56FF8CA32434B2340093A2E1 /* PropertyObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56FF8CA22434B2340093A2E1 /* PropertyObserver.swift */; };
 		D01981CEDE617FB08227F282 /* libPods-QuarantineWorkout.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B6557184295269B838671FF /* libPods-QuarantineWorkout.a */; };
 /* End PBXBuildFile section */
@@ -61,7 +81,7 @@
 /* Begin PBXFileReference section */
 		160F9F2C93D8821630BB8303 /* Pods-QuarantineWorkout.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QuarantineWorkout.release.xcconfig"; path = "Target Support Files/Pods-QuarantineWorkout/Pods-QuarantineWorkout.release.xcconfig"; sourceTree = "<group>"; };
 		560EDAEC2430927A0011DB55 /* WeeklyChallangeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeeklyChallangeViewController.swift; sourceTree = "<group>"; };
-		562D58422441E03F002D2EC9 /* PinDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinDetailViewController.swift; sourceTree = "<group>"; };
+		562D58422441E03F002D2EC9 /* CalendarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarViewController.swift; sourceTree = "<group>"; };
 		562D584624422BB3002D2EC9 /* SizesResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SizesResponse.swift; sourceTree = "<group>"; };
 		5634BFCC243FCB2D00FEF19B /* ApiResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiResult.swift; sourceTree = "<group>"; };
 		5634BFD224408BC900FEF19B /* FlickerApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlickerApi.swift; sourceTree = "<group>"; };
@@ -94,7 +114,9 @@
 		56BDFE92243262AA0013A9EB /* BaseApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseApi.swift; sourceTree = "<group>"; };
 		56BDFE94243276FC0013A9EB /* ApiProperty.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiProperty.swift; sourceTree = "<group>"; };
 		56CB51D92445F1BC008B1EAA /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
-		56CB51DB2445F1CB008B1EAA /* LocationsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationsTableViewController.swift; sourceTree = "<group>"; };
+		56CB51DB2445F1CB008B1EAA /* WorkoutPlansViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkoutPlansViewController.swift; sourceTree = "<group>"; };
+		56D108052449F2B300256973 /* WorkoutResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutResultViewController.swift; sourceTree = "<group>"; };
+		56D108072449F2C200256973 /* WorkoutResultViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutResultViewModel.swift; sourceTree = "<group>"; };
 		56DBD82E24366F17008819D0 /* ApiError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiError.swift; sourceTree = "<group>"; };
 		56DBD83224375B54008819D0 /* KeyboardHeightHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardHeightHandler.swift; sourceTree = "<group>"; };
 		56DBD83424378859008819D0 /* InputValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputValidator.swift; sourceTree = "<group>"; };
@@ -109,6 +131,24 @@
 		56DD8A9124463C52000728BC /* Repository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Repository.swift; sourceTree = "<group>"; };
 		56DD8A9524464626000728BC /* AsyncCallback.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsyncCallback.swift; sourceTree = "<group>"; };
 		56E77C662448DAA00036C6CA /* None.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = None.swift; sourceTree = "<group>"; };
+		56E77C68244992AA0036C6CA /* WeeklyChallangeFlowCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeeklyChallangeFlowCoordinator.swift; sourceTree = "<group>"; };
+		56E77C6A244997810036C6CA /* WeeklyChallangeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeeklyChallangeViewModel.swift; sourceTree = "<group>"; };
+		56E77C6C24499BBB0036C6CA /* MainTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabViewController.swift; sourceTree = "<group>"; };
+		56E77C6E2449B34B0036C6CA /* CalendarViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarViewModel.swift; sourceTree = "<group>"; };
+		56E77C702449B39E0036C6CA /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		56E77C722449B3B20036C6CA /* SignUpViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewModel.swift; sourceTree = "<group>"; };
+		56E77C742449B4820036C6CA /* WorkoutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutViewController.swift; sourceTree = "<group>"; };
+		56E77C762449B48F0036C6CA /* WorkoutViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutViewModel.swift; sourceTree = "<group>"; };
+		56E77C782449B4AB0036C6CA /* MainFlowCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainFlowCoordinator.swift; sourceTree = "<group>"; };
+		56E77C7A2449B5AF0036C6CA /* WorkoutPlansViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutPlansViewModel.swift; sourceTree = "<group>"; };
+		56E77C7C2449B5F80036C6CA /* WorkoutPlansFlowCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutPlansFlowCoordinator.swift; sourceTree = "<group>"; };
+		56E77C7E2449B7880036C6CA /* CreatePlanViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatePlanViewModel.swift; sourceTree = "<group>"; };
+		56E77C802449B7A60036C6CA /* CreatePlanViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatePlanViewController.swift; sourceTree = "<group>"; };
+		56E77C822449B8790036C6CA /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
+		56E77C842449B8900036C6CA /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		56E77C862449B8B10036C6CA /* ProfileFlowCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileFlowCoordinator.swift; sourceTree = "<group>"; };
+		56E77C882449BA390036C6CA /* PlanDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanDetailViewModel.swift; sourceTree = "<group>"; };
+		56E77C8A2449BA500036C6CA /* PlanDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanDetailViewController.swift; sourceTree = "<group>"; };
 		56FF8CA22434B2340093A2E1 /* PropertyObserver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PropertyObserver.swift; sourceTree = "<group>"; };
 		64EBC3A7D7342D878F93CE15 /* Pods-QuarantineWorkout.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QuarantineWorkout.debug.xcconfig"; path = "Target Support Files/Pods-QuarantineWorkout/Pods-QuarantineWorkout.debug.xcconfig"; sourceTree = "<group>"; };
 		9B6557184295269B838671FF /* libPods-QuarantineWorkout.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-QuarantineWorkout.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -216,6 +256,10 @@
 			children = (
 				569A4D9C2448851400531473 /* InitialFlowCoordinator.swift */,
 				569A4DA12448A66500531473 /* BaseFlowCoordinator.swift */,
+				56E77C68244992AA0036C6CA /* WeeklyChallangeFlowCoordinator.swift */,
+				56E77C782449B4AB0036C6CA /* MainFlowCoordinator.swift */,
+				56E77C7C2449B5F80036C6CA /* WorkoutPlansFlowCoordinator.swift */,
+				56E77C862449B8B10036C6CA /* ProfileFlowCoordinator.swift */,
 			);
 			path = FlowCoordinator;
 			sourceTree = "<group>";
@@ -307,6 +351,15 @@
 			children = (
 				56DD8A842446370A000728BC /* LoginViewModel.swift */,
 				56DD8A8D24463C29000728BC /* BaseViewModel.swift */,
+				56E77C6A244997810036C6CA /* WeeklyChallangeViewModel.swift */,
+				56E77C6E2449B34B0036C6CA /* CalendarViewModel.swift */,
+				56E77C722449B3B20036C6CA /* SignUpViewModel.swift */,
+				56E77C762449B48F0036C6CA /* WorkoutViewModel.swift */,
+				56E77C7A2449B5AF0036C6CA /* WorkoutPlansViewModel.swift */,
+				56E77C7E2449B7880036C6CA /* CreatePlanViewModel.swift */,
+				56E77C822449B8790036C6CA /* ProfileViewModel.swift */,
+				56E77C882449BA390036C6CA /* PlanDetailViewModel.swift */,
+				56D108072449F2C200256973 /* WorkoutResultViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -358,12 +411,19 @@
 		56FA030F242F626C0029C29B /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				56CB51DB2445F1CB008B1EAA /* LocationsTableViewController.swift */,
+				56D108052449F2B300256973 /* WorkoutResultViewController.swift */,
+				56E77C742449B4820036C6CA /* WorkoutViewController.swift */,
+				56E77C702449B39E0036C6CA /* SignUpViewController.swift */,
+				56CB51DB2445F1CB008B1EAA /* WorkoutPlansViewController.swift */,
 				56CB51D92445F1BC008B1EAA /* LoginViewController.swift */,
 				565357202055329C00857C9B /* AboutViewController.swift */,
 				560EDAEC2430927A0011DB55 /* WeeklyChallangeViewController.swift */,
-				562D58422441E03F002D2EC9 /* PinDetailViewController.swift */,
+				562D58422441E03F002D2EC9 /* CalendarViewController.swift */,
 				5693EA29243C7BAF006BB1C7 /* BaseViewController.swift */,
+				56E77C6C24499BBB0036C6CA /* MainTabViewController.swift */,
+				56E77C802449B7A60036C6CA /* CreatePlanViewController.swift */,
+				56E77C842449B8900036C6CA /* ProfileViewController.swift */,
+				56E77C8A2449BA500036C6CA /* PlanDetailViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -487,46 +547,66 @@
 			files = (
 				56FF8CA32434B2340093A2E1 /* PropertyObserver.swift in Sources */,
 				5634BFCD243FCB2D00FEF19B /* ApiResult.swift in Sources */,
+				56E77C832449B8790036C6CA /* ProfileViewModel.swift in Sources */,
 				56DD8A852446370A000728BC /* LoginViewModel.swift in Sources */,
+				56E77C792449B4AB0036C6CA /* MainFlowCoordinator.swift in Sources */,
 				56AD64412433AD9D000D88FE /* IdGenerator.swift in Sources */,
 				56BDFE95243276FC0013A9EB /* ApiProperty.swift in Sources */,
 				56E77C672448DAA00036C6CA /* None.swift in Sources */,
+				56E77C69244992AA0036C6CA /* WeeklyChallangeFlowCoordinator.swift in Sources */,
 				5693EA1B243B89EE006BB1C7 /* ObservableProperty.swift in Sources */,
 				5634BFDC2440AF3300FEF19B /* DataController.swift in Sources */,
 				56DD8A8924463998000728BC /* LogoutUseCase.swift in Sources */,
+				56E77C8B2449BA500036C6CA /* PlanDetailViewController.swift in Sources */,
+				56D108062449F2B300256973 /* WorkoutResultViewController.swift in Sources */,
 				5695A5B82444B32400EC5434 /* ImageCollectionViewCell.swift in Sources */,
+				56E77C852449B8900036C6CA /* ProfileViewController.swift in Sources */,
 				565357212055329D00857C9B /* AboutViewController.swift in Sources */,
 				5693EA1F243B9A93006BB1C7 /* AsyncResult.swift in Sources */,
 				560EDAED2430927A0011DB55 /* WeeklyChallangeViewController.swift in Sources */,
+				56E77C7B2449B5AF0036C6CA /* WorkoutPlansViewModel.swift in Sources */,
 				56DBD83A243794E2008819D0 /* TextFieldStyles.swift in Sources */,
 				569A4DA22448A66500531473 /* BaseFlowCoordinator.swift in Sources */,
+				56E77C7D2449B5F80036C6CA /* WorkoutPlansFlowCoordinator.swift in Sources */,
+				56E77C812449B7A60036C6CA /* CreatePlanViewController.swift in Sources */,
 				569A4D9D2448851400531473 /* InitialFlowCoordinator.swift in Sources */,
 				5634BFDE2440B0CC00FEF19B /* CoreDataResult.swift in Sources */,
 				56BDFE91243258F40013A9EB /* ApiRequest.swift in Sources */,
 				56CB51DA2445F1BC008B1EAA /* LoginViewController.swift in Sources */,
 				5693EA2A243C7BAF006BB1C7 /* BaseViewController.swift in Sources */,
 				5695A5B62444ACB000EC5434 /* FetchedCollectionViewDataSource.swift in Sources */,
-				56CB51DC2445F1CB008B1EAA /* LocationsTableViewController.swift in Sources */,
+				56E77C732449B3B20036C6CA /* SignUpViewModel.swift in Sources */,
+				56CB51DC2445F1CB008B1EAA /* WorkoutPlansViewController.swift in Sources */,
 				56DBD83324375B54008819D0 /* KeyboardHeightHandler.swift in Sources */,
+				56E77C6F2449B34B0036C6CA /* CalendarViewModel.swift in Sources */,
 				56DD8A872446398E000728BC /* LoginUseCase.swift in Sources */,
+				56E77C752449B4820036C6CA /* WorkoutViewController.swift in Sources */,
 				56DD8A9024463C45000728BC /* AuthRepository.swift in Sources */,
 				569A4D992448811500531473 /* UseCase.swift in Sources */,
 				56DD8A8E24463C29000728BC /* BaseViewModel.swift in Sources */,
 				5653570D20542E8700857C9B /* AppDelegate.swift in Sources */,
-				562D58432441E03F002D2EC9 /* PinDetailViewController.swift in Sources */,
+				562D58432441E03F002D2EC9 /* CalendarViewController.swift in Sources */,
 				56DBD83524378859008819D0 /* InputValidator.swift in Sources */,
+				56E77C872449B8B10036C6CA /* ProfileFlowCoordinator.swift in Sources */,
 				5634BFD324408BC900FEF19B /* FlickerApi.swift in Sources */,
 				56BDFE93243262AA0013A9EB /* BaseApi.swift in Sources */,
 				56DBD83E24379521008819D0 /* ValidationRules.swift in Sources */,
 				56DD8A9224463C52000728BC /* Repository.swift in Sources */,
+				56E77C712449B39E0036C6CA /* SignUpViewController.swift in Sources */,
+				56E77C6D24499BBB0036C6CA /* MainTabViewController.swift in Sources */,
+				56E77C772449B48F0036C6CA /* WorkoutViewModel.swift in Sources */,
+				56E77C892449BA390036C6CA /* PlanDetailViewModel.swift in Sources */,
 				5695A5B42444A1C400EC5434 /* PhotoCollectionDownloader.swift in Sources */,
 				56DBD82F24366F17008819D0 /* ApiError.swift in Sources */,
 				56DD8A9624464626000728BC /* AsyncCallback.swift in Sources */,
 				5634BFDA2440AE8800FEF19B /* CoreDataCollectionProperty.swift in Sources */,
+				56E77C6B244997810036C6CA /* WeeklyChallangeViewModel.swift in Sources */,
 				5693EA2C243CDEED006BB1C7 /* GeocodeLocationProperty.swift in Sources */,
+				56E77C7F2449B7880036C6CA /* CreatePlanViewModel.swift in Sources */,
 				5634BFD62440903D00FEF19B /* PhotosResponse.swift in Sources */,
 				569A4D9B2448823100531473 /* ObservableUseCase.swift in Sources */,
 				56DD8A8B244639C9000728BC /* BgUseCase.swift in Sources */,
+				56D108082449F2C200256973 /* WorkoutResultViewModel.swift in Sources */,
 				5636B00B2441C325005B7C2C /* LocalModel.xcdatamodeld in Sources */,
 				562D584724422BB4002D2EC9 /* SizesResponse.swift in Sources */,
 			);

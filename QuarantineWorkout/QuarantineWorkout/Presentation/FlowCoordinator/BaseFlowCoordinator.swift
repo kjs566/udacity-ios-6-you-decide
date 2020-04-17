@@ -9,41 +9,56 @@
 import Foundation
 import UIKit
 
-open class BaseFlowCoordinator{
-    func performSegue<VM: BaseViewModel, FC: BaseFlowCoordinator, VC: BaseViewController<VM, FC>, D, VMTarget: BaseViewModel>(source: VC, segueIdentifier: String, flowAction: FlowData<VMTarget, D>){
+public protocol BaseFlowCoordinator{
+    //func getRootViewController() -> UIViewController
+}
+
+extension BaseFlowCoordinator{
+    func performSegue(source: BaseController, segueIdentifier: String, flowAction: FlowPrepareData){
         source.performSegue(withIdentifier: segueIdentifier, sender: flowAction)
     }
     
-    func performSegueNewCoordinator<VM: BaseViewModel, FC: BaseFlowCoordinator, VC: BaseViewController<VM, FC>, D, VMTarget: BaseViewModel>(source: VC, segueIdentifier: String, flowAction: FlowData<VMTarget, D>){
+    func performSegueNewCoordinator(source: BaseController, segueIdentifier: String, flowAction: FlowPrepareData){
         source.performSegue(withIdentifier: segueIdentifier, sender: flowAction)
     }
     
-    func prepareSegue(segue: UIStoryboardSegue, sender: Any?){
-        if sender is FlowData<BaseViewModel, Any> {
-            let flowData = sender as! FlowData<BaseViewModel, Any>
-            print("Preparing flow action")
-            
-            let vc = segue.destination as! BaseViewController
-            vc.viewModel = flowData.vmFactory(flowData.data)
-        } else if sender is FlowDataNewCoordinator<BaseFlowCoordinator, Any> {
-            let flowData = sender as! FlowDataNewCoordinator<BaseFlowCoordinator, Any>
-            print("Preparing flow action")
-            
-            let vc = segue.destination
-            let fc = flowData.flowCoordinatorFactory(flowData.data)
-            flowData.setupVC(fc, flowData.data, vc)
+    func prepareSegue(sourceController: BaseController, segue: UIStoryboardSegue, sender: Any?){
+        guard let data = sender as? FlowPrepareData else {
+            print("WARNING: " + "Segue performed without flow coordinator data")
+            return
         }
-    }
-    
         
-    struct FlowData<VM: BaseViewModel, D>{
-        let vmFactory: (D?)->VM
-        let data: D?
+        print("Preparing flow action")
+        
+        let destination = segue.destination
+        prepareDestination(targetController: destination, data: data)
     }
     
-    struct FlowDataNewCoordinator<FC: BaseFlowCoordinator, D>{
-        let flowCoordinatorFactory: (D?)->FC
-        let setupVC: (FC, D, UIViewController)->Void
-        let data: D?
+    func prepareDestination(targetController: UIViewController, data: FlowPrepareData){
+        let vm = data.vmFactory(data.arguments)
+        let flowCoordinator = data.flowCoordinatorFactory?(data.arguments) ?? self
+        if let baseVC = targetController as? BaseController{
+            baseVC.viewModel = vm
+            baseVC.flowCoordinator = flowCoordinator
+        }
+        data.setupVC?(vm, flowCoordinator, targetController)
     }
 }
+
+struct FlowPrepareData{
+    let vmFactory: VMFactory
+    let arguments: Any?
+    let flowCoordinatorFactory: FlowCoordinatorFactory?
+    let setupVC: VCSetupHandler?
+    
+    init(vmFactory: @escaping VMFactory, data: Any? = nil, flowCoordinatorFactory: FlowCoordinatorFactory? = nil, setupVC: VCSetupHandler? = nil) {
+        self.vmFactory = vmFactory
+        self.arguments = data
+        self.flowCoordinatorFactory = flowCoordinatorFactory
+        self.setupVC = setupVC
+    }
+}
+
+typealias VCSetupHandler = (_ vm: Any?, _ flowCoordinator: Any?, _ viewController: UIViewController)->Void
+typealias FlowCoordinatorFactory = (Any?)->Any?
+typealias VMFactory = (Any?)->Any?

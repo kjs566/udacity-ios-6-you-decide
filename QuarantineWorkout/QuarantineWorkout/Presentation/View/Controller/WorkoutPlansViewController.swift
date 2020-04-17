@@ -9,8 +9,7 @@
 import Foundation
 import UIKit
 
-/*
-class LocationsTableViewController: BaseLocationsViewController{
+class WorkoutPlansViewController: BaseViewController<WorkoutPlansViewModel, WorkoutPlansFlowCoordinator>{
     
     @IBOutlet weak var tableView: UITableView!
     
@@ -26,39 +25,47 @@ class LocationsTableViewController: BaseLocationsViewController{
         tableView.reloadData()
     }
     
-    override func getItemsCount() -> Int {
-        var count = super.getItemsCount()
+    @IBAction func showPlanDetailClicked(_ sender: Any) {
+    }
+    @IBAction func showPlanCreateClicked(_ sender: Any) {
+    }
+    
+    func getItemsCount() -> Int {
+        /*var count = super.getItemsCount()
         if locationsLoading{
             count += 1 // Loading item
         }
         count += 1 // Add location item
-        return count
+        return count*/
+        return 1
     }
     
-    override func locationsUpdated(){
+    func locationsUpdated(){
         tableView.reloadData()
     }
     
     @IBAction func reloadClicked(_ sender: Any) {
-        reloadLocations()
+        //reloadLocations()
     }
     @IBAction func addClicked(_ sender: Any) {
-        createLocation()
+        //createLocation()
     }
     @IBAction func logoutClicked(_ sender: Any) {
-        logout()
+        //logout()
     }
     
 }
 
 // MARK: - UITableViewDelegate
-extension LocationsTableViewController: UITableViewDataSource, UITableViewDelegate{
+extension WorkoutPlansViewController: UITableViewDataSource, UITableViewDelegate{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return getItemsCount()
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let actualCount = super.getItemsCount()
+        let cellIdentifier = "AddTableCell"
+
+        /*let actualCount = super.getItemsCount()
         let index = getItemIndex(indexPath: indexPath)
         
         var cellIdentifier : String?
@@ -81,15 +88,15 @@ extension LocationsTableViewController: UITableViewDataSource, UITableViewDelega
             locationCell.locationText.text = "\(item.firstName ?? "") \(item.lastName ?? "")"
             locationCell.locationDescription.text = "\(item.mediaURL ?? "")"
         }
-        return cell
+        return cell*/
+        return tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath)
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath){
-        if let item = getItem(atIndexPath: indexPath){
+        /*if let item = getItem(atIndexPath: indexPath){
             showLocation(item)
-        }else{
-            createLocation()
-        }
+        }else{*/
+        getFlowCoordinator().showCreateNewPlan()
+        //}
     }
 }
-*/

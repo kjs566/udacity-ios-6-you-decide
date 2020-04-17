@@ -28,7 +28,7 @@ class LoginViewController : BaseViewController<LoginViewModel, InitialFlowCoordi
         super.viewDidLoad()
         setupViews()
         
-        observeProperty(viewModel.loginState){ (property) in
+        observeProperty(getVM().loginState){ (property) in
             guard let property = property else { return }
 
             switch property {
@@ -42,7 +42,7 @@ class LoginViewController : BaseViewController<LoginViewModel, InitialFlowCoordi
                 case .success:
                     self.hideLoading()
                     self.clearInput()
-                    self.flowCoordinator.showMain(source: self)
+                    self.getFlowCoordinator().showMain(source: self)
                     self.enableInput()
             }
         }
@@ -60,6 +60,9 @@ class LoginViewController : BaseViewController<LoginViewModel, InitialFlowCoordi
         super.viewWillAppear(animated)
         enableInput()
         hideLoading()
+        
+        userNameView.text = "test@test.test" // TODO remove
+        passwordView.text = "testtest"
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -87,7 +90,7 @@ class LoginViewController : BaseViewController<LoginViewModel, InitialFlowCoordi
     }
     
     @IBAction func signUpClicked(_ sender: Any) {
-        UIApplication.shared.open(URL(string: "https://auth.udacity.com/sign-up")!, options: [:], completionHandler: nil)
+        getFlowCoordinator().showSignUp(source: self)
     }
     
     func updateLoginButtonEnabled(valid: Bool){
@@ -103,7 +106,7 @@ class LoginViewController : BaseViewController<LoginViewModel, InitialFlowCoordi
     func login(){
         guard let username = userNameView.text, let password = passwordView.text else { return }
     
-        viewModel.login(username: username, password: password)
+        getVM().login(username: username, password: password)
     }
     
     func enableInput(){
@@ -121,8 +124,10 @@ class LoginViewController : BaseViewController<LoginViewModel, InitialFlowCoordi
     }
     
     func clearInput(){
-        passwordView.text = ""
-        userNameView.text = ""
+        //passwordView.text = ""
+        //userNameView.text = ""
+        
+        // TODO UNCOMMENT
     }
     
     func showLoading(){
@@ -131,13 +136,6 @@ class LoginViewController : BaseViewController<LoginViewModel, InitialFlowCoordi
     
     func hideLoading(){
         activityIndicator.isHidden = true
-    }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.destination is UITabBarController {
-            let vc = segue.destination as! UITabBarController
-            vc.modalPresentationStyle = .fullScreen
-        }
     }
 }
 
