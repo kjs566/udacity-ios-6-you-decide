@@ -25,7 +25,7 @@ class LoginUseCase: BgUseCase{
     }
     
     func mapResult(_ repositoryResult: AuthRepository.LoginRepoResult?) -> LoginResult? {
-        return LoginResult() // TODO
+        return LoginResult()
     }
     
     
@@ -36,6 +36,4 @@ struct LoginInput{
     let password: String
 }
 
-struct LoginResult{
-    
-}
+struct LoginResult{}

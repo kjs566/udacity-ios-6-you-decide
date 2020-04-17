@@ -42,6 +42,7 @@
 		56CB51DC2445F1CB008B1EAA /* WorkoutPlansViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56CB51DB2445F1CB008B1EAA /* WorkoutPlansViewController.swift */; };
 		56D108062449F2B300256973 /* WorkoutResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56D108052449F2B300256973 /* WorkoutResultViewController.swift */; };
 		56D108082449F2C200256973 /* WorkoutResultViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56D108072449F2C200256973 /* WorkoutResultViewModel.swift */; };
+		56D1080A244A05AE00256973 /* SignUpUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56D10809244A05AE00256973 /* SignUpUseCase.swift */; };
 		56DBD82F24366F17008819D0 /* ApiError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56DBD82E24366F17008819D0 /* ApiError.swift */; };
 		56DBD83324375B54008819D0 /* KeyboardHeightHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56DBD83224375B54008819D0 /* KeyboardHeightHandler.swift */; };
 		56DBD83524378859008819D0 /* InputValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56DBD83424378859008819D0 /* InputValidator.swift */; };
@@ -117,6 +118,7 @@
 		56CB51DB2445F1CB008B1EAA /* WorkoutPlansViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkoutPlansViewController.swift; sourceTree = "<group>"; };
 		56D108052449F2B300256973 /* WorkoutResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutResultViewController.swift; sourceTree = "<group>"; };
 		56D108072449F2C200256973 /* WorkoutResultViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutResultViewModel.swift; sourceTree = "<group>"; };
+		56D10809244A05AE00256973 /* SignUpUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpUseCase.swift; sourceTree = "<group>"; };
 		56DBD82E24366F17008819D0 /* ApiError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiError.swift; sourceTree = "<group>"; };
 		56DBD83224375B54008819D0 /* KeyboardHeightHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardHeightHandler.swift; sourceTree = "<group>"; };
 		56DBD83424378859008819D0 /* InputValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputValidator.swift; sourceTree = "<group>"; };
@@ -370,6 +372,7 @@
 				569A4D972448810300531473 /* Base */,
 				56DD8A862446398E000728BC /* LoginUseCase.swift */,
 				56DD8A8824463998000728BC /* LogoutUseCase.swift */,
+				56D10809244A05AE00256973 /* SignUpUseCase.swift */,
 			);
 			path = UseCase;
 			sourceTree = "<group>";
@@ -588,6 +591,7 @@
 				562D58432441E03F002D2EC9 /* CalendarViewController.swift in Sources */,
 				56DBD83524378859008819D0 /* InputValidator.swift in Sources */,
 				56E77C872449B8B10036C6CA /* ProfileFlowCoordinator.swift in Sources */,
+				56D1080A244A05AE00256973 /* SignUpUseCase.swift in Sources */,
 				5634BFD324408BC900FEF19B /* FlickerApi.swift in Sources */,
 				56BDFE93243262AA0013A9EB /* BaseApi.swift in Sources */,
 				56DBD83E24379521008819D0 /* ValidationRules.swift in Sources */,

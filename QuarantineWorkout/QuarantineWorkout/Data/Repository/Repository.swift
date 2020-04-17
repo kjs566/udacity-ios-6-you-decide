@@ -9,5 +9,11 @@
 import Foundation
 
 class Repository{
-    
+    func handleCompletionAsync<T, R>(result: T?, error: Error?, mapper: (T?)->R, completion: @escaping AsyncCompletion<R>){
+        if error != nil{
+            completion(.error(error))
+        }else{
+            completion(.success(mapper(result)))
+        }
+    }
 }

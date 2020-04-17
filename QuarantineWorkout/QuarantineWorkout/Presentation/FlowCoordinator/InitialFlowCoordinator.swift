@@ -13,6 +13,8 @@ class InitialFlowCoordinator: BaseFlowCoordinator{
     let storyboard: UIStoryboard
     let window: UIWindow?
     
+    lazy var authRepository = AuthRepository()
+    
     init(storyboard: UIStoryboard, window: UIWindow?){
         self.storyboard = storyboard
         self.window = window
@@ -60,14 +62,14 @@ class InitialFlowCoordinator: BaseFlowCoordinator{
     
     func showSignUp<VM : BaseViewModel, FC: BaseFlowCoordinator, VC: BaseViewController<VM, FC>>(source: VC){
         performSegue(source: source, segueIdentifier: "showSignUpSegue", flowAction: FlowPrepareData(vmFactory: { (_) in
-                return SignUpViewModel()
+            return SignUpViewModel(signUpUseCase: SignUpUseCase(authRepo: self.authRepository))
         }, data: None.NONE))
     }
     
     private func createLoginController() -> LoginViewController{
         let vc = storyboard.instantiateViewController(withIdentifier: "LoginViewController") as! LoginViewController
         
-        vc.viewModel = LoginViewModel(loginUC: LoginUseCase(authRepo: AuthRepository()))
+        vc.viewModel = LoginViewModel(loginUC: LoginUseCase(authRepo: self.authRepository))
         vc.flowCoordinator = self
 
         return vc
