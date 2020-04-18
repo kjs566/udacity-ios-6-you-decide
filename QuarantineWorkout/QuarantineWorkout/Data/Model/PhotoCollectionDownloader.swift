@@ -8,7 +8,7 @@
 
 import Foundation
 import CoreData
-
+/*
 class PhotoCollectionDownloader{
     let propertyObserver = PropertyObserver()
     
@@ -171,3 +171,4 @@ class PhotoCollectionDownloader{
         propertyObserver.dispose()
     }
 }
+ */

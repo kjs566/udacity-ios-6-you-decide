@@ -9,10 +9,8 @@
 /* Begin PBXBuildFile section */
 		560EDAED2430927A0011DB55 /* WeeklyChallangeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 560EDAEC2430927A0011DB55 /* WeeklyChallangeViewController.swift */; };
 		562D58432441E03F002D2EC9 /* CalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562D58422441E03F002D2EC9 /* CalendarViewController.swift */; };
-		562D584724422BB4002D2EC9 /* SizesResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562D584624422BB3002D2EC9 /* SizesResponse.swift */; };
 		5634BFCD243FCB2D00FEF19B /* ApiResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5634BFCC243FCB2D00FEF19B /* ApiResult.swift */; };
-		5634BFD324408BC900FEF19B /* FlickerApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5634BFD224408BC900FEF19B /* FlickerApi.swift */; };
-		5634BFD62440903D00FEF19B /* PhotosResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5634BFD52440903D00FEF19B /* PhotosResponse.swift */; };
+		5634BFD324408BC900FEF19B /* ApiClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5634BFD224408BC900FEF19B /* ApiClient.swift */; };
 		5634BFDA2440AE8800FEF19B /* CoreDataCollectionProperty.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5634BFD92440AE8800FEF19B /* CoreDataCollectionProperty.swift */; };
 		5634BFDC2440AF3300FEF19B /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5634BFDB2440AF3300FEF19B /* DataController.swift */; };
 		5634BFDE2440B0CC00FEF19B /* CoreDataResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5634BFDD2440B0CC00FEF19B /* CoreDataResult.swift */; };
@@ -22,6 +20,9 @@
 		5653571420542E8700857C9B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5653571320542E8700857C9B /* Assets.xcassets */; };
 		5653571720542E8700857C9B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5653571520542E8700857C9B /* LaunchScreen.storyboard */; };
 		565357212055329D00857C9B /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 565357202055329C00857C9B /* AboutViewController.swift */; };
+		56762CE0244A3D1100D7D191 /* WeeklyChallangeResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56762CDF244A3D1100D7D191 /* WeeklyChallangeResponse.swift */; };
+		56762CE2244A3E7F00D7D191 /* ApiRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56762CE1244A3E7F00D7D191 /* ApiRepository.swift */; };
+		56762CE5244A3FB800D7D191 /* GetWeeklyChallangeUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56762CE4244A3FB800D7D191 /* GetWeeklyChallangeUseCase.swift */; };
 		5693EA1B243B89EE006BB1C7 /* ObservableProperty.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5693EA1A243B89EE006BB1C7 /* ObservableProperty.swift */; };
 		5693EA1F243B9A93006BB1C7 /* AsyncResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5693EA1E243B9A93006BB1C7 /* AsyncResult.swift */; };
 		5693EA2A243C7BAF006BB1C7 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5693EA29243C7BAF006BB1C7 /* BaseViewController.swift */; };
@@ -56,7 +57,7 @@
 		56DD8A8B244639C9000728BC /* BgUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56DD8A8A244639C9000728BC /* BgUseCase.swift */; };
 		56DD8A8E24463C29000728BC /* BaseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56DD8A8D24463C29000728BC /* BaseViewModel.swift */; };
 		56DD8A9024463C45000728BC /* AuthRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56DD8A8F24463C45000728BC /* AuthRepository.swift */; };
-		56DD8A9224463C52000728BC /* Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56DD8A9124463C52000728BC /* Repository.swift */; };
+		56DD8A9224463C52000728BC /* BaseRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56DD8A9124463C52000728BC /* BaseRepository.swift */; };
 		56DD8A9624464626000728BC /* AsyncCallback.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56DD8A9524464626000728BC /* AsyncCallback.swift */; };
 		56E77C672448DAA00036C6CA /* None.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56E77C662448DAA00036C6CA /* None.swift */; };
 		56E77C69244992AA0036C6CA /* WeeklyChallangeFlowCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56E77C68244992AA0036C6CA /* WeeklyChallangeFlowCoordinator.swift */; };
@@ -85,10 +86,8 @@
 		160F9F2C93D8821630BB8303 /* Pods-QuarantineWorkout.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QuarantineWorkout.release.xcconfig"; path = "Target Support Files/Pods-QuarantineWorkout/Pods-QuarantineWorkout.release.xcconfig"; sourceTree = "<group>"; };
 		560EDAEC2430927A0011DB55 /* WeeklyChallangeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeeklyChallangeViewController.swift; sourceTree = "<group>"; };
 		562D58422441E03F002D2EC9 /* CalendarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarViewController.swift; sourceTree = "<group>"; };
-		562D584624422BB3002D2EC9 /* SizesResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SizesResponse.swift; sourceTree = "<group>"; };
 		5634BFCC243FCB2D00FEF19B /* ApiResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiResult.swift; sourceTree = "<group>"; };
-		5634BFD224408BC900FEF19B /* FlickerApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlickerApi.swift; sourceTree = "<group>"; };
-		5634BFD52440903D00FEF19B /* PhotosResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosResponse.swift; sourceTree = "<group>"; };
+		5634BFD224408BC900FEF19B /* ApiClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiClient.swift; sourceTree = "<group>"; };
 		5634BFD92440AE8800FEF19B /* CoreDataCollectionProperty.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataCollectionProperty.swift; sourceTree = "<group>"; };
 		5634BFDB2440AF3300FEF19B /* DataController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataController.swift; sourceTree = "<group>"; };
 		5634BFDD2440B0CC00FEF19B /* CoreDataResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataResult.swift; sourceTree = "<group>"; };
@@ -100,6 +99,9 @@
 		5653571620542E8700857C9B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5653571820542E8800857C9B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		565357202055329C00857C9B /* AboutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
+		56762CDF244A3D1100D7D191 /* WeeklyChallangeResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeeklyChallangeResponse.swift; sourceTree = "<group>"; };
+		56762CE1244A3E7F00D7D191 /* ApiRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiRepository.swift; sourceTree = "<group>"; };
+		56762CE4244A3FB800D7D191 /* GetWeeklyChallangeUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetWeeklyChallangeUseCase.swift; sourceTree = "<group>"; };
 		5693EA1A243B89EE006BB1C7 /* ObservableProperty.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObservableProperty.swift; sourceTree = "<group>"; };
 		5693EA1E243B9A93006BB1C7 /* AsyncResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsyncResult.swift; sourceTree = "<group>"; };
 		5693EA29243C7BAF006BB1C7 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
@@ -134,7 +136,7 @@
 		56DD8A8A244639C9000728BC /* BgUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BgUseCase.swift; sourceTree = "<group>"; };
 		56DD8A8D24463C29000728BC /* BaseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewModel.swift; sourceTree = "<group>"; };
 		56DD8A8F24463C45000728BC /* AuthRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthRepository.swift; sourceTree = "<group>"; };
-		56DD8A9124463C52000728BC /* Repository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Repository.swift; sourceTree = "<group>"; };
+		56DD8A9124463C52000728BC /* BaseRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseRepository.swift; sourceTree = "<group>"; };
 		56DD8A9524464626000728BC /* AsyncCallback.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsyncCallback.swift; sourceTree = "<group>"; };
 		56E77C662448DAA00036C6CA /* None.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = None.swift; sourceTree = "<group>"; };
 		56E77C68244992AA0036C6CA /* WeeklyChallangeFlowCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeeklyChallangeFlowCoordinator.swift; sourceTree = "<group>"; };
@@ -193,20 +195,10 @@
 			path = Local;
 			sourceTree = "<group>";
 		};
-		5634BFD124408BB100FEF19B /* Flicker */ = {
-			isa = PBXGroup;
-			children = (
-				5634BFD42440902A00FEF19B /* Response */,
-				5634BFD224408BC900FEF19B /* FlickerApi.swift */,
-			);
-			path = Flicker;
-			sourceTree = "<group>";
-		};
 		5634BFD42440902A00FEF19B /* Response */ = {
 			isa = PBXGroup;
 			children = (
-				5634BFD52440903D00FEF19B /* PhotosResponse.swift */,
-				562D584624422BB3002D2EC9 /* SizesResponse.swift */,
+				56762CDF244A3D1100D7D191 /* WeeklyChallangeResponse.swift */,
 			);
 			path = Response;
 			sourceTree = "<group>";
@@ -247,12 +239,25 @@
 			path = QuarantineWorkout;
 			sourceTree = "<group>";
 		};
+		56762CE3244A3F9000D7D191 /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				56BDFE90243258F40013A9EB /* ApiRequest.swift */,
+				56BDFE92243262AA0013A9EB /* BaseApi.swift */,
+				56BDFE94243276FC0013A9EB /* ApiProperty.swift */,
+				56DBD82E24366F17008819D0 /* ApiError.swift */,
+				5634BFCC243FCB2D00FEF19B /* ApiResult.swift */,
+			);
+			path = Base;
+			sourceTree = "<group>";
+		};
 		569A4D972448810300531473 /* Base */ = {
 			isa = PBXGroup;
 			children = (
 				56DD8A8A244639C9000728BC /* BgUseCase.swift */,
 				569A4D982448811500531473 /* UseCase.swift */,
 				569A4D9A2448823100531473 /* ObservableUseCase.swift */,
+				56762CE4244A3FB800D7D191 /* GetWeeklyChallangeUseCase.swift */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -273,12 +278,9 @@
 		56BDFE8D243258BF0013A9EB /* Api */ = {
 			isa = PBXGroup;
 			children = (
-				5634BFD124408BB100FEF19B /* Flicker */,
-				56BDFE90243258F40013A9EB /* ApiRequest.swift */,
-				56BDFE92243262AA0013A9EB /* BaseApi.swift */,
-				56BDFE94243276FC0013A9EB /* ApiProperty.swift */,
-				56DBD82E24366F17008819D0 /* ApiError.swift */,
-				5634BFCC243FCB2D00FEF19B /* ApiResult.swift */,
+				56762CE3244A3F9000D7D191 /* Base */,
+				5634BFD224408BC900FEF19B /* ApiClient.swift */,
+				5634BFD42440902A00FEF19B /* Response */,
 			);
 			path = Api;
 			sourceTree = "<group>";
@@ -400,7 +402,8 @@
 			isa = PBXGroup;
 			children = (
 				56DD8A8F24463C45000728BC /* AuthRepository.swift */,
-				56DD8A9124463C52000728BC /* Repository.swift */,
+				56DD8A9124463C52000728BC /* BaseRepository.swift */,
+				56762CE1244A3E7F00D7D191 /* ApiRepository.swift */,
 			);
 			path = Repository;
 			sourceTree = "<group>";
@@ -598,29 +601,30 @@
 				5653570D20542E8700857C9B /* AppDelegate.swift in Sources */,
 				562D58432441E03F002D2EC9 /* CalendarViewController.swift in Sources */,
 				56DBD83524378859008819D0 /* InputValidator.swift in Sources */,
+				56762CE2244A3E7F00D7D191 /* ApiRepository.swift in Sources */,
 				56E77C872449B8B10036C6CA /* ProfileFlowCoordinator.swift in Sources */,
 				56D1080A244A05AE00256973 /* SignUpUseCase.swift in Sources */,
-				5634BFD324408BC900FEF19B /* FlickerApi.swift in Sources */,
+				5634BFD324408BC900FEF19B /* ApiClient.swift in Sources */,
 				56BDFE93243262AA0013A9EB /* BaseApi.swift in Sources */,
 				56DBD83E24379521008819D0 /* ValidationRules.swift in Sources */,
-				56DD8A9224463C52000728BC /* Repository.swift in Sources */,
+				56762CE5244A3FB800D7D191 /* GetWeeklyChallangeUseCase.swift in Sources */,
+				56DD8A9224463C52000728BC /* BaseRepository.swift in Sources */,
 				56E77C712449B39E0036C6CA /* SignUpViewController.swift in Sources */,
 				56E77C6D24499BBB0036C6CA /* MainTabViewController.swift in Sources */,
 				56E77C772449B48F0036C6CA /* WorkoutViewModel.swift in Sources */,
 				56E77C892449BA390036C6CA /* PlanDetailViewModel.swift in Sources */,
 				5695A5B42444A1C400EC5434 /* PhotoCollectionDownloader.swift in Sources */,
+				56762CE0244A3D1100D7D191 /* WeeklyChallangeResponse.swift in Sources */,
 				56DBD82F24366F17008819D0 /* ApiError.swift in Sources */,
 				56DD8A9624464626000728BC /* AsyncCallback.swift in Sources */,
 				5634BFDA2440AE8800FEF19B /* CoreDataCollectionProperty.swift in Sources */,
 				56E77C6B244997810036C6CA /* WeeklyChallangeViewModel.swift in Sources */,
 				5693EA2C243CDEED006BB1C7 /* GeocodeLocationProperty.swift in Sources */,
 				56E77C7F2449B7880036C6CA /* CreatePlanViewModel.swift in Sources */,
-				5634BFD62440903D00FEF19B /* PhotosResponse.swift in Sources */,
 				569A4D9B2448823100531473 /* ObservableUseCase.swift in Sources */,
 				56DD8A8B244639C9000728BC /* BgUseCase.swift in Sources */,
 				56D108082449F2C200256973 /* WorkoutResultViewModel.swift in Sources */,
 				5636B00B2441C325005B7C2C /* LocalModel.xcdatamodeld in Sources */,
-				562D584724422BB4002D2EC9 /* SizesResponse.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

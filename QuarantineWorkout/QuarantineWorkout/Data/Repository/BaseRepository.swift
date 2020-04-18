@@ -1,5 +1,5 @@
 //
-//  Repository.swift
+//  BaseRepository.swift
 //  QuarantineWorkout
 //
 //  Created by Jan Skála on 14/04/2020.
@@ -8,7 +8,9 @@
 
 import Foundation
 
-class Repository{
+protocol BaseRepository{}
+
+extension BaseRepository{
     func handleCompletionAsync<T, R>(result: T?, error: Error?, mapper: (T?)->R, completion: @escaping AsyncCompletion<R>){
         if error != nil{
             completion(.error(error))

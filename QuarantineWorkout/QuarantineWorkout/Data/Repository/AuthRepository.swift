@@ -9,7 +9,7 @@
 import Foundation
 import Firebase
 
-class AuthRepository: Repository{
+class AuthRepository: BaseRepository{
     func signUp(_ input: SignUpInput, completion: @escaping AsyncCompletion<SignUpRepoResult>){
         Auth.auth().createUser(withEmail: input.username, password: input.password) { (result, error) in
             self.handleCompletionAsync(result: result, error: error, mapper: { (_) in

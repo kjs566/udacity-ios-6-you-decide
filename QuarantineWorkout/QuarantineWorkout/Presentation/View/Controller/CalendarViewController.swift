@@ -21,7 +21,7 @@ class CalendarViewController : BaseViewController<CalendarViewModel, ProfileFlow
     var loadingPhotos = Set<String>()
     var dataSource: FetchedCollectionViewDataSource? = nil
     
-    var photoCollectionDownloader: PhotoCollectionDownloader? = nil
+    //var photoCollectionDownloader: PhotoCollectionDownloader? = nil
     
     override func viewDidLoad() {
         //showAnnotation()
@@ -76,7 +76,7 @@ class CalendarViewController : BaseViewController<CalendarViewModel, ProfileFlow
     }
     
     @IBAction func newCollectionClicked(_ sender: Any) {
-        photoCollectionDownloader?.loadNextPage()
+        //photoCollectionDownloader?.loadNextPage()
     }
 }
 
