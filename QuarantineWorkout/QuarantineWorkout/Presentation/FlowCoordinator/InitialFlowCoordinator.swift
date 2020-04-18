@@ -43,13 +43,7 @@ class InitialFlowCoordinator: BaseFlowCoordinator{
                     }, flowCoordinatorFactory: { (_) -> Any? in
                         return WeeklyChallangeFlowCoordinator()
                     }))
-                }else if let plansVC = topVC as? WorkoutPlansViewController{
-                    self.prepareDestination(targetController: plansVC, data: FlowPrepareData(vmFactory: { _ in
-                        return WorkoutPlansViewModel()
-                    }, flowCoordinatorFactory: { (_) -> Any? in
-                        return WorkoutPlansFlowCoordinator()
-                    }))
-                }else if let profileVC = topVC as? ProfileViewController{
+                } else if let profileVC = topVC as? ProfileViewController{
                     self.prepareDestination(targetController: profileVC, data: FlowPrepareData(vmFactory: { _ in
                         return ProfileViewModel(logoutUC: LogoutUseCase(authRepo: self.authRepository))
                     }, flowCoordinatorFactory: { (_) -> Any? in

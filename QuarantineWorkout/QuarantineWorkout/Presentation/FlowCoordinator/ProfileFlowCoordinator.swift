@@ -9,9 +9,4 @@
 import Foundation
 
 class ProfileFlowCoordinator: BaseFlowCoordinator{
-    func showCalendar(vc: BaseController){
-        performSegue(source: vc, segueIdentifier: "showCalendarSegue", flowAction: FlowPrepareData(vmFactory: { (_) in
-            return CalendarViewModel()
-        }))
-    }
 }
