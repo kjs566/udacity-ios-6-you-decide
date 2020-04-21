@@ -3,7 +3,8 @@
         "dificulty": "Medium",
         "totalTime": "10 minutes",
         "calories": 198,
-        "plan":[
+        "bodyParts": "Legs, abs",
+        "workouts":[
             {
                 "name": "Warm-up: Jumping jacks",
                 "type": "duration",
