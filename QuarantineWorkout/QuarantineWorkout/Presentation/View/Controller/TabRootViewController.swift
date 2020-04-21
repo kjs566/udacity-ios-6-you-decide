@@ -12,14 +12,13 @@ class TabRootViewController<VM: TabRootViewModel, FC: BaseFlowCoordinator>: Base
     override func viewDidLoad(){
         observeProperty(getVM().logoutState) { (value) in
             value?.handle(success: { (_) in
-                self.hideLoadingAlert {
-                    self.tabBarController?.dismiss(animated: true, completion: nil)
-                }
+                self.hideLoading()
+                self.tabBarController?.dismiss(animated: true, completion: nil)
             }, error: { (error) in
-                self.hideLoadingAlert()
+                self.hideLoading()
                 self.handleError(error)
             }, loading: {
-                self.showLoadingAlert(message: "Logging out...")
+                self.showLoading(message: "Logging out...")
             })
         }
     }

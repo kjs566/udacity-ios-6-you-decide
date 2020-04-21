@@ -9,9 +9,9 @@
 import Foundation
 
 class WeeklyChallangeFlowCoordinator: BaseFlowCoordinator{
-    func showWorkout(vc: BaseController){
+    func showWorkout(vc: BaseController, plan: WorkoutPlan){
         performSegue(source: vc, segueIdentifier: "showWorkoutSegue", flowAction: FlowPrepareData(vmFactory: { (_) in
-            return WorkoutViewModel()
+            return WorkoutViewModel(plan: plan)
         }))
     }
     

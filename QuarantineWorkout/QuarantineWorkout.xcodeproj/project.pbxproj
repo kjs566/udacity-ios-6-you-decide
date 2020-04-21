@@ -8,12 +8,15 @@
 
 /* Begin PBXBuildFile section */
 		560EDAED2430927A0011DB55 /* WeeklyChallangeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 560EDAEC2430927A0011DB55 /* WeeklyChallangeViewController.swift */; };
+		561BA9B0244F2D13006626CF /* WorkoutPlan.swift in Sources */ = {isa = PBXBuildFile; fileRef = 561BA9AF244F2D13006626CF /* WorkoutPlan.swift */; };
 		5634BFCD243FCB2D00FEF19B /* ApiResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5634BFCC243FCB2D00FEF19B /* ApiResult.swift */; };
 		5634BFD324408BC900FEF19B /* ApiClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5634BFD224408BC900FEF19B /* ApiClient.swift */; };
 		5634BFDA2440AE8800FEF19B /* CoreDataCollectionProperty.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5634BFD92440AE8800FEF19B /* CoreDataCollectionProperty.swift */; };
 		5634BFDC2440AF3300FEF19B /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5634BFDB2440AF3300FEF19B /* DataController.swift */; };
 		5634BFDE2440B0CC00FEF19B /* CoreDataResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5634BFDD2440B0CC00FEF19B /* CoreDataResult.swift */; };
 		5636B00B2441C325005B7C2C /* LocalModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 5636B0092441C325005B7C2C /* LocalModel.xcdatamodeld */; };
+		564B4ED8244B2EDE00ABD59B /* WorkoutPlanTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 564B4ED7244B2EDE00ABD59B /* WorkoutPlanTableView.swift */; };
+		564B4EDA244B30AA00ABD59B /* Workout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 564B4ED9244B30AA00ABD59B /* Workout.swift */; };
 		5653570D20542E8700857C9B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5653570C20542E8700857C9B /* AppDelegate.swift */; };
 		5653571220542E8700857C9B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5653571020542E8700857C9B /* Main.storyboard */; };
 		5653571420542E8700857C9B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5653571320542E8700857C9B /* Assets.xcassets */; };
@@ -28,9 +31,9 @@
 		5693EA2C243CDEED006BB1C7 /* GeocodeLocationProperty.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5693EA2B243CDEED006BB1C7 /* GeocodeLocationProperty.swift */; };
 		5695A5B42444A1C400EC5434 /* PhotoCollectionDownloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5695A5B32444A1C400EC5434 /* PhotoCollectionDownloader.swift */; };
 		5695A5B62444ACB000EC5434 /* FetchedCollectionViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5695A5B52444ACB000EC5434 /* FetchedCollectionViewDataSource.swift */; };
-		5695A5B82444B32400EC5434 /* ImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5695A5B72444B32400EC5434 /* ImageCollectionViewCell.swift */; };
+		5697C392244B7E8300CFCC01 /* WorkoutTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5697C391244B7E8300CFCC01 /* WorkoutTableCell.swift */; };
+		5697C395244B8DAD00CFCC01 /* WorkoutTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5697C394244B8DAC00CFCC01 /* WorkoutTableCell.xib */; };
 		569A4D992448811500531473 /* UseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 569A4D982448811500531473 /* UseCase.swift */; };
-		569A4D9B2448823100531473 /* ObservableUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 569A4D9A2448823100531473 /* ObservableUseCase.swift */; };
 		569A4D9D2448851400531473 /* InitialFlowCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 569A4D9C2448851400531473 /* InitialFlowCoordinator.swift */; };
 		569A4DA22448A66500531473 /* BaseFlowCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 569A4DA12448A66500531473 /* BaseFlowCoordinator.swift */; };
 		569A4DA42448CF0D00531473 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 569A4DA32448CF0D00531473 /* GoogleService-Info.plist */; };
@@ -77,12 +80,15 @@
 /* Begin PBXFileReference section */
 		160F9F2C93D8821630BB8303 /* Pods-QuarantineWorkout.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QuarantineWorkout.release.xcconfig"; path = "Target Support Files/Pods-QuarantineWorkout/Pods-QuarantineWorkout.release.xcconfig"; sourceTree = "<group>"; };
 		560EDAEC2430927A0011DB55 /* WeeklyChallangeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeeklyChallangeViewController.swift; sourceTree = "<group>"; };
+		561BA9AF244F2D13006626CF /* WorkoutPlan.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutPlan.swift; sourceTree = "<group>"; };
 		5634BFCC243FCB2D00FEF19B /* ApiResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiResult.swift; sourceTree = "<group>"; };
 		5634BFD224408BC900FEF19B /* ApiClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiClient.swift; sourceTree = "<group>"; };
 		5634BFD92440AE8800FEF19B /* CoreDataCollectionProperty.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataCollectionProperty.swift; sourceTree = "<group>"; };
 		5634BFDB2440AF3300FEF19B /* DataController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataController.swift; sourceTree = "<group>"; };
 		5634BFDD2440B0CC00FEF19B /* CoreDataResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataResult.swift; sourceTree = "<group>"; };
 		5636B00A2441C325005B7C2C /* LocalModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = LocalModel.xcdatamodel; sourceTree = "<group>"; };
+		564B4ED7244B2EDE00ABD59B /* WorkoutPlanTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutPlanTableView.swift; sourceTree = "<group>"; };
+		564B4ED9244B30AA00ABD59B /* Workout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Workout.swift; sourceTree = "<group>"; };
 		5653570920542E8700857C9B /* QuarantineWorkout.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QuarantineWorkout.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5653570C20542E8700857C9B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5653571120542E8700857C9B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -99,9 +105,9 @@
 		5693EA2B243CDEED006BB1C7 /* GeocodeLocationProperty.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeocodeLocationProperty.swift; sourceTree = "<group>"; };
 		5695A5B32444A1C400EC5434 /* PhotoCollectionDownloader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCollectionDownloader.swift; sourceTree = "<group>"; };
 		5695A5B52444ACB000EC5434 /* FetchedCollectionViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchedCollectionViewDataSource.swift; sourceTree = "<group>"; };
-		5695A5B72444B32400EC5434 /* ImageCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCollectionViewCell.swift; sourceTree = "<group>"; };
+		5697C391244B7E8300CFCC01 /* WorkoutTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutTableCell.swift; sourceTree = "<group>"; };
+		5697C394244B8DAC00CFCC01 /* WorkoutTableCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WorkoutTableCell.xib; sourceTree = "<group>"; };
 		569A4D982448811500531473 /* UseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UseCase.swift; sourceTree = "<group>"; };
-		569A4D9A2448823100531473 /* ObservableUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObservableUseCase.swift; sourceTree = "<group>"; };
 		569A4D9C2448851400531473 /* InitialFlowCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitialFlowCoordinator.swift; sourceTree = "<group>"; };
 		569A4DA12448A66500531473 /* BaseFlowCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseFlowCoordinator.swift; sourceTree = "<group>"; };
 		569A4DA32448CF0D00531473 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -161,6 +167,8 @@
 		560EDAE1242FBE740011DB55 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				5697C393244B8D4800CFCC01 /* Layout */,
+				564B4ED6244B2EBB00ABD59B /* Component */,
 				56DD8A7F2446369D000728BC /* Cell */,
 				56FA030F242F626C0029C29B /* Controller */,
 			);
@@ -183,8 +191,18 @@
 			isa = PBXGroup;
 			children = (
 				56762CDF244A3D1100D7D191 /* WeeklyChallangeResponse.swift */,
+				564B4ED9244B30AA00ABD59B /* Workout.swift */,
+				561BA9AF244F2D13006626CF /* WorkoutPlan.swift */,
 			);
 			path = Response;
+			sourceTree = "<group>";
+		};
+		564B4ED6244B2EBB00ABD59B /* Component */ = {
+			isa = PBXGroup;
+			children = (
+				564B4ED7244B2EDE00ABD59B /* WorkoutPlanTableView.swift */,
+			);
+			path = Component;
 			sourceTree = "<group>";
 		};
 		5653570020542E8700857C9B = {
@@ -235,12 +253,19 @@
 			path = Base;
 			sourceTree = "<group>";
 		};
+		5697C393244B8D4800CFCC01 /* Layout */ = {
+			isa = PBXGroup;
+			children = (
+				5697C394244B8DAC00CFCC01 /* WorkoutTableCell.xib */,
+			);
+			path = Layout;
+			sourceTree = "<group>";
+		};
 		569A4D972448810300531473 /* Base */ = {
 			isa = PBXGroup;
 			children = (
 				56DD8A8A244639C9000728BC /* BgUseCase.swift */,
 				569A4D982448811500531473 /* UseCase.swift */,
-				569A4D9A2448823100531473 /* ObservableUseCase.swift */,
 				56762CE4244A3FB800D7D191 /* GetWeeklyChallangeUseCase.swift */,
 			);
 			path = Base;
@@ -333,7 +358,7 @@
 		56DD8A7F2446369D000728BC /* Cell */ = {
 			isa = PBXGroup;
 			children = (
-				5695A5B72444B32400EC5434 /* ImageCollectionViewCell.swift */,
+				5697C391244B7E8300CFCC01 /* WorkoutTableCell.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -497,6 +522,7 @@
 				5653571720542E8700857C9B /* LaunchScreen.storyboard in Resources */,
 				569A4DA42448CF0D00531473 /* GoogleService-Info.plist in Resources */,
 				5653571420542E8700857C9B /* Assets.xcassets in Resources */,
+				5697C395244B8DAD00CFCC01 /* WorkoutTableCell.xib in Resources */,
 				5653571220542E8700857C9B /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -546,11 +572,12 @@
 				5634BFDC2440AF3300FEF19B /* DataController.swift in Sources */,
 				56DD8A8924463998000728BC /* LogoutUseCase.swift in Sources */,
 				56D108062449F2B300256973 /* WorkoutResultViewController.swift in Sources */,
-				5695A5B82444B32400EC5434 /* ImageCollectionViewCell.swift in Sources */,
+				564B4ED8244B2EDE00ABD59B /* WorkoutPlanTableView.swift in Sources */,
 				56E77C852449B8900036C6CA /* ProfileViewController.swift in Sources */,
 				565357212055329D00857C9B /* AboutViewController.swift in Sources */,
 				56D1080E244A2B5E00256973 /* TabRootViewModel.swift in Sources */,
 				5693EA1F243B9A93006BB1C7 /* AsyncResult.swift in Sources */,
+				561BA9B0244F2D13006626CF /* WorkoutPlan.swift in Sources */,
 				560EDAED2430927A0011DB55 /* WeeklyChallangeViewController.swift in Sources */,
 				56DBD83A243794E2008819D0 /* TextFieldStyles.swift in Sources */,
 				569A4DA22448A66500531473 /* BaseFlowCoordinator.swift in Sources */,
@@ -586,10 +613,11 @@
 				56762CE0244A3D1100D7D191 /* WeeklyChallangeResponse.swift in Sources */,
 				56DBD82F24366F17008819D0 /* ApiError.swift in Sources */,
 				56DD8A9624464626000728BC /* AsyncCallback.swift in Sources */,
+				5697C392244B7E8300CFCC01 /* WorkoutTableCell.swift in Sources */,
 				5634BFDA2440AE8800FEF19B /* CoreDataCollectionProperty.swift in Sources */,
 				56E77C6B244997810036C6CA /* WeeklyChallangeViewModel.swift in Sources */,
 				5693EA2C243CDEED006BB1C7 /* GeocodeLocationProperty.swift in Sources */,
-				569A4D9B2448823100531473 /* ObservableUseCase.swift in Sources */,
+				564B4EDA244B30AA00ABD59B /* Workout.swift in Sources */,
 				56DD8A8B244639C9000728BC /* BgUseCase.swift in Sources */,
 				56D108082449F2C200256973 /* WorkoutResultViewModel.swift in Sources */,
 				5636B00B2441C325005B7C2C /* LocalModel.xcdatamodeld in Sources */,

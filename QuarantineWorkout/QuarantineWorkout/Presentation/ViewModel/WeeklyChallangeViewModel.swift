@@ -9,5 +9,18 @@
 import Foundation
 
 class WeeklyChallangeViewModel: TabRootViewModel{
+    private let getWeeklyChallangeUC: GetWeeklyChallangeUseCase
+    
+    let weeklyChallange: ApiProperty<WeeklyChallangeResponse>
+    
+    init(logoutUC: LogoutUseCase, getWeeklyChallangeUC: GetWeeklyChallangeUseCase){
+        self.getWeeklyChallangeUC = getWeeklyChallangeUC
+        self.weeklyChallange = getWeeklyChallangeUC.execute(input: None.NONE)!
+        super.init(logoutUC: logoutUC)
+    }
+    
+    func loadWeeklyChallange(){
+        weeklyChallange.load()
+    }
     
 }

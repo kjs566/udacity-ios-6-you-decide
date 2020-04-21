@@ -10,7 +10,8 @@ import Foundation
 import UIKit
 
 open class BaseTabController<VM: BaseViewModel, FC: BaseFlowCoordinator> : UITabBarController, BaseController{
-    var loadingAlert: UIAlertController?
+    var loadingView: UIView? = nil
+    var loadingTextView: UITextView? = nil
     
     var propertyObserver: PropertyObserver = PropertyObserver()
     
@@ -42,7 +43,8 @@ open class BaseTabController<VM: BaseViewModel, FC: BaseFlowCoordinator> : UITab
 }
 
 open class BaseViewController<VM: BaseViewModel, FC: BaseFlowCoordinator>: UIViewController, BaseController{
-    var loadingAlert: UIAlertController?
+    var loadingView: UIView? = nil
+    var loadingTextView: UITextView? = nil
     
     var propertyObserver = PropertyObserver()
     
@@ -82,7 +84,8 @@ open class BaseViewController<VM: BaseViewModel, FC: BaseFlowCoordinator>: UIVie
 }
 
 protocol BaseController : UIViewController{
-    var loadingAlert: UIAlertController? { get set }
+    var loadingView: UIView? { set get }
+    var loadingTextView: UITextView? { set get }
     
     var flowCoordinator: Any! { get set }
     var viewModel: Any! { get set }
@@ -116,26 +119,42 @@ extension BaseController{
         }
     }
     
-    func showLoadingAlert(message: String? = "Loading..."){
-        if loadingAlert == nil{
-            loadingAlert = UIAlertController(title: nil, message: "Loading...", preferredStyle: .alert)
-
+    func showLoading(message: String? = "Loading..."){
+        guard let w = UIApplication.shared.delegate?.window, let window = w else { return }
+        if loadingView == nil{
+            loadingView = UIView(frame: window.frame)
+            guard let loadingView = loadingView else { return }
+            
+            loadingView.backgroundColor = .white
+            
             let loadingIndicator = UIActivityIndicatorView(frame: CGRect(x: 10, y: 5, width: 60, height: 60))
             loadingIndicator.hidesWhenStopped = true
             loadingIndicator.style = UIActivityIndicatorView.Style.gray
-            loadingIndicator.startAnimating();
-
-            loadingAlert?.view.addSubview(loadingIndicator)
+            loadingIndicator.startAnimating()
+            
+            let constraints = [
+                loadingIndicator.centerXAnchor.constraint(equalTo: loadingView.centerXAnchor),
+                loadingIndicator.centerYAnchor.constraint(equalTo: loadingView.centerYAnchor)
+            ]
+            
+            loadingTextView = UITextView()
+            guard let loadingTextView = loadingTextView else { return }
+            
+            window.addSubview(loadingView)
+            loadingView.addSubview(loadingIndicator)
+            loadingView.addSubview(loadingTextView)
+            
+            loadingView.addConstraints(constraints)
+            NSLayoutConstraint.activate(constraints)
+            loadingView.updateConstraints()
         }
         
-        guard let loadingAlert = loadingAlert else { return }
-        
-        loadingAlert.message = message
-        present(loadingAlert, animated: true, completion: nil)
+        loadingTextView?.text = message
     }
     
-    func hideLoadingAlert(completion: (()->Void)? = nil){
-        loadingAlert?.dismiss(animated: true, completion: completion)
+    func hideLoading(completion: (()->Void)? = nil){
+        loadingView?.removeFromSuperview()
+        loadingView = nil
     }
     
     

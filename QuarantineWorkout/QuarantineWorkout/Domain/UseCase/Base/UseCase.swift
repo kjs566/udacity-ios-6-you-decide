@@ -24,13 +24,9 @@ protocol UseCase{
     associatedtype Input
     associatedtype Result
     associatedtype RepositoryResult
-    
-    typealias RepositoryCompletion = AsyncCompletion<RepositoryResult>
-    typealias ViewModelCompletion = AsyncCompletion<Result>
         
     func mapResult(_ repositoryResult: RepositoryResult?) -> Result?
     func mapError(_ error: Error?) -> Error?
-    func execute(input: Input, completion: @escaping ViewModelCompletion)
 }
 
 extension UseCase{
@@ -45,4 +41,22 @@ extension UseCase{
     func mapError(_ error: Error?) -> Error?{
         return error
     }
+}
+
+protocol AsyncUseCase: UseCase{
+    typealias RepositoryCompletion = AsyncCompletion<RepositoryResult>
+    typealias ViewModelCompletion = AsyncCompletion<Result>
+    
+    func execute(input: Input, completion: @escaping ViewModelCompletion)
+}
+
+protocol SyncUseCase: UseCase{
+    func executeSync(input: Input) -> RepositoryResult
+}
+
+extension SyncUseCase{
+    func execute(input: Input) -> Result?{
+        return mapResult((executeSync(input: input)))
+    }
+    
 }

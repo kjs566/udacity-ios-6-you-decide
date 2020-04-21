@@ -9,7 +9,7 @@
 import Foundation
 
 class ApiRepository: BaseRepository{
-    let shared = ApiRepository()
+    public static let shared = ApiRepository()
     
     lazy var weeklyChallangeProperty = ApiProperty<WeeklyChallangeResponse>(withId: "Weekly challange property", andRequest: ApiClient.shared.getWeeklyChallangeRequest())
 }

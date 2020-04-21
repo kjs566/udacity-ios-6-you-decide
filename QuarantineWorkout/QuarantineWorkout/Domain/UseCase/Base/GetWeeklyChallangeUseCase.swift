@@ -8,7 +8,7 @@
 
 import Foundation
 
-class GetWeeklyChallangeUseCase: UseCase{
+class GetWeeklyChallangeUseCase: SyncUseCase{
     typealias Result = ApiProperty<WeeklyChallangeResponse>
     typealias RepositoryResult = ApiProperty<WeeklyChallangeResponse>
     typealias Input = None
@@ -19,7 +19,7 @@ class GetWeeklyChallangeUseCase: UseCase{
         self.apiRepo = apiRepo
     }
     
-    func execute(input: None, completion: @escaping ViewModelCompletion) {
-        completion(.success(apiRepo.weeklyChallangeProperty))
+    func executeSync(input: None) -> ApiProperty<WeeklyChallangeResponse> {
+        return apiRepo.weeklyChallangeProperty
     }
 }

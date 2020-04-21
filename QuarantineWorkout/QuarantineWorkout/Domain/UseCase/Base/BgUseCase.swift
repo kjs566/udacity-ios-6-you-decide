@@ -7,7 +7,7 @@
 //
 import Foundation
 
-protocol BgUseCase: UseCase{
+protocol BgUseCase: AsyncUseCase{
     func executeBackground(input: Input, completion: @escaping RepositoryCompletion)
 }
 

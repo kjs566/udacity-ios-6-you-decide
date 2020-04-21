@@ -14,6 +14,7 @@ class InitialFlowCoordinator: BaseFlowCoordinator{
     let window: UIWindow?
     
     lazy var authRepository = AuthRepository()
+    lazy var apiRepository = ApiRepository.shared
     
     init(storyboard: UIStoryboard, window: UIWindow?){
         self.storyboard = storyboard
@@ -39,7 +40,11 @@ class InitialFlowCoordinator: BaseFlowCoordinator{
                 
                 if let weeklyChallangeVC = topVC as? WeeklyChallangeViewController{
                     self.prepareDestination(targetController: weeklyChallangeVC, data: FlowPrepareData(vmFactory: { _ in
-                        return WeeklyChallangeViewModel(logoutUC: LogoutUseCase(authRepo: self.authRepository))
+                        return WeeklyChallangeViewModel(
+                            logoutUC: LogoutUseCase(authRepo: self.authRepository),
+                            getWeeklyChallangeUC: GetWeeklyChallangeUseCase(apiRepo: self.apiRepository)
+                            
+                        )
                     }, flowCoordinatorFactory: { (_) -> Any? in
                         return WeeklyChallangeFlowCoordinator()
                     }))
