@@ -19,4 +19,8 @@ struct Workout: Codable{
     let type: WorkoutType
     let duration: Int?
     let reps: Int?
+    
+    func copy(name: String? = nil, type: WorkoutType? = nil, duration: Int? = nil, reps: Int? = nil) -> Workout{
+        return Workout(name: name ?? self.name, type: type ?? self.type, duration: duration ?? self.duration, reps: reps ?? self.reps)
+    }
 }
