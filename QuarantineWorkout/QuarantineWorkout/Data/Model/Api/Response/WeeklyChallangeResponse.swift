@@ -9,25 +9,5 @@
 import Foundation
 
 struct WeeklyChallangeResponse: Codable{
-    let weeklyChallange: WeeklyChallange
-    
-    struct WeeklyChallange: Codable{
-        let difficulty: String
-        let totalTime: String
-        let calories: Int
-        let plan: [Workout]
-    }
-    
-    struct Workout: Codable{
-        enum WorkoutType: String, Codable{
-            case duration = "duration"
-            case reps = "reps"
-            case rest = "rest"
-        }
-        
-        let name: String
-        let type: WorkoutType
-        let duration: Int?
-        let reps: Int?
-    }
+    let weeklyChallange: WorkoutPlan
 }

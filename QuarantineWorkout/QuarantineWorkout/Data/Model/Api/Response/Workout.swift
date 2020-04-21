@@ -7,3 +7,16 @@
 //
 
 import Foundation
+
+struct Workout: Codable{
+    public enum WorkoutType: String, Codable{
+        case duration = "duration"
+        case reps = "reps"
+        case rest = "rest"
+    }
+    
+    let name: String
+    let type: WorkoutType
+    let duration: Int?
+    let reps: Int?
+}
