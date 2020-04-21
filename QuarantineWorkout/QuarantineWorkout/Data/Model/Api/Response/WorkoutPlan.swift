@@ -13,5 +13,5 @@ struct WorkoutPlan: Codable{
     let totalTime: String
     let calories: Int
     let workouts: [Workout]
-    let bodyParts: String?
+    let bodyParts: String
 }

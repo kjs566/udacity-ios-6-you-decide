@@ -1,6 +1,6 @@
 {
     "weeklyChallange":{
-        "dificulty": "Medium",
+        "difficulty": "Medium",
         "totalTime": "10 minutes",
         "calories": 198,
         "bodyParts": "Legs, abs",
@@ -94,7 +94,7 @@
                 "name": "Cool-down: Jumping jacks",
                 "type": "duration",
                 "duration": 60
-            },
+            }
         ]
     }
 }
