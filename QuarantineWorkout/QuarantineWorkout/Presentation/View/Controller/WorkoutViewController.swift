@@ -7,8 +7,18 @@
 //
 
 import Foundation
+import UIKit
 
 class WorkoutViewController: BaseViewController<WorkoutViewModel, WeeklyChallangeFlowCoordinator>{
+    @IBOutlet weak var remainingView: UILabel!
+    @IBOutlet weak var repsView: UIButton!
+    @IBOutlet weak var doneView: UIButton!
+    @IBOutlet weak var skipView: UIButton!
+    @IBOutlet weak var finishView: UIButton!
+    
+    override func viewDidLoad() {
+        
+    }
     
     @IBAction func showResultClicked(_ sender: Any) {
         getFlowCoordinator().showWorkoutResult(vc: self)
@@ -22,5 +32,13 @@ class WorkoutViewController: BaseViewController<WorkoutViewModel, WeeklyChallang
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         showTabBar()
+    }
+    @IBAction func repsClicked(_ sender: Any) {
+    }
+    @IBAction func doneClicked(_ sender: Any) {
+    }
+    @IBAction func skipClicked(_ sender: Any) {
+    }
+    @IBAction func finishClicked(_ sender: Any) {
     }
 }

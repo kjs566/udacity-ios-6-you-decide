@@ -14,4 +14,10 @@ struct WorkoutPlan: Codable{
     let calories: Int
     let workouts: [Workout]
     let bodyParts: String
+    
+    func getWorkoutWithoutRest() -> [Workout]{
+        return workouts.filter({ (workout) -> Bool in
+            workout.type != .rest
+        })
+    }
 }

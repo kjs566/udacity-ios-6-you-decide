@@ -7,8 +7,14 @@
 //
 
 import Foundation
+import UIKit
 
 class WorkoutResultViewController: BaseViewController<WorkoutResultViewModel, MainFlowCoordinator>{
+    @IBOutlet weak var caloriesView: UILabel!
+    @IBOutlet weak var durationView: UILabel!
+    @IBOutlet weak var repsCountView: UILabel!
+    @IBOutlet weak var workoutCountView: UILabel!
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         hideTabBar()
@@ -17,5 +23,8 @@ class WorkoutResultViewController: BaseViewController<WorkoutResultViewModel, Ma
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         showTabBar()
+    }
+    
+    @IBAction func doneClicked(_ sender: Any) {
     }
 }

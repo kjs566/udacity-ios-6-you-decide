@@ -43,18 +43,8 @@ class WeeklyChallangeViewController : TabRootViewController<WeeklyChallangeViewM
         durationView.text = plan.totalTime
         bodyPartsView.text = plan.bodyParts
         
-        totalWorkoutsView.text = String(countWorkouts(plan: plan.workouts))
-        workoutTableView.updateWorkouts(workouts: plan.workouts)
-    }
-    
-    func countWorkouts(plan: [Workout]) -> Int{
-        var cnt = 0
-        for workout in plan{
-            if Workout.WorkoutType.rest != workout.type{
-                cnt = cnt + 1
-            }
-        }
-        return cnt
+        totalWorkoutsView.text = String(plan.getWorkoutWithoutRest().count)
+        workoutTableView.updateWorkouts(workouts: plan.getWorkoutWithoutRest())
     }
     
     @IBAction func startWorkoutClicked(_ sender: Any) {

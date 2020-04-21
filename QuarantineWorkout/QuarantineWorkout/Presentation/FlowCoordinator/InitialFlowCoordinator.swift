@@ -29,9 +29,7 @@ class InitialFlowCoordinator: BaseFlowCoordinator{
     func showMain<VM : BaseViewModel, FC: BaseFlowCoordinator, VC: BaseViewController<VM, FC>>(source: VC){
         performSegue(source: source, segueIdentifier: "showMainSegue", flowAction: FlowPrepareData(vmFactory: { (_) in
                 return BaseViewModel()
-        }, setupVC: { (vm, data, vc) in
-            vc.modalPresentationStyle = .overFullScreen
-            
+        }, setupVC: { (vm, data, vc) in            
             // TODO MAKE UNIVERSAL
             let tabCtrl = vc as! UITabBarController
             for controller in tabCtrl.customizableViewControllers!{

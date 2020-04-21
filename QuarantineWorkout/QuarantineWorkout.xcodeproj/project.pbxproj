@@ -167,6 +167,7 @@
 		560EDAE1242FBE740011DB55 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				5668169B244F5C0C00FCCA75 /* Segue */,
 				5697C393244B8D4800CFCC01 /* Layout */,
 				564B4ED6244B2EBB00ABD59B /* Component */,
 				56DD8A7F2446369D000728BC /* Cell */,
@@ -239,6 +240,13 @@
 				5653571820542E8800857C9B /* Info.plist */,
 			);
 			path = QuarantineWorkout;
+			sourceTree = "<group>";
+		};
+		5668169B244F5C0C00FCCA75 /* Segue */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Segue;
 			sourceTree = "<group>";
 		};
 		56762CE3244A3F9000D7D191 /* Base */ = {
