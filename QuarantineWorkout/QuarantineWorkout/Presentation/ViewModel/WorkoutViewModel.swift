@@ -81,6 +81,10 @@ class WorkoutViewModel: BaseViewModel{
         startNextWorkout(skipCurrent: true)
     }
     
+    func doneWorkout(){
+        startNextWorkout()
+    }
+    
     func doneAll(){
         while !remainingWorkouts.isEmpty {
             finishedWorkouts.append(remainingWorkouts.remove(at: 0))

@@ -224,6 +224,12 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Push ups" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HJc-WG-LgG">
+                                <rect key="frame" x="9.5" y="193.5" width="356" height="57.5"/>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="48"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
@@ -233,13 +239,16 @@
                             <constraint firstItem="PZ1-vZ-jC6" firstAttribute="centerX" secondItem="uWM-5I-1q9" secondAttribute="centerX" id="6dw-I9-3Qc"/>
                             <constraint firstItem="PZ1-vZ-jC6" firstAttribute="centerY" secondItem="uWM-5I-1q9" secondAttribute="centerY" constant="-40" id="90Q-v9-Hgb"/>
                             <constraint firstItem="ddJ-nn-vcb" firstAttribute="firstBaseline" secondItem="PZ1-vZ-jC6" secondAttribute="baseline" constant="30" id="Dd6-9W-pRg"/>
+                            <constraint firstItem="PZ1-vZ-jC6" firstAttribute="top" secondItem="HJc-WG-LgG" secondAttribute="bottom" constant="-60" id="JxG-bF-aQV"/>
                             <constraint firstItem="MqQ-xf-1Rp" firstAttribute="centerX" secondItem="V8J-ds-Rib" secondAttribute="centerX" id="Lb5-bi-Wmu"/>
                             <constraint firstItem="MqQ-xf-1Rp" firstAttribute="top" secondItem="V8J-ds-Rib" secondAttribute="bottom" constant="7.5" id="UFu-Gd-Jwp"/>
                             <constraint firstItem="H9a-7i-8eW" firstAttribute="leading" secondItem="uWM-5I-1q9" secondAttribute="leading" constant="16" id="Whv-8B-xUX"/>
                             <constraint firstItem="uWM-5I-1q9" firstAttribute="bottom" secondItem="Xss-gn-2HQ" secondAttribute="bottom" constant="20" id="fHe-y9-bK7"/>
                             <constraint firstItem="uWM-5I-1q9" firstAttribute="trailing" secondItem="Xss-gn-2HQ" secondAttribute="trailing" constant="16" id="fSL-bT-L1R"/>
+                            <constraint firstItem="HJc-WG-LgG" firstAttribute="centerX" secondItem="uWM-5I-1q9" secondAttribute="centerX" id="mGI-uw-5Gi"/>
                             <constraint firstItem="ddJ-nn-vcb" firstAttribute="centerX" secondItem="PZ1-vZ-jC6" secondAttribute="centerX" id="oVv-XT-vC8"/>
                             <constraint firstItem="H9a-7i-8eW" firstAttribute="top" secondItem="Xss-gn-2HQ" secondAttribute="top" id="ohL-eb-BPJ"/>
+                            <constraint firstItem="HJc-WG-LgG" firstAttribute="width" secondItem="uWM-5I-1q9" secondAttribute="width" multiplier="0.95" id="pH5-m8-w2T"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="uWM-5I-1q9"/>
                     </view>
@@ -250,6 +259,8 @@
                         <outlet property="remainingView" destination="MqQ-xf-1Rp" id="LTc-Sl-brm"/>
                         <outlet property="repsView" destination="PZ1-vZ-jC6" id="aa6-qq-ffK"/>
                         <outlet property="skipView" destination="H9a-7i-8eW" id="qDt-QE-yIe"/>
+                        <outlet property="tapToCountView" destination="ddJ-nn-vcb" id="g5Q-yW-D4W"/>
+                        <outlet property="workoutView" destination="HJc-WG-LgG" id="yZd-kF-BAp"/>
                         <segue destination="eyx-co-lj0" kind="show" identifier="showWorkoutResultSegue" id="PYR-vE-Ris"/>
                     </connections>
                 </viewController>
