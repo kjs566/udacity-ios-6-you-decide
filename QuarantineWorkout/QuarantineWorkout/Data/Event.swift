@@ -11,7 +11,7 @@ import Foundation
 public class Event{
     var handled = false
     
-    func handle(handler: ()->Unit){
+    func handle(handler: ()->Void){
         if !handled{
             handled = true
             handler()

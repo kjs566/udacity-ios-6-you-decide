@@ -49,6 +49,12 @@ class WorkoutViewController: BaseViewController<WorkoutViewModel, WeeklyChallang
             
             self.repsView.setTitle(title, for: .normal)
         }
+        
+        observeProperty(getVM().showResultsEvent){ event in
+            event?.handle(handler: {
+                self.getFlowCoordinator().showWorkoutResult(vc: self)
+            })
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
