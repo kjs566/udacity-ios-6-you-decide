@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import CoreData
 
 class WorkoutViewModel: BaseViewModel{
     let plan : WorkoutPlan
@@ -26,8 +27,10 @@ class WorkoutViewModel: BaseViewModel{
     
     let planNoRest: [Workout]
     
-    let showResultsEvent = ObservableProperty<Event>()
-    let workoutUuid = UUID.init()
+    let showResultsEvent = ObservableProperty<Event<FinishedPlan>>()
+    
+    var finishedPlan: FinishedPlan? = nil
+    var finishPlanId: NSManagedObjectID? = nil
     
     var countDownTimer : Timer? = nil
     
@@ -38,6 +41,21 @@ class WorkoutViewModel: BaseViewModel{
         self.remainingNoRest = planNoRest
         super.init()
         startNextWorkout()
+        
+        finishPlanId = DataController.shared.createAndSave(initializer: { (finished: FinishedPlan) in
+            finished.calories = Int32(self.plan.calories)
+            finished.timestamp = Int64(NSDate().timeIntervalSince1970)
+            finished.workouts = []
+            finished.duration = 0
+            
+            self.finishedPlan = finished
+        }, errorHandler: { (error) in
+            self.handleError(error)
+        })
+    }
+    
+    func handleError(_ error: Error?){
+        // TODO
     }
     
     func startNextWorkout(skipCurrent: Bool = false){
@@ -71,6 +89,7 @@ class WorkoutViewModel: BaseViewModel{
             finishedReps.setValue(0)
             
             setupTimer(workoutType: workout.type)
+            saveResults()
         }else{
             saveResults()
             showResults()
@@ -119,10 +138,31 @@ class WorkoutViewModel: BaseViewModel{
     }
     
     func saveResults(){
-        
+        DispatchQueue.global(qos: .background).async {
+            let totalCalories = self.plan.calories
+            let caloriesPerWorkout = totalCalories / self.plan.getWorkoutWithoutRest().count
+            let planCalories = caloriesPerWorkout * self.finishedWorkouts.count
+            
+            guard let finishPlanId = self.finishPlanId else { return }
+            DataController.shared.updateBackground(id: finishPlanId, updater: { (finishedPlan: FinishedPlan) in
+                let finishedWorkouts = self.finishedWorkouts.map { (workout) -> FinishedWorkout in
+                    let finished = FinishedWorkout(context: DataController.shared.backgroundContext)
+                    finished.name = workout.name
+                    finished.reps = Int32(workout.reps ?? 0)
+                    finished.duration = Int32(workout.duration ?? 0)
+                    finished.type = workout.type.rawValue
+                    return finished
+                }
+                
+                finishedPlan.workouts = NSSet(array: finishedWorkouts)
+                finishedPlan.calories = Int32(planCalories)
+            }, errorHandler: { error in
+                self.handleError(error)
+            })
+        }
     }
     
     func showResults(){
-        showResultsEvent.setValue(Event())
+        showResultsEvent.setValue(Event<FinishedPlan>(data: finishedPlan))
     }
 }

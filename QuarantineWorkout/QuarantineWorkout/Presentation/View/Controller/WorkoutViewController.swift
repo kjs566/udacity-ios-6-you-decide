@@ -51,9 +51,9 @@ class WorkoutViewController: BaseViewController<WorkoutViewModel, WeeklyChallang
         }
         
         observeProperty(getVM().showResultsEvent){ event in
-            event?.handle(handler: {
-                self.getFlowCoordinator().showWorkoutResult(vc: self)
-            })
+            event?.handle{ (finishedPlan: FinishedPlan?) in
+                self.getFlowCoordinator().showWorkoutResult(vc: self, finishedPlan: finishedPlan!)
+            }
         }
     }
     

@@ -8,13 +8,18 @@
 
 import Foundation
 
-public class Event{
+public class Event<T>{
     var handled = false
+    var data: T? = nil
     
-    func handle(handler: ()->Void){
+    init(data: T?) {
+        self.data = data
+    }
+    
+    func handle(_ handler: (T?)->Void){
         if !handled{
             handled = true
-            handler()
+            handler(data)
         }
     }
 }

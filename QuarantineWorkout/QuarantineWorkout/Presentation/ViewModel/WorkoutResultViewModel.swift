@@ -9,5 +9,10 @@
 import Foundation
 
 class WorkoutResultViewModel : BaseViewModel{
+    let finishedPlan: FinishedPlan
+    
+    init(finishedPlan: FinishedPlan) {
+        self.finishedPlan = finishedPlan
+    }
     
 }
