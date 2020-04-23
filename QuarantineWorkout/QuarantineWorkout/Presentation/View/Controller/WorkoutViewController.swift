@@ -19,6 +19,7 @@ class WorkoutViewController: BaseViewController<WorkoutViewModel, WeeklyChallang
     @IBOutlet weak var tapToCountView: UILabel!
     
     override func viewDidLoad() {
+        self.navigationController?.navigationBar.isHidden = true
         observeProperty(getVM().currentWorkout) { (workout) in
             guard let workout = workout else { return }
             

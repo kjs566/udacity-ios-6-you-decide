@@ -470,8 +470,42 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Total Calories" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f2l-rK-J7W">
+                                <rect key="frame" x="16" y="64" width="104" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sbq-vG-LfP">
+                                <rect key="frame" x="317" y="64" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Completed plans" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rpR-9I-3cT">
+                                <rect key="frame" x="16" y="93" width="130" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vve-P7-Fqa">
+                                <rect key="frame" x="317" y="93" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="WsU-hC-4Yp" firstAttribute="trailing" secondItem="sbq-vG-LfP" secondAttribute="trailing" constant="16" id="4Gz-DQ-uUD"/>
+                            <constraint firstItem="vve-P7-Fqa" firstAttribute="top" secondItem="rpR-9I-3cT" secondAttribute="top" id="GJh-ah-aYw"/>
+                            <constraint firstItem="rpR-9I-3cT" firstAttribute="leading" secondItem="f2l-rK-J7W" secondAttribute="leading" id="LWP-8h-iUF"/>
+                            <constraint firstItem="vve-P7-Fqa" firstAttribute="trailing" secondItem="sbq-vG-LfP" secondAttribute="trailing" id="ZHP-us-ahe"/>
+                            <constraint firstItem="sbq-vG-LfP" firstAttribute="top" secondItem="f2l-rK-J7W" secondAttribute="top" id="buV-X3-Wdq"/>
+                            <constraint firstItem="rpR-9I-3cT" firstAttribute="top" secondItem="f2l-rK-J7W" secondAttribute="bottom" constant="8" id="ocJ-dj-utN"/>
+                            <constraint firstItem="f2l-rK-J7W" firstAttribute="leading" secondItem="WsU-hC-4Yp" secondAttribute="leading" constant="16" id="r2p-e3-rej"/>
+                            <constraint firstItem="f2l-rK-J7W" firstAttribute="top" secondItem="WsU-hC-4Yp" secondAttribute="top" constant="20" id="svw-ed-yKM"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="WsU-hC-4Yp"/>
                     </view>
                     <toolbarItems/>
@@ -481,17 +515,16 @@
                                 <action selector="logoutClicked:" destination="AV7-SA-sQt" id="u90-8N-m6w"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="Refresh" image="RefreshIcon" id="b9v-wq-k5Y">
-                            <connections>
-                                <action selector="reloadClicked:" destination="AV7-SA-sQt" id="qqL-gu-AFg"/>
-                            </connections>
-                        </barButtonItem>
                         <connections>
                             <outlet property="backBarButtonItem" destination="NAB-vq-bKf" id="1f4-tb-v1t"/>
                             <outlet property="leftBarButtonItem" destination="NAB-vq-bKf" id="Czk-tK-5sY"/>
                         </connections>
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="caloriesView" destination="sbq-vG-LfP" id="PIU-mF-6EL"/>
+                        <outlet property="plansView" destination="vve-P7-Fqa" id="hNu-ip-JK3"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="M7Q-33-fMU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

@@ -17,6 +17,7 @@ class WorkoutResultViewController: BaseViewController<WorkoutResultViewModel, Ma
     @IBOutlet weak var planTableView: WorkoutPlanTableView!
     
     override func viewDidLoad() {
+        self.navigationController?.navigationBar.isHidden = true
         observeProperty(getVM().finishedPlan) { (plan: FinishedPlan?) in
             self.caloriesView.text = String(plan?.calories ?? 0) + " kcal"
             self.workoutCountView.text = String(plan?.workouts?.count ?? 0)

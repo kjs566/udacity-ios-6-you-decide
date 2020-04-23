@@ -11,6 +11,12 @@ import CoreData
 
 class CoreDataCollectionProperty<T: NSManagedObject> : ObservableProperty<CoreDataResult<T>>{
     typealias ItemUpdateHandler = (T)->Void
+    let entityName: String
+    
+    init(entityName: String, withId id: String = "") {
+        self.entityName = entityName
+        super.init(withId: id)
+    }
     
     private let dataController = DataController.shared
     
@@ -18,7 +24,7 @@ class CoreDataCollectionProperty<T: NSManagedObject> : ObservableProperty<CoreDa
         if notifyLoading{
             setValue(.loading)
         }
-        let fetchRequest = NSFetchRequest<T>(entityName: "Pin")
+        let fetchRequest = NSFetchRequest<T>(entityName: entityName)
         do{
             let value = try dataController.viewContext.fetch(fetchRequest)
             setValue(.success(value))
