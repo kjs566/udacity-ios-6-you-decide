@@ -27,6 +27,7 @@ class WorkoutViewModel: BaseViewModel{
     let planNoRest: [Workout]
     
     let showResultsEvent = ObservableProperty<Event>()
+    let workoutUuid = UUID.init()
     
     init(plan: WorkoutPlan) {
         self.plan = plan
@@ -39,6 +40,9 @@ class WorkoutViewModel: BaseViewModel{
     
     func startNextWorkout(skipCurrent: Bool = false){
         if remainingWorkouts.count > 0 {
+            remainingWorkoutsCount.setValue(remainingNoRest.count)
+            finishedWorkoutsCount.setValue(planNoRest.count - remainingWorkouts.count)
+
             let workout = remainingWorkouts.remove(at: 0)
 
             if let previous = currentWorkout.getValue(){
@@ -63,9 +67,6 @@ class WorkoutViewModel: BaseViewModel{
             
             remainingReps.setValue(workout.reps ?? workout.duration)
             finishedReps.setValue(0)
-            
-            remainingWorkoutsCount.setValue(remainingWorkouts.count)
-            finishedWorkoutsCount.setValue(planNoRest.count - remainingWorkouts.count)
         }else{
             saveResults()
             showResults()
@@ -74,9 +75,11 @@ class WorkoutViewModel: BaseViewModel{
     
     func addRep(){
         let current = remainingReps.getValue()!
-        if current > 0{
+        if current > 1{
             remainingReps.setValue(current - 1)
             finishedReps.setValue(finishedReps.getValue()! + 1)
+        }else{
+            doneWorkout()
         }
     }
     
