@@ -23,6 +23,11 @@ class TabRootViewController<VM: TabRootViewModel, FC: BaseFlowCoordinator>: Base
         }
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        navigationController?.navigationBar.isHidden = false
+        tabBarController?.tabBar.isHidden = false
+    }
+    
     func logout(){
         getVM().logout()
     }

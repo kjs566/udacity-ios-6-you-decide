@@ -39,5 +39,6 @@ class WorkoutResultViewController: BaseViewController<WorkoutResultViewModel, Ma
     }
     
     @IBAction func doneClicked(_ sender: Any) {
+        navigationController?.popToRootViewController(animated: true)
     }
 }

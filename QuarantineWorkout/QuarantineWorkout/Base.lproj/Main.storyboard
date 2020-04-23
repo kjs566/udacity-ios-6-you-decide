@@ -471,45 +471,61 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Total Calories" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f2l-rK-J7W">
-                                <rect key="frame" x="16" y="64" width="104" height="21"/>
+                                <rect key="frame" x="16" y="259.5" width="104" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sbq-vG-LfP">
-                                <rect key="frame" x="317" y="64" width="42" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <rect key="frame" x="304" y="259.5" width="55" height="27.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="23"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Completed plans" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rpR-9I-3cT">
-                                <rect key="frame" x="16" y="93" width="130" height="21"/>
+                                <rect key="frame" x="16" y="310" width="130" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vve-P7-Fqa">
-                                <rect key="frame" x="317" y="93" width="42" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <rect key="frame" x="304" y="310" width="55" height="27.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="23"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You are not logged in" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0gw-Qg-N9N">
+                                <rect key="frame" x="63" y="134" width="249.5" height="32.5"/>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="27"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Total results" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hTb-uE-1ki">
+                                <rect key="frame" x="134" y="219" width="125" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="21"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
+                            <constraint firstItem="0gw-Qg-N9N" firstAttribute="top" secondItem="WsU-hC-4Yp" secondAttribute="top" constant="90" id="1Pt-Oq-NS4"/>
+                            <constraint firstItem="hTb-uE-1ki" firstAttribute="top" secondItem="0gw-Qg-N9N" secondAttribute="bottom" constant="52.5" id="3Hs-jI-wIi"/>
                             <constraint firstItem="WsU-hC-4Yp" firstAttribute="trailing" secondItem="sbq-vG-LfP" secondAttribute="trailing" constant="16" id="4Gz-DQ-uUD"/>
                             <constraint firstItem="vve-P7-Fqa" firstAttribute="top" secondItem="rpR-9I-3cT" secondAttribute="top" id="GJh-ah-aYw"/>
                             <constraint firstItem="rpR-9I-3cT" firstAttribute="leading" secondItem="f2l-rK-J7W" secondAttribute="leading" id="LWP-8h-iUF"/>
                             <constraint firstItem="vve-P7-Fqa" firstAttribute="trailing" secondItem="sbq-vG-LfP" secondAttribute="trailing" id="ZHP-us-ahe"/>
                             <constraint firstItem="sbq-vG-LfP" firstAttribute="top" secondItem="f2l-rK-J7W" secondAttribute="top" id="buV-X3-Wdq"/>
-                            <constraint firstItem="rpR-9I-3cT" firstAttribute="top" secondItem="f2l-rK-J7W" secondAttribute="bottom" constant="8" id="ocJ-dj-utN"/>
+                            <constraint firstItem="0gw-Qg-N9N" firstAttribute="centerX" secondItem="WsU-hC-4Yp" secondAttribute="centerX" id="cEj-6q-wTq"/>
+                            <constraint firstItem="hTb-uE-1ki" firstAttribute="centerX" secondItem="WsU-hC-4Yp" secondAttribute="centerX" id="djy-OB-KJN"/>
+                            <constraint firstItem="rpR-9I-3cT" firstAttribute="top" secondItem="f2l-rK-J7W" secondAttribute="bottom" constant="30" id="ocJ-dj-utN"/>
+                            <constraint firstItem="f2l-rK-J7W" firstAttribute="top" secondItem="hTb-uE-1ki" secondAttribute="bottom" constant="15" id="pNd-Od-jQD"/>
                             <constraint firstItem="f2l-rK-J7W" firstAttribute="leading" secondItem="WsU-hC-4Yp" secondAttribute="leading" constant="16" id="r2p-e3-rej"/>
-                            <constraint firstItem="f2l-rK-J7W" firstAttribute="top" secondItem="WsU-hC-4Yp" secondAttribute="top" constant="20" id="svw-ed-yKM"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="WsU-hC-4Yp"/>
                     </view>
                     <toolbarItems/>
-                    <navigationItem key="navigationItem" title="My results" id="NGQ-pB-yjC" userLabel="Created memes">
+                    <navigationItem key="navigationItem" title="My profile" id="NGQ-pB-yjC" userLabel="Created memes">
                         <barButtonItem key="leftBarButtonItem" title="Logout" id="NAB-vq-bKf">
                             <connections>
                                 <action selector="logoutClicked:" destination="AV7-SA-sQt" id="u90-8N-m6w"/>
