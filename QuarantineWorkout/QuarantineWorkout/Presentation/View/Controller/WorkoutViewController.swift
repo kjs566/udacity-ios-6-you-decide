@@ -61,12 +61,15 @@ class WorkoutViewController: BaseViewController<WorkoutViewModel, WeeklyChallang
         showTabBar()
     }
     @IBAction func repsClicked(_ sender: Any) {
+        getVM().addRep()
     }
     @IBAction func doneClicked(_ sender: Any) {
         getVM().doneWorkout()
     }
     @IBAction func skipClicked(_ sender: Any) {
+        getVM().skipWorkout()
     }
     @IBAction func finishClicked(_ sender: Any) {
+        getVM().finishPlan()
     }
 }

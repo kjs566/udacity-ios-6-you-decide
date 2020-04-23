@@ -58,7 +58,7 @@ class WorkoutViewModel: BaseViewModel{
             workoutType.setValue(workout.type)
             currentWorkout.setValue(workout)
             
-            remainingReps.setValue(remainingNoRest.count)
+            remainingReps.setValue(workout.reps ?? workout.duration)
             finishedReps.setValue(0)
             
             remainingWorkoutsCount.setValue(remainingWorkouts.count)
