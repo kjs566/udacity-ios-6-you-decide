@@ -9,10 +9,14 @@
 import Foundation
 
 class WorkoutResultViewModel : BaseViewModel{
-    let finishedPlan: FinishedPlan
+    let finishedPlan =  ObservableProperty<FinishedPlan>()
+    let finishedWorkouts = ObservableProperty<[Workout]>()
     
-    init(finishedPlan: FinishedPlan) {
-        self.finishedPlan = finishedPlan
+    init(finishedPlan: FinishedPlan?) {
+        self.finishedPlan.setValue(finishedPlan)
+        finishedWorkouts.setValue(finishedPlan?.workouts?.allObjects.map({ (finished) -> Workout in
+            return Workout.fromFinishedWorkout(finishedWorkout: finished as! FinishedWorkout)
+        }))
     }
     
 }

@@ -23,4 +23,8 @@ struct Workout: Codable{
     func copy(name: String? = nil, type: WorkoutType? = nil, duration: Int? = nil, reps: Int? = nil) -> Workout{
         return Workout(name: name ?? self.name, type: type ?? self.type, duration: duration ?? self.duration, reps: reps ?? self.reps)
     }
+    
+    static func fromFinishedWorkout(finishedWorkout: FinishedWorkout) -> Workout{
+        return Workout(name: finishedWorkout.name ?? "", type: WorkoutType.init(rawValue: finishedWorkout.type ?? "rest") ?? .rest, duration: Int(finishedWorkout.duration) ?? 0, reps: Int(finishedWorkout.reps) ?? 0)
+    }
 }

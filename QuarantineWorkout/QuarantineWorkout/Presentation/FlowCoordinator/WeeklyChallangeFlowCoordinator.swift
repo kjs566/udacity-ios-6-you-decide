@@ -15,7 +15,7 @@ class WeeklyChallangeFlowCoordinator: BaseFlowCoordinator{
         }))
     }
     
-    func showWorkoutResult(vc: BaseController, finishedPlan: FinishedPlan){
+    func showWorkoutResult(vc: BaseController, finishedPlan: FinishedPlan?){
         performSegue(source: vc, segueIdentifier: "showWorkoutResultSegue", flowAction: FlowPrepareData(vmFactory: { (_) in
             return WorkoutResultViewModel(finishedPlan: finishedPlan)
         }))
