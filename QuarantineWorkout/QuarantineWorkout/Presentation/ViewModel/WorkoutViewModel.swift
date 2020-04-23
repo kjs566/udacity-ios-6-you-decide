@@ -26,6 +26,8 @@ class WorkoutViewModel: BaseViewModel{
     
     let planNoRest: [Workout]
     
+    let showResultsEvent = ObservableProperty<Event>()
+    
     init(plan: WorkoutPlan) {
         self.plan = plan
         self.remainingWorkouts = plan.workouts
@@ -37,24 +39,25 @@ class WorkoutViewModel: BaseViewModel{
     
     func startNextWorkout(skipCurrent: Bool = false){
         if remainingWorkouts.count > 0 {
-            let removed = remainingWorkouts.remove(at: 0)
-            if skipCurrent {
-                let finished: Workout
-                if removed.type == .duration {
-                    finished = removed.copy(duration: finishedReps.getValue())
+            let workout = remainingWorkouts.remove(at: 0)
+
+            if let previous = currentWorkout.getValue(){
+                if skipCurrent {
+                    let finished: Workout
+                    if previous.type == .duration {
+                        finished = previous.copy(duration: finishedReps.getValue())
+                    } else {
+                        finished = previous.copy(reps: finishedReps.getValue())
+                    }
+                    finishedWorkouts.append(finished)
                 } else {
-                    finished = removed.copy(reps: finishedReps.getValue())
+                    finishedWorkouts.append(previous)
                 }
-                finishedWorkouts.append(finished)
-            } else {
-                finishedWorkouts.append(removed)
             }
             remainingNoRest = remainingWorkouts.filter({ (workout) -> Bool in
                 workout.type != .rest
             })
-        
-            let workout = plan.workouts.first!
-            
+                    
             workoutType.setValue(workout.type)
             currentWorkout.setValue(workout)
             
@@ -103,6 +106,6 @@ class WorkoutViewModel: BaseViewModel{
     }
     
     func showResults(){
-        
+        showResultsEvent.setValue(Event())
     }
 }

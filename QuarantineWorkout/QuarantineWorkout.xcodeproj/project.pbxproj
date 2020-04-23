@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		560EDAED2430927A0011DB55 /* WeeklyChallangeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 560EDAEC2430927A0011DB55 /* WeeklyChallangeViewController.swift */; };
+		561A7E3D245180BE007971CA /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 561A7E3C245180BE007971CA /* Event.swift */; };
 		561BA9B0244F2D13006626CF /* WorkoutPlan.swift in Sources */ = {isa = PBXBuildFile; fileRef = 561BA9AF244F2D13006626CF /* WorkoutPlan.swift */; };
 		5634BFCD243FCB2D00FEF19B /* ApiResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5634BFCC243FCB2D00FEF19B /* ApiResult.swift */; };
 		5634BFD324408BC900FEF19B /* ApiClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5634BFD224408BC900FEF19B /* ApiClient.swift */; };
@@ -80,6 +81,7 @@
 /* Begin PBXFileReference section */
 		160F9F2C93D8821630BB8303 /* Pods-QuarantineWorkout.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QuarantineWorkout.release.xcconfig"; path = "Target Support Files/Pods-QuarantineWorkout/Pods-QuarantineWorkout.release.xcconfig"; sourceTree = "<group>"; };
 		560EDAEC2430927A0011DB55 /* WeeklyChallangeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeeklyChallangeViewController.swift; sourceTree = "<group>"; };
+		561A7E3C245180BE007971CA /* Event.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
 		561BA9AF244F2D13006626CF /* WorkoutPlan.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutPlan.swift; sourceTree = "<group>"; };
 		5634BFCC243FCB2D00FEF19B /* ApiResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiResult.swift; sourceTree = "<group>"; };
 		5634BFD224408BC900FEF19B /* ApiClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiClient.swift; sourceTree = "<group>"; };
@@ -357,6 +359,7 @@
 				5693EA1E243B9A93006BB1C7 /* AsyncResult.swift */,
 				56FF8CA22434B2340093A2E1 /* PropertyObserver.swift */,
 				5693EA1A243B89EE006BB1C7 /* ObservableProperty.swift */,
+				561A7E3C245180BE007971CA /* Event.swift */,
 				56DD8A8C24463C14000728BC /* Repository */,
 				56E6661F242D6A5B00C3B621 /* Model */,
 			);
@@ -625,6 +628,7 @@
 				5634BFDA2440AE8800FEF19B /* CoreDataCollectionProperty.swift in Sources */,
 				56E77C6B244997810036C6CA /* WeeklyChallangeViewModel.swift in Sources */,
 				5693EA2C243CDEED006BB1C7 /* GeocodeLocationProperty.swift in Sources */,
+				561A7E3D245180BE007971CA /* Event.swift in Sources */,
 				564B4EDA244B30AA00ABD59B /* Workout.swift in Sources */,
 				56DD8A8B244639C9000728BC /* BgUseCase.swift in Sources */,
 				56D108082449F2C200256973 /* WorkoutResultViewModel.swift in Sources */,
