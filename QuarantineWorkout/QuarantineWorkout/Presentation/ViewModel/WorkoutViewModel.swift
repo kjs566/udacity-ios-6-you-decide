@@ -29,6 +29,8 @@ class WorkoutViewModel: BaseViewModel{
     let showResultsEvent = ObservableProperty<Event>()
     let workoutUuid = UUID.init()
     
+    var countDownTimer : Timer? = nil
+    
     init(plan: WorkoutPlan) {
         self.plan = plan
         self.remainingWorkouts = plan.workouts
@@ -67,13 +69,24 @@ class WorkoutViewModel: BaseViewModel{
             
             remainingReps.setValue(workout.reps ?? workout.duration)
             finishedReps.setValue(0)
+            
+            setupTimer(workoutType: workout.type)
         }else{
             saveResults()
             showResults()
         }
     }
     
+    func setupTimer(workoutType: Workout.WorkoutType){
+        if workoutType == .duration || workoutType == .rest{
+            countDownTimer = Timer.scheduledTimer(withTimeInterval: 1, repeats: false) { (_) in
+                self.addRep()
+            }
+        }
+    }
+    
     func addRep(){
+        setupTimer(workoutType: currentWorkout.getValue()!.type)
         let current = remainingReps.getValue()!
         if current > 1{
             remainingReps.setValue(current - 1)
@@ -88,6 +101,7 @@ class WorkoutViewModel: BaseViewModel{
     }
     
     func doneWorkout(){
+        countDownTimer?.invalidate()
         startNextWorkout()
     }
     
