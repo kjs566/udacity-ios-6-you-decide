@@ -36,7 +36,7 @@
                             <nil key="highlightedColor"/>
                         </label>
                     </subviews>
-                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                    <color key="backgroundColor" systemColor="systemGray6Color" red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
                         <constraint firstItem="zcG-Wb-g3M" firstAttribute="centerY" secondItem="VDa-rW-GoL" secondAttribute="centerY" id="9OX-Fh-8ql"/>
                         <constraint firstItem="zcG-Wb-g3M" firstAttribute="leading" secondItem="VDa-rW-GoL" secondAttribute="leading" constant="5" id="EMA-2Y-uht"/>
@@ -47,7 +47,7 @@
                     </constraints>
                 </view>
             </subviews>
-            <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+            <color key="backgroundColor" systemColor="systemGray6Color" red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="VDa-rW-GoL" firstAttribute="centerY" secondItem="vUN-kp-3ea" secondAttribute="centerY" id="JRB-vg-x85"/>
                 <constraint firstItem="VDa-rW-GoL" firstAttribute="width" secondItem="vUN-kp-3ea" secondAttribute="width" id="Tbc-X0-a80"/>

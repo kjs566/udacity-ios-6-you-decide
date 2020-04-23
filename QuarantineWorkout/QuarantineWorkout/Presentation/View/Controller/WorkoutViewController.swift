@@ -29,7 +29,7 @@ class WorkoutViewController: BaseViewController<WorkoutViewModel, WeeklyChallang
         observeProperty(getVM().remainingWorkoutsCount) { (remaining) in
             guard let remaining = remaining else { return }
             
-            self.remainingView.text = String(remaining) + "Remaining"
+            self.remainingView.text = String(remaining) + " Remaining"
         }
         
         observeProperty(getVM().remainingReps) { (remaining) in
