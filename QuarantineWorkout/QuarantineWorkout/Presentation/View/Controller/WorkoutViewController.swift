@@ -20,6 +20,12 @@ class WorkoutViewController: BaseViewController<WorkoutViewModel, WorkoutDetailF
     
     override func viewDidLoad() {
         self.navigationController?.navigationBar.isHidden = true
+        observeProperty(getVM().error) { (event) in
+            event?.handle({ (error) in
+                self.handleError(error)
+            })
+        }
+        
         observeProperty(getVM().currentWorkout) { (workout) in
             guard let workout = workout else { return }
             

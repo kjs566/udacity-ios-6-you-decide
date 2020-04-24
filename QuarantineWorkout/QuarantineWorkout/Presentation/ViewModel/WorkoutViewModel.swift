@@ -10,10 +10,15 @@ import Foundation
 import CoreData
 
 class WorkoutViewModel: BaseViewModel{
+    let error = ObservableProperty<Event<Error>>()
+    let workoutStart = NSDate().timeIntervalSince1970
+    
     let plan : WorkoutPlan
     var remainingWorkouts: [Workout]
     var remainingNoRest: [Workout]
     var finishedWorkouts: [Workout] = []
+    
+    var totalReps = 0
     
     let currentWorkout = ObservableProperty<Workout>()
     
@@ -55,7 +60,7 @@ class WorkoutViewModel: BaseViewModel{
     }
     
     func handleError(_ error: Error?){
-        // TODO
+        self.error.setValue(Event(data: error))
     }
     
     func startNextWorkout(skipCurrent: Bool = false){
@@ -106,8 +111,12 @@ class WorkoutViewModel: BaseViewModel{
     }
     
     func addRep(){
-        setupTimer(workoutType: currentWorkout.getValue()!.type)
+        guard let currentWorkout = currentWorkout.getValue() else { return }
+        setupTimer(workoutType: currentWorkout.type)
         let current = remainingReps.getValue()!
+        if currentWorkout.type == .reps{
+            totalReps = totalReps + 1
+        }
         if current > 1{
             remainingReps.setValue(current - 1)
             finishedReps.setValue(finishedReps.getValue()! + 1)
@@ -127,7 +136,9 @@ class WorkoutViewModel: BaseViewModel{
     
     func doneAll(){
         while !remainingNoRest.isEmpty {
-            finishedWorkouts.append(remainingNoRest.remove(at: 0))
+            let workout = remainingNoRest.remove(at: 0)
+            totalReps = totalReps + (workout.reps ?? 0)
+            finishedWorkouts.append(workout)
         }
         saveResults()
         showResults()
@@ -157,6 +168,11 @@ class WorkoutViewModel: BaseViewModel{
                 
                 finishedPlan.workouts = NSSet(array: finishedWorkouts)
                 finishedPlan.calories = Int32(planCalories)
+                finishedPlan.workoutsCount = Int64(finishedWorkouts.count)
+                finishedPlan.totalReps = Int64(self.totalReps)
+                
+                let timeDiff = NSDate().timeIntervalSince1970 - self.workoutStart
+                finishedPlan.duration = Int64(timeDiff / 1000)
             }, errorHandler: { error in
                 self.handleError(error)
             })

@@ -4,6 +4,8 @@
         <attribute name="calories" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="duration" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="timestamp" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="totalReps" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="workoutsCount" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
         <relationship name="workouts" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="FinishedWorkout" inverseName="plan" inverseEntity="FinishedWorkout"/>
     </entity>
     <entity name="FinishedWorkout" representedClassName="FinishedWorkout" syncable="YES" codeGenerationType="class">
@@ -14,7 +16,7 @@
         <relationship name="plan" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="FinishedPlan" inverseName="workouts" inverseEntity="FinishedPlan"/>
     </entity>
     <elements>
+        <element name="FinishedPlan" positionX="-45" positionY="63" width="128" height="133"/>
         <element name="FinishedWorkout" positionX="-54" positionY="54" width="128" height="118"/>
-        <element name="FinishedPlan" positionX="-45" positionY="63" width="128" height="103"/>
     </elements>
 </model>
