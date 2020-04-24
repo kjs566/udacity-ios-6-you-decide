@@ -485,7 +485,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="HHl-6a-Fv5"/>
                     </view>
-                    <navigationItem key="navigationItem" id="bui-Pt-iMt"/>
+                    <navigationItem key="navigationItem" title="Custom training" id="bui-Pt-iMt"/>
                     <connections>
                         <segue destination="0ms-vf-wZi" kind="show" identifier="showWorkoutDetailSegue" id="vlg-dI-IOP"/>
                     </connections>
@@ -510,7 +510,7 @@
                                 </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" title="START WORKOUT">
-                                    <color key="titleColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <color key="titleColor" red="0.00096025820830358583" green="0.55454869923857864" blue="0.13935736846587235" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 </state>
                                 <connections>
                                     <action selector="startWorkoutClicked:" destination="0ms-vf-wZi" eventType="touchUpInside" id="eyZ-5t-RwT"/>
@@ -532,25 +532,25 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Total workouts" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="j3R-HF-7a1">
-                                        <rect key="frame" x="203.5" y="20" width="88.5" height="16"/>
+                                        <rect key="frame" x="204" y="20" width="88.5" height="16"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Body parts" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="awR-TL-rC3">
-                                        <rect key="frame" x="203.5" y="48" width="66.5" height="16"/>
+                                        <rect key="frame" x="204" y="48" width="66.5" height="16"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="30m" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VYI-pp-Fjq">
-                                        <rect key="frame" x="120" y="20" width="35" height="20.5"/>
+                                        <rect key="frame" x="136" y="20" width="35" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EgB-lU-2H1">
-                                        <rect key="frame" x="113" y="48" width="42" height="20.5"/>
+                                        <rect key="frame" x="129" y="48" width="42" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -585,10 +585,10 @@
                                     <constraint firstItem="E2E-Na-gKT" firstAttribute="top" secondItem="xAz-IF-2Ji" secondAttribute="top" constant="20" id="1RN-Uu-N3q"/>
                                     <constraint firstItem="VYI-pp-Fjq" firstAttribute="top" secondItem="E2E-Na-gKT" secondAttribute="top" id="4Nx-Th-rzg"/>
                                     <constraint firstItem="pOS-Lr-C0s" firstAttribute="top" secondItem="E2E-Na-gKT" secondAttribute="bottom" constant="12" id="4pk-uU-n4S"/>
-                                    <constraint firstItem="Yhp-3L-qvX" firstAttribute="leading" secondItem="VYI-pp-Fjq" secondAttribute="trailing" constant="32" id="796-dC-bC6"/>
+                                    <constraint firstItem="Yhp-3L-qvX" firstAttribute="leading" secondItem="VYI-pp-Fjq" secondAttribute="trailing" constant="16" id="796-dC-bC6"/>
                                     <constraint firstItem="awR-TL-rC3" firstAttribute="leading" secondItem="j3R-HF-7a1" secondAttribute="leading" id="REz-X4-X3c"/>
                                     <constraint firstItem="Yhp-3L-qvX" firstAttribute="centerX" secondItem="xAz-IF-2Ji" secondAttribute="centerX" id="Rc4-OK-VXC"/>
-                                    <constraint firstItem="j3R-HF-7a1" firstAttribute="leading" secondItem="Yhp-3L-qvX" secondAttribute="trailing" constant="15.5" id="Rey-22-y8d"/>
+                                    <constraint firstItem="j3R-HF-7a1" firstAttribute="leading" secondItem="Yhp-3L-qvX" secondAttribute="trailing" constant="16" id="Rey-22-y8d"/>
                                     <constraint firstAttribute="trailing" secondItem="0Rw-xu-5Nh" secondAttribute="trailing" constant="8" id="WaK-zQ-Ajt"/>
                                     <constraint firstItem="EgB-lU-2H1" firstAttribute="trailing" secondItem="VYI-pp-Fjq" secondAttribute="trailing" id="YCt-81-JNp"/>
                                     <constraint firstItem="EgB-lU-2H1" firstAttribute="top" secondItem="pOS-Lr-C0s" secondAttribute="top" id="Yxo-x1-iw6"/>
@@ -640,11 +640,11 @@
             </objects>
             <point key="canvasLocation" x="2751" y="-358"/>
         </scene>
-        <!--Item-->
+        <!--Custom workout-->
         <scene sceneID="sIX-XW-fB8">
             <objects>
                 <navigationController id="qgB-cW-LPc" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="SDJ-f5-GAa"/>
+                    <tabBarItem key="tabBarItem" title="Custom workout" image="person.3" catalog="system" selectedImage="person.3.fill" id="SDJ-f5-GAa"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="9Lp-32-uT7">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -841,7 +841,7 @@
         <scene sceneID="aV2-Fy-aeT">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="FO6-rL-r1N" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Weekly challange" image="MapIconDisabled" selectedImage="MapIconEnabled" id="Z2h-4O-f4q"/>
+                    <tabBarItem key="tabBarItem" title="Weekly challange" image="star" catalog="system" selectedImage="star.fill" id="Z2h-4O-f4q"/>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="bSv-Vd-7yn"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="5zP-df-rxA">
@@ -1096,11 +1096,11 @@
             </objects>
             <point key="canvasLocation" x="-2057" y="157"/>
         </scene>
-        <!--Profile-->
+        <!--My results-->
         <scene sceneID="DXp-Mw-wZG">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="yHK-rI-agY" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Profile" id="R8H-M8-tXv"/>
+                    <tabBarItem key="tabBarItem" title="My results" image="person.circle" catalog="system" selectedImage="person.circle.fill" id="R8H-M8-tXv"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="f1J-oU-2LX">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -1138,10 +1138,14 @@
         <segue reference="vlg-dI-IOP"/>
     </inferredMetricsTieBreakers>
     <resources>
-        <image name="MapIconDisabled" width="75" height="50"/>
-        <image name="MapIconEnabled" width="75" height="50"/>
         <image name="RefreshIcon" width="24" height="24"/>
         <image name="UdacityLogo" width="62" height="62"/>
+        <image name="person.3" catalog="system" width="128" height="62"/>
+        <image name="person.3.fill" catalog="system" width="128" height="61"/>
+        <image name="person.circle" catalog="system" width="128" height="121"/>
+        <image name="person.circle.fill" catalog="system" width="128" height="121"/>
+        <image name="star" catalog="system" width="128" height="116"/>
+        <image name="star.fill" catalog="system" width="128" height="116"/>
         <namedColor name="AccentColor">
             <color red="0.38137049160944159" green="0.57123308358014935" blue="0.87509030103683472" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
