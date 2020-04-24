@@ -16,6 +16,8 @@ class ProfileViewController: TabRootViewController<ProfileViewModel, ProfileFlow
     @IBOutlet weak var repsView: UILabel!
     @IBOutlet weak var setsView: UILabel!
     
+    @IBOutlet weak var viewLoading: UIView!
+    
     @IBAction func logoutClicked(_ sender: Any) {
         logout()
     }
@@ -66,6 +68,10 @@ class ProfileViewController: TabRootViewController<ProfileViewModel, ProfileFlow
                 self.showLoading()
             })
         }
+    }
+    
+    override func getLoadingView() -> UIView{
+        return viewLoading
     }
     
     func logout(){

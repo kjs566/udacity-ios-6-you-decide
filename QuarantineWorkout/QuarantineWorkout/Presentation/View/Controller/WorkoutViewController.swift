@@ -17,7 +17,7 @@ class WorkoutViewController: BaseViewController<WorkoutViewModel, WorkoutDetailF
     @IBOutlet weak var finishView: UIButton!
     @IBOutlet weak var workoutView: UILabel!
     @IBOutlet weak var tapToCountView: UILabel!
-    
+        
     override func viewDidLoad() {
         self.navigationController?.navigationBar.isHidden = true
         observeProperty(getVM().error) { (event) in

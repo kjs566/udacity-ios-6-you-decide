@@ -11,6 +11,8 @@ import UIKit
 import MapKit
 
 class WeeklyChallangeViewController : TabRootViewController<WeeklyChallangeViewModel, WeeklyChallangeFlowCoordinator>{
+    
+    @IBOutlet weak var viewLoading: UIView!
     var workoutDetailVC: WorkoutDetailViewController!
     
     override func viewDidLoad() {
@@ -36,6 +38,10 @@ class WeeklyChallangeViewController : TabRootViewController<WeeklyChallangeViewM
         }else{
             super.prepare(for: segue, sender: sender)
         }
+    }
+    
+    override func getLoadingView() -> UIView{
+        return viewLoading
     }
     
     @IBAction func reloadClicked(_ sender: Any) {
