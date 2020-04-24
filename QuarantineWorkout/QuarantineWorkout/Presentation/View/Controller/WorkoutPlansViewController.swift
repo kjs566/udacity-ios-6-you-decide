@@ -11,4 +11,7 @@ import UIKit
 
 class WorkoutPlansViewController: TabRootViewController<WorkoutPlansViewModel, WorkoutPlansFlowCoordinator>{
     
+    @IBAction func legsArmsClicked(_ sender: Any) {
+        getFlowCoordinator().showPlanDetail(vc: self, plan: getVM().legsPlan)
+    }
 }

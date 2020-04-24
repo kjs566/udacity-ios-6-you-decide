@@ -9,5 +9,14 @@
 import Foundation
 
 class WorkoutDetailViewModel: BaseViewModel{
+    let plan = ObservableProperty<WorkoutPlan>()
     
+    init(plan: WorkoutPlan? = nil) {
+        super.init()
+        self.plan.setValue(plan)
+    }
+    
+    func setPlan(_ plan: WorkoutPlan?){
+        self.plan.setValue(plan)
+    }
 }

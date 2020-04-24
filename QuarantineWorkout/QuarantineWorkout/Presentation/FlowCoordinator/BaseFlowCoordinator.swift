@@ -23,6 +23,10 @@ extension BaseFlowCoordinator{
     }
     
     func prepareSegue(sourceController: BaseController, segue: UIStoryboardSegue, sender: Any?){
+        prepareSegueProtocol(sourceController: sourceController, segue: segue, sender: sender)
+    }
+    
+    func prepareSegueProtocol(sourceController: BaseController, segue: UIStoryboardSegue, sender: Any?){
         guard let data = sender as? FlowPrepareData else {
             print("WARNING: " + "Segue performed without flow coordinator data")
             return

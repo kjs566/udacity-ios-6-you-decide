@@ -7,9 +7,14 @@
 //
 
 import Foundation
+import UIKit
 
 class WorkoutPlansFlowCoordinator: BaseFlowCoordinator{
-    func showCreateNewPlan(){
-        
+    func showPlanDetail(vc: BaseController, plan: WorkoutPlan){
+        performSegue(source: vc, segueIdentifier: "showWorkoutDetailSegue", flowAction: FlowPrepareData(vmFactory: { (_) in
+                return WorkoutDetailViewModel(plan: plan)
+        }, flowCoordinatorFactory: { _ in
+            return WorkoutDetailFlowCoordinator()
+        }))
     }
 }

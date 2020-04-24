@@ -11,22 +11,16 @@ import UIKit
 import MapKit
 
 class WeeklyChallangeViewController : TabRootViewController<WeeklyChallangeViewModel, WeeklyChallangeFlowCoordinator>{
-    
-    @IBOutlet weak var durationView: UILabel!
-    @IBOutlet weak var bodyPartsView: UILabel!
-    @IBOutlet weak var caloriesView: UILabel!
-    @IBOutlet weak var totalWorkoutsView: UILabel!
-    
-    @IBOutlet weak var workoutTableView: WorkoutPlanTableView!
-    
-    var plan: WorkoutPlan? = nil
+    var workoutDetailVC: WorkoutDetailViewController!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        workoutDetailVC = children.first as? WorkoutDetailViewController
         observeProperty(getVM().weeklyChallange){ state in
             state?.handle(success: { (response) in
                 self.hideLoading()
-                self.setupViews(plan: response!.weeklyChallange)
+                self.workoutDetailVC.setPlan(plan: response!.weeklyChallange)
             }, error: { (error) in
                 self.hideLoading()
                 self.handleError(error)
@@ -36,20 +30,14 @@ class WeeklyChallangeViewController : TabRootViewController<WeeklyChallangeViewM
         }
     }
     
-    func setupViews(plan: WorkoutPlan){
-        self.plan = plan
-
-        caloriesView.text = String(plan.calories) + " kcal"
-        durationView.text = plan.totalTime
-        bodyPartsView.text = plan.bodyParts
-        
-        totalWorkoutsView.text = String(plan.getWorkoutWithoutRest().count)
-        workoutTableView.updateWorkouts(workouts: plan.getWorkoutWithoutRest())
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "embeddedWorkoutDetailSegue"{
+            getFlowCoordinator().prepareEmbeddedDetail(sourceController: self, segue: segue)
+        }else{
+            super.prepare(for: segue, sender: sender)
+        }
     }
     
-    @IBAction func startWorkoutClicked(_ sender: Any) {
-        getFlowCoordinator().showWorkout(vc: self, plan: plan!)
-    }
     @IBAction func reloadClicked(_ sender: Any) {
         getVM().loadWeeklyChallange()
     }

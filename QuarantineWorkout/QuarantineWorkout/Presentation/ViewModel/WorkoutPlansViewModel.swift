@@ -9,5 +9,8 @@
 import Foundation
 
 class WorkoutPlansViewModel : TabRootViewModel{
-    
+    let legsPlan = WorkoutPlan(difficulty: "medium", totalTime: "10 min", calories: 198, workouts: [
+            Workout(name: "Squat", type: .reps, duration: nil, reps: 30)
+        ]
+        , bodyParts: "Legs, amrs")
 }
