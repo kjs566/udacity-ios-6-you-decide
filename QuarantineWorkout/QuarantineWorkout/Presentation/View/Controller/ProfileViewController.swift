@@ -21,6 +21,7 @@ class ProfileViewController: TabRootViewController<ProfileViewModel, ProfileFlow
     }
     
     override func viewDidLoad() {
+        super.viewDidLoad()
         observeProperty(getVM().finishedPlans) { (finishedPlans) in
             self.plansView.text = String(finishedPlans ?? 0)
         }
