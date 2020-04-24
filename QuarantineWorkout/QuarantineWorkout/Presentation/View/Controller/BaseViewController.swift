@@ -9,39 +9,6 @@
 import Foundation
 import UIKit
 
-open class BaseTabController<VM: BaseViewModel, FC: BaseFlowCoordinator> : UITabBarController, BaseController{
-    var loadingView: UIView? = nil
-    var loadingTextView: UITextView? = nil
-    
-    var propertyObserver: PropertyObserver = PropertyObserver()
-    
-    var flowCoordinator: Any! = nil
-    var viewModel: Any! = nil
-    
-    func getVM() -> VM{
-        return viewModel as! VM
-    }
-    
-    func getFlowCoordinator() -> FC{
-        return flowCoordinator as! FC
-    }
-    
-    open override func viewDidLoad() {
-        if viewModel != nil && flowCoordinator != nil{
-            print(String(describing: self) + " Set up successfull!")
-        }
-    }
-    
-    open override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        super.prepare(for: segue, sender: sender)
-        (flowCoordinator as! BaseFlowCoordinator).prepareSegue(sourceController: self, segue: segue, sender: sender)
-    }
-    
-    deinit {
-        propertyObserver.dispose()
-    }
-}
-
 open class BaseViewController<VM: BaseViewModel, FC: BaseFlowCoordinator>: UIViewController, BaseController{
     var loadingView: UIView? = nil
     var loadingTextView: UITextView? = nil

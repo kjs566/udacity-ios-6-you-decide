@@ -781,10 +781,10 @@
             </objects>
             <point key="canvasLocation" x="1662" y="1012"/>
         </scene>
-        <!--Main Tab View Controller-->
+        <!--Tab Bar Controller-->
         <scene sceneID="GgL-Y1-bjA">
             <objects>
-                <tabBarController id="fjg-35-Apg" customClass="MainTabViewController" customModule="QuarantineWorkout" customModuleProvider="target" sceneMemberID="viewController">
+                <tabBarController id="fjg-35-Apg" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="sqb-bS-liJ"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="gVD-Pl-s24">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
