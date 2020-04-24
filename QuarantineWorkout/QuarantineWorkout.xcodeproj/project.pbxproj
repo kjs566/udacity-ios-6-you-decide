@@ -26,6 +26,10 @@
 		56762CE0244A3D1100D7D191 /* WeeklyChallangeResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56762CDF244A3D1100D7D191 /* WeeklyChallangeResponse.swift */; };
 		56762CE2244A3E7F00D7D191 /* ApiRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56762CE1244A3E7F00D7D191 /* ApiRepository.swift */; };
 		56762CE5244A3FB800D7D191 /* GetWeeklyChallangeUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56762CE4244A3FB800D7D191 /* GetWeeklyChallangeUseCase.swift */; };
+		56824E9E2452A418003AB0E9 /* WorkoutPlansViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56824E9D2452A418003AB0E9 /* WorkoutPlansViewController.swift */; };
+		56824EA02452A47D003AB0E9 /* WorkoutPlansViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56824E9F2452A47D003AB0E9 /* WorkoutPlansViewModel.swift */; };
+		56824EA22452A4AD003AB0E9 /* WorkoutDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56824EA12452A4AD003AB0E9 /* WorkoutDetailViewModel.swift */; };
+		56824EA42452A4CA003AB0E9 /* WorkoutDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56824EA32452A4CA003AB0E9 /* WorkoutDetailViewController.swift */; };
 		5693EA1B243B89EE006BB1C7 /* ObservableProperty.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5693EA1A243B89EE006BB1C7 /* ObservableProperty.swift */; };
 		5693EA1F243B9A93006BB1C7 /* AsyncResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5693EA1E243B9A93006BB1C7 /* AsyncResult.swift */; };
 		5693EA2A243C7BAF006BB1C7 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5693EA29243C7BAF006BB1C7 /* BaseViewController.swift */; };
@@ -101,6 +105,10 @@
 		56762CDF244A3D1100D7D191 /* WeeklyChallangeResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeeklyChallangeResponse.swift; sourceTree = "<group>"; };
 		56762CE1244A3E7F00D7D191 /* ApiRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiRepository.swift; sourceTree = "<group>"; };
 		56762CE4244A3FB800D7D191 /* GetWeeklyChallangeUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetWeeklyChallangeUseCase.swift; sourceTree = "<group>"; };
+		56824E9D2452A418003AB0E9 /* WorkoutPlansViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutPlansViewController.swift; sourceTree = "<group>"; };
+		56824E9F2452A47D003AB0E9 /* WorkoutPlansViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutPlansViewModel.swift; sourceTree = "<group>"; };
+		56824EA12452A4AD003AB0E9 /* WorkoutDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutDetailViewModel.swift; sourceTree = "<group>"; };
+		56824EA32452A4CA003AB0E9 /* WorkoutDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutDetailViewController.swift; sourceTree = "<group>"; };
 		5693EA1A243B89EE006BB1C7 /* ObservableProperty.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObservableProperty.swift; sourceTree = "<group>"; };
 		5693EA1E243B9A93006BB1C7 /* AsyncResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsyncResult.swift; sourceTree = "<group>"; };
 		5693EA29243C7BAF006BB1C7 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
@@ -377,6 +385,8 @@
 				56E77C822449B8790036C6CA /* ProfileViewModel.swift */,
 				56D108072449F2C200256973 /* WorkoutResultViewModel.swift */,
 				56D1080D244A2B5E00256973 /* TabRootViewModel.swift */,
+				56824E9F2452A47D003AB0E9 /* WorkoutPlansViewModel.swift */,
+				56824EA12452A4AD003AB0E9 /* WorkoutDetailViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -440,6 +450,8 @@
 				56E77C6C24499BBB0036C6CA /* MainTabViewController.swift */,
 				56E77C842449B8900036C6CA /* ProfileViewController.swift */,
 				56D1080B244A295F00256973 /* TabRootViewController.swift */,
+				56824E9D2452A418003AB0E9 /* WorkoutPlansViewController.swift */,
+				56824EA32452A4CA003AB0E9 /* WorkoutDetailViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -600,12 +612,15 @@
 				569A4D992448811500531473 /* UseCase.swift in Sources */,
 				56DD8A8E24463C29000728BC /* BaseViewModel.swift in Sources */,
 				5653570D20542E8700857C9B /* AppDelegate.swift in Sources */,
+				56824E9E2452A418003AB0E9 /* WorkoutPlansViewController.swift in Sources */,
 				56DBD83524378859008819D0 /* InputValidator.swift in Sources */,
 				56762CE2244A3E7F00D7D191 /* ApiRepository.swift in Sources */,
 				56E77C872449B8B10036C6CA /* ProfileFlowCoordinator.swift in Sources */,
 				56D1080A244A05AE00256973 /* SignUpUseCase.swift in Sources */,
+				56824EA42452A4CA003AB0E9 /* WorkoutDetailViewController.swift in Sources */,
 				5634BFD324408BC900FEF19B /* ApiClient.swift in Sources */,
 				56BDFE93243262AA0013A9EB /* BaseApi.swift in Sources */,
+				56824EA02452A47D003AB0E9 /* WorkoutPlansViewModel.swift in Sources */,
 				56DBD83E24379521008819D0 /* ValidationRules.swift in Sources */,
 				56762CE5244A3FB800D7D191 /* GetWeeklyChallangeUseCase.swift in Sources */,
 				56DD8A9224463C52000728BC /* BaseRepository.swift in Sources */,
@@ -621,6 +636,7 @@
 				56E77C6B244997810036C6CA /* WeeklyChallangeViewModel.swift in Sources */,
 				5693EA2C243CDEED006BB1C7 /* GeocodeLocationProperty.swift in Sources */,
 				561A7E3D245180BE007971CA /* Event.swift in Sources */,
+				56824EA22452A4AD003AB0E9 /* WorkoutDetailViewModel.swift in Sources */,
 				564B4EDA244B30AA00ABD59B /* Workout.swift in Sources */,
 				56DD8A8B244639C9000728BC /* BgUseCase.swift in Sources */,
 				56D108082449F2C200256973 /* WorkoutResultViewModel.swift in Sources */,
