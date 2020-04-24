@@ -34,16 +34,13 @@ class LoginViewController : BaseViewController<LoginViewModel, InitialFlowCoordi
             switch property {
                 case .loading:
                     self.showLoading()
-                    self.disableInput()
                 case .error(let error):
                     self.handleError(error)
                     self.hideLoading()
-                    self.enableInput()
                 case .success:
                     self.hideLoading()
                     self.clearInput()
                     self.getFlowCoordinator().showMain(source: self)
-                    self.enableInput()
             }
         }
         
@@ -58,7 +55,6 @@ class LoginViewController : BaseViewController<LoginViewModel, InitialFlowCoordi
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        enableInput()
         hideLoading()
         
         userNameView.text = "test@test.test" // TODO remove
@@ -95,7 +91,7 @@ class LoginViewController : BaseViewController<LoginViewModel, InitialFlowCoordi
     
     func updateLoginButtonEnabled(valid: Bool){
         if valid {
-            loginButton.backgroundColor = UIColor(named: "UdacityColor")
+            loginButton.backgroundColor = UIColor(named: "AccentColor")
             loginButton.isEnabled = true
         }else{
             loginButton.backgroundColor = .lightGray
@@ -109,14 +105,14 @@ class LoginViewController : BaseViewController<LoginViewModel, InitialFlowCoordi
         getVM().login(username: username, password: password)
     }
     
-    func enableInput(){
+    override func enableAfterLoading(){
         loginButton.isEnabled = true
         passwordView.isEnabled = true
         userNameView.isEnabled = true
         aboutButton.isEnabled = true
     }
     
-    func disableInput(){
+    override func disableWhileLoading(){
         loginButton.isEnabled = false
         passwordView.isEnabled = false
         userNameView.isEnabled = false
@@ -130,12 +126,8 @@ class LoginViewController : BaseViewController<LoginViewModel, InitialFlowCoordi
         // TODO UNCOMMENT
     }
     
-    func showLoading(){
-        activityIndicator.isHidden = false
-    }
-    
-    func hideLoading(){
-        activityIndicator.isHidden = true
+    override func getLoadingView() -> UIView? {
+        activityIndicator
     }
 }
 

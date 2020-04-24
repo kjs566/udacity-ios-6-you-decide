@@ -8,27 +8,9 @@
 
 import Foundation
 
-class TabRootViewController<VM: TabRootViewModel, FC: BaseFlowCoordinator>: BaseViewController<VM, FC>{
-    override func viewDidLoad(){
-        observeProperty(getVM().logoutState) { (value) in
-            value?.handle(success: { (_) in
-                self.hideLoading()
-                self.tabBarController?.dismiss(animated: true, completion: nil)
-            }, error: { (error) in
-                self.hideLoading()
-                self.handleError(error)
-            }, loading: {
-                self.showLoading(message: "Logging out...")
-            })
-        }
-    }
-    
+class TabRootViewController<VM: TabRootViewModel, FC: BaseFlowCoordinator>: BaseViewController<VM, FC>{    
     override func viewWillAppear(_ animated: Bool) {
         navigationController?.navigationBar.isHidden = false
         tabBarController?.tabBar.isHidden = false
-    }
-    
-    func logout(){
-        getVM().logout()
     }
 }

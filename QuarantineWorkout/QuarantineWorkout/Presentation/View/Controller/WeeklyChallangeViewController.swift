@@ -25,7 +25,7 @@ class WeeklyChallangeViewController : TabRootViewController<WeeklyChallangeViewM
                 self.hideLoading()
                 self.handleError(error)
             }, loading: {
-                self.showLoading(message: "Loading weekly challange...")
+                self.showLoading()
             })
         }
     }
@@ -40,8 +40,5 @@ class WeeklyChallangeViewController : TabRootViewController<WeeklyChallangeViewM
     
     @IBAction func reloadClicked(_ sender: Any) {
         getVM().loadWeeklyChallange()
-    }
-    @IBAction func logoutClicked(_ sender: Any) {
-        logout()
     }
 }

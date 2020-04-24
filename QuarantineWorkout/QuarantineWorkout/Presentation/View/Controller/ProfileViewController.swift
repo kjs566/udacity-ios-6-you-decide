@@ -13,8 +13,6 @@ class ProfileViewController: TabRootViewController<ProfileViewModel, ProfileFlow
     @IBOutlet weak var caloriesView: UILabel!
     @IBOutlet weak var plansView: UILabel!
     
-    @IBAction func reloadClicked(_ sender: Any) {
-    }
     
     @IBAction func logoutClicked(_ sender: Any) {
         logout()
@@ -22,6 +20,19 @@ class ProfileViewController: TabRootViewController<ProfileViewModel, ProfileFlow
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        observeProperty(getVM().logoutState) { (value) in
+            value?.handle(success: { (_) in
+                self.hideLoading()
+                self.tabBarController?.dismiss(animated: true, completion: nil)
+            }, error: { (error) in
+                self.hideLoading()
+                self.handleError(error)
+            }, loading: {
+                self.showLoading()
+            })
+        }
+        
         observeProperty(getVM().finishedPlans) { (finishedPlans) in
             self.plansView.text = String(finishedPlans ?? 0)
         }
@@ -33,5 +44,9 @@ class ProfileViewController: TabRootViewController<ProfileViewModel, ProfileFlow
         observeProperty(getVM().state) { (state) in
             
         }
+    }
+    
+    func logout(){
+        getVM().logout()
     }
 }

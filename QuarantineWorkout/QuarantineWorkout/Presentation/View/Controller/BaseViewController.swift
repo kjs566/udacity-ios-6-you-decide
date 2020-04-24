@@ -78,6 +78,32 @@ open class BaseViewController<VM: BaseViewModel, FC: BaseFlowCoordinator>: UIVie
         (flowCoordinator as! BaseFlowCoordinator).prepareSegue(sourceController: self, segue: segue, sender: sender)
     }
     
+    open func disableWhileLoading(){}
+    
+    open func enableAfterLoading(){}
+    
+    open func getLoadingView() -> UIView?{
+        return nil
+    }
+    
+    func showLoading(){
+        disableWhileLoading()
+        guard let view = getLoadingView() else {
+            print("Warning!! Show loading called for VC without implemented getLoadingView!")
+            return
+        }
+        view.isHidden = false
+    }
+    
+    func hideLoading(){
+        enableAfterLoading()
+        guard let view = getLoadingView() else {
+            print("Warning!! Hide loading called for VC without implemented getLoadingView!")
+            return
+        }
+        view.isHidden = true
+    }
+    
     deinit {
         propertyObserver.dispose()
     }
@@ -118,45 +144,6 @@ extension BaseController{
             alertController.dismiss(animated: true, completion: nil)
         }
     }
-    
-    func showLoading(message: String? = "Loading..."){
-        guard let w = UIApplication.shared.delegate?.window, let window = w else { return }
-        if loadingView == nil{
-            loadingView = UIView(frame: window.frame)
-            guard let loadingView = loadingView else { return }
-            
-            loadingView.backgroundColor = .white
-            
-            let loadingIndicator = UIActivityIndicatorView(frame: CGRect(x: 10, y: 5, width: 60, height: 60))
-            loadingIndicator.hidesWhenStopped = true
-            loadingIndicator.style = UIActivityIndicatorView.Style.gray
-            loadingIndicator.startAnimating()
-            
-            let constraints = [
-                loadingIndicator.centerXAnchor.constraint(equalTo: loadingView.centerXAnchor),
-                loadingIndicator.centerYAnchor.constraint(equalTo: loadingView.centerYAnchor)
-            ]
-            
-            loadingTextView = UITextView()
-            guard let loadingTextView = loadingTextView else { return }
-            
-            window.addSubview(loadingView)
-            loadingView.addSubview(loadingIndicator)
-            loadingView.addSubview(loadingTextView)
-            
-            loadingView.addConstraints(constraints)
-            NSLayoutConstraint.activate(constraints)
-            loadingView.updateConstraints()
-        }
-        
-        loadingTextView?.text = message
-    }
-    
-    func hideLoading(completion: (()->Void)? = nil){
-        loadingView?.removeFromSuperview()
-        loadingView = nil
-    }
-    
     
     func observeProperty<T>(_ property: ObservableProperty<T>, _ callback: @escaping ObservableProperty<T>.ChangeCallback){
         propertyObserver.observeProperty(property, callback)

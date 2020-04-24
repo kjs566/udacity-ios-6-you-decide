@@ -28,6 +28,7 @@ class SignUpViewController: BaseViewController<SignUpViewModel, InitialFlowCoord
         super.viewDidLoad()
         
         setupViews()
+        self.hideLoading()
         
         observeProperty(getVM().signUpState){ (property) in
             guard let property = property else { return }
@@ -35,15 +36,12 @@ class SignUpViewController: BaseViewController<SignUpViewModel, InitialFlowCoord
             switch property {
                 case .loading:
                     self.showLoading()
-                    self.disableInput()
                 case .error(let error):
-                    self.handleError(error)
                     self.hideLoading()
-                    self.enableInput()
+                    self.handleError(error)
                 case .success:
                     self.hideLoading()
                     self.dismiss(animated: true, completion: nil)
-                    self.enableInput()
             }
         }
         
@@ -65,10 +63,15 @@ class SignUpViewController: BaseViewController<SignUpViewModel, InitialFlowCoord
         userNameValidator.stopValidating()
         passwordValidator.stopValidating()
     }
+    
     @IBAction func signUpClicked(_ sender: Any) {
         guard userNameValidator.isValid() && passwordValidator.isValid() && confirmPasswordValidator.isValid(),
             let userName = userNameView.text, let password = passwordView.text else { return }
         getVM().signUp(username: userName, password: password)
+    }
+    
+    override func getLoadingView() -> UIView?{
+        return activityIndicator
     }
     
     func setupViews(){
@@ -82,7 +85,7 @@ class SignUpViewController: BaseViewController<SignUpViewModel, InitialFlowCoord
     
     func updateLoginButtonEnabled(valid: Bool){
         if valid {
-            loginButton.backgroundColor = UIColor(named: "UdacityColor")
+            loginButton.backgroundColor = UIColor(named: "AccentColor")
             loginButton.isEnabled = true
         }else{
             loginButton.backgroundColor = .lightGray
@@ -90,28 +93,19 @@ class SignUpViewController: BaseViewController<SignUpViewModel, InitialFlowCoord
         }
     }
     
-    func enableInput(){
+    override func enableAfterLoading(){
         loginButton.isEnabled = true
         passwordView.isEnabled = true
         userNameView.isEnabled = true
         confirmPasswordView.isEnabled = true
     }
     
-    func disableInput(){
+    override func disableWhileLoading(){
         loginButton.isEnabled = false
         passwordView.isEnabled = false
         userNameView.isEnabled = false
         confirmPasswordView.isEnabled = false
     }
-
-    func showLoading(){
-        activityIndicator.isHidden = false
-    }
-    
-    func hideLoading(){
-        activityIndicator.isHidden = true
-    }
-
 }
 
 extension SignUpViewController: UITextFieldDelegate{
