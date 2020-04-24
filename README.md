@@ -17,14 +17,14 @@ It uses Core Data for storage management, Firebase Auth for authentification and
 * Workout - Tracking exercises one by one from the challange, warm-up -> exercise <-> rest -> cool-down, storing progress to Core Data
 * Workout Results - Results of the previous workout
 * My Results - User stats - agregated results from Core Data
+* Workout Plans - List of predefined and user's workout plans
+* Plan Detail - Shows exercises list of the plan
 
 # Planned features (NOT IMPLEMENTED)
 
 Not currently implemented - classes moved to another branch (feature/planned-features).
 
-* Workout Plans - List of predefined and user's workout plans
 * Create Plan - Allows user to create it's own workout plan from scratch or from other plan and weekly challange
-* Plan Detail - Shows exercises list of the plan
 * Calendar - Tracks user's exercises in time
 * Online sync - Sync workouts from Firebase Realtime Database, save user's stats
 
