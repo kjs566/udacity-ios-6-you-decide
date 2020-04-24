@@ -21,7 +21,7 @@ class ProfileViewModel: TabRootViewModel{
     override init(logoutUC: LogoutUseCase) {
         super.init(logoutUC: logoutUC)
         
-        let property = CoreDataCollectionProperty<FinishedPlan>(entityName: "FinishedPlan", withId: "FinishedPlans")
+        let property = CoreDataCollectionProperty<FinishedPlan>(entityName: "FinishedPlan", withId: "FinishedPlans") // Would be nice to move this to repository...
         propertyObserver.observeProperty(property) { (result: CoreDataResult<FinishedPlan>?) in
             result?.handle(success: { (plans: Array<FinishedPlan>?) in
                 DispatchQueue.global(qos: .background).async { // Would be much better to do sum at SQL level, but this is only MVP :D

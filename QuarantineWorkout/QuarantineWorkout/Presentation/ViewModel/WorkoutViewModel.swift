@@ -186,7 +186,7 @@ class WorkoutViewModel: BaseViewModel{
             let planCalories = caloriesPerWorkout * self.finishedWorkouts.count
             
             guard let finishPlanId = self.finishPlanId else { return }
-            DataController.shared.updateBackground(id: finishPlanId, updater: { (finishedPlan: FinishedPlan) in
+            DataController.shared.updateBackground(id: finishPlanId, updater: { (finishedPlan: FinishedPlan) in // Would be nice to move this to repository...
                 var finishedWorkouts = self.finishedWorkouts.enumerated().map { (index, workout) -> FinishedWorkout in
                     let finished = FinishedWorkout(context: DataController.shared.backgroundContext)
                     finished.name = workout.name
