@@ -183,8 +183,8 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You did it! Great Job!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ech-6b-uo1">
-                                <rect key="frame" x="53.5" y="64" width="268" height="36"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <rect key="frame" x="50" y="64" width="275.5" height="36"/>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="30"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -416,6 +416,9 @@
                                                 <state key="normal" title="Full body">
                                                     <color key="titleColor" name="AccentColor"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="fullBodyClicked:" destination="UfH-0G-Nuy" eventType="touchUpInside" id="G7g-xh-WSt"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                     </stackView>
@@ -429,6 +432,9 @@
                                                 <state key="normal" title="Abs, back">
                                                     <color key="titleColor" name="AccentColor"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="absBackClicked:" destination="UfH-0G-Nuy" eventType="touchUpInside" id="YWQ-cL-4hP"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MEg-xx-Qub">
                                                 <rect key="frame" x="0.0" y="188.5" width="177.5" height="188"/>
@@ -437,6 +443,9 @@
                                                 <state key="normal" title="Fat burning">
                                                     <color key="titleColor" name="AccentColor"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="fatBurningClicked:" destination="UfH-0G-Nuy" eventType="touchUpInside" id="qIj-W6-70b"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                     </stackView>

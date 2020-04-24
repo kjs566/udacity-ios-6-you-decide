@@ -14,4 +14,15 @@ class WorkoutPlansViewController: TabRootViewController<WorkoutPlansViewModel, W
     @IBAction func legsArmsClicked(_ sender: Any) {
         getFlowCoordinator().showPlanDetail(vc: self, plan: getVM().legsPlan)
     }
+    
+    @IBAction func absBackClicked(_ sender: Any) {
+        getFlowCoordinator().showPlanDetail(vc: self, plan: getVM().absPlan)
+    }
+    
+    @IBAction func fullBodyClicked(_ sender: Any) {
+        getFlowCoordinator().showPlanDetail(vc: self, plan: getVM().allPlan)
+    }
+    @IBAction func fatBurningClicked(_ sender: Any) {
+        getFlowCoordinator().showPlanDetail(vc: self, plan: getVM().fatPlan)
+    }
 }
