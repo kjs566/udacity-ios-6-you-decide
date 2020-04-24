@@ -35,6 +35,10 @@ class AuthRepository: BaseRepository{
         }
     }
     
+    func getUserEmail() -> String?{
+        return Auth.auth().currentUser?.email
+    }
+    
     
     struct LoginRepoResult{}
     struct SignUpRepoResult{}

@@ -15,6 +15,8 @@ class ProfileViewController: TabRootViewController<ProfileViewModel, ProfileFlow
     @IBOutlet weak var timeView: UILabel!
     @IBOutlet weak var repsView: UILabel!
     @IBOutlet weak var setsView: UILabel!
+    @IBOutlet weak var loginsCountView: UILabel!
+    
     
     @IBOutlet weak var viewLoading: UIView!
     
@@ -55,6 +57,10 @@ class ProfileViewController: TabRootViewController<ProfileViewModel, ProfileFlow
         
         observeProperty(getVM().totalTime) { totalTime in
             self.timeView.text = totalTime?.asDurationString() ?? "0 s"
+        }
+        
+        observeProperty(getVM().loginsCount) { loginsCount in
+            self.loginsCountView.text = String(loginsCount ?? 0) + " times"
         }
         
         observeProperty(getVM().state) { (state) in

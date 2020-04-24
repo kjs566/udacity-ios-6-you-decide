@@ -10,6 +10,8 @@ import Foundation
 
 class ProfileViewModel: TabRootViewModel{
     private let propertyObserver = PropertyObserver()
+    
+    let userEmail = ObservableProperty<String>()
 
     let state = ObservableProperty<AsyncResult<Void>>()
     let finishedPlans = ObservableProperty<Int>()
@@ -17,9 +19,13 @@ class ProfileViewModel: TabRootViewModel{
     let totalTime = ObservableProperty<Int>()
     let totalReps = ObservableProperty<Int>()
     let totalSets = ObservableProperty<Int>()
+    let loginsCount = ObservableProperty<Int>()
     
-    override init(logoutUC: LogoutUseCase) {
+    init(logoutUC: LogoutUseCase, getEmailUC: GetUserEmailUseCase) {
         super.init(logoutUC: logoutUC)
+        
+        loginsCount.setValue(UserDefaults.standard.integer(forKey: "loginsCount"))
+        userEmail.setValue(getEmailUC.execute(input: None.NONE))
         
         let property = CoreDataCollectionProperty<FinishedPlan>(entityName: "FinishedPlan", withId: "FinishedPlans") // Would be nice to move this to repository...
         propertyObserver.observeProperty(property) { (result: CoreDataResult<FinishedPlan>?) in

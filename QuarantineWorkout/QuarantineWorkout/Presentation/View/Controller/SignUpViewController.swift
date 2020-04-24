@@ -28,7 +28,7 @@ class SignUpViewController: BaseViewController<SignUpViewModel, InitialFlowCoord
         super.viewDidLoad()
         
         setupViews()
-        self.hideLoading()
+        hideLoading()
         
         observeProperty(getVM().signUpState){ (property) in
             guard let property = property else { return }
@@ -49,9 +49,10 @@ class SignUpViewController: BaseViewController<SignUpViewModel, InitialFlowCoord
             self.updateLoginButtonEnabled(valid: validUser ?? false && validPassword ?? false)
         }
         
-        keyboardHeightHandler.startHandling(controller: self, textFields: [userNameView, passwordView])
+        keyboardHeightHandler.startHandling(controller: self, textFields: [userNameView, passwordView, confirmPasswordView])
         userNameValidator.startValidating(textField: userNameView)
         passwordValidator.startValidating(textField: passwordView)
+        confirmPasswordValidator.startValidating(textField: confirmPasswordView, validationRules: [InputValidator.notEmptyRule, SameAsOtherValidationRule(other: passwordView)])
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -62,6 +63,7 @@ class SignUpViewController: BaseViewController<SignUpViewModel, InitialFlowCoord
     deinit {
         userNameValidator.stopValidating()
         passwordValidator.stopValidating()
+        confirmPasswordValidator.stopValidating()
     }
     
     @IBAction func signUpClicked(_ sender: Any) {

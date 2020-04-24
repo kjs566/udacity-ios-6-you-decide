@@ -54,7 +54,7 @@ class InitialFlowCoordinator: BaseFlowCoordinator{
                     }))
                 } else if let profileVC = topVC as? ProfileViewController{
                     self.prepareDestination(targetController: profileVC, data: FlowPrepareData(vmFactory: { _ in
-                        return ProfileViewModel(logoutUC: LogoutUseCase(authRepo: self.authRepository))
+                        return ProfileViewModel(logoutUC: LogoutUseCase(authRepo: self.authRepository), getEmailUC: GetUserEmailUseCase(authRepository: self.authRepository))
                     }, flowCoordinatorFactory: { (_) -> Any? in
                         return ProfileFlowCoordinator()
                     }))
@@ -66,7 +66,9 @@ class InitialFlowCoordinator: BaseFlowCoordinator{
     func showSignUp<VM : BaseViewModel, FC: BaseFlowCoordinator, VC: BaseViewController<VM, FC>>(source: VC){
         performSegue(source: source, segueIdentifier: "showSignUpSegue", flowAction: FlowPrepareData(vmFactory: { (_) in
             return SignUpViewModel(signUpUseCase: SignUpUseCase(authRepo: self.authRepository))
-        }, data: None.NONE))
+        }, data: None.NONE, setupVC: { (_, _, vc) in
+            //vc.modalPresentationStyle = .overFullScreen
+        }))
     }
     
     private func createLoginController() -> LoginViewController{

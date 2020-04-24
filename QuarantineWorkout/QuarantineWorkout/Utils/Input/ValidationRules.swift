@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 protocol ValidationRule{
     func isValid(text: String?) -> Bool
@@ -15,5 +16,17 @@ protocol ValidationRule{
 class NotEmptyValidationRule : ValidationRule{
     func isValid(text: String?) -> Bool {
         return text != nil && !text!.isEmpty
+    }
+}
+
+class SameAsOtherValidationRule : ValidationRule{
+    weak var other: UITextField?
+    
+    init(other: UITextField) {
+        self.other = other
+    }
+    
+    func isValid(text: String?) -> Bool {
+        return text == other?.text
     }
 }

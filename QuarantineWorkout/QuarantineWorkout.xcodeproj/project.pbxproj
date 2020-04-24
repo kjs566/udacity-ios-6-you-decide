@@ -34,6 +34,7 @@
 		56824EA92452D412003AB0E9 /* FinishedPlan+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56824EA82452D412003AB0E9 /* FinishedPlan+Extension.swift */; };
 		56824EAC2452E302003AB0E9 /* Int+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56824EAB2452E302003AB0E9 /* Int+Extension.swift */; };
 		56824EAE2452FDCF003AB0E9 /* ExpectedError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56824EAD2452FDCE003AB0E9 /* ExpectedError.swift */; };
+		56824EB02453029C003AB0E9 /* GetUserEmailUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56824EAF2453029C003AB0E9 /* GetUserEmailUseCase.swift */; };
 		5693EA1B243B89EE006BB1C7 /* ObservableProperty.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5693EA1A243B89EE006BB1C7 /* ObservableProperty.swift */; };
 		5693EA1F243B9A93006BB1C7 /* AsyncResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5693EA1E243B9A93006BB1C7 /* AsyncResult.swift */; };
 		5693EA2A243C7BAF006BB1C7 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5693EA29243C7BAF006BB1C7 /* BaseViewController.swift */; };
@@ -113,6 +114,7 @@
 		56824EA82452D412003AB0E9 /* FinishedPlan+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FinishedPlan+Extension.swift"; sourceTree = "<group>"; };
 		56824EAB2452E302003AB0E9 /* Int+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Int+Extension.swift"; sourceTree = "<group>"; };
 		56824EAD2452FDCE003AB0E9 /* ExpectedError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpectedError.swift; sourceTree = "<group>"; };
+		56824EAF2453029C003AB0E9 /* GetUserEmailUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetUserEmailUseCase.swift; sourceTree = "<group>"; };
 		5693EA1A243B89EE006BB1C7 /* ObservableProperty.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObservableProperty.swift; sourceTree = "<group>"; };
 		5693EA1E243B9A93006BB1C7 /* AsyncResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsyncResult.swift; sourceTree = "<group>"; };
 		5693EA29243C7BAF006BB1C7 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
@@ -416,6 +418,7 @@
 				56DD8A862446398E000728BC /* LoginUseCase.swift */,
 				56DD8A8824463998000728BC /* LogoutUseCase.swift */,
 				56D10809244A05AE00256973 /* SignUpUseCase.swift */,
+				56824EAF2453029C003AB0E9 /* GetUserEmailUseCase.swift */,
 			);
 			path = UseCase;
 			sourceTree = "<group>";
@@ -642,6 +645,7 @@
 				5697C392244B7E8300CFCC01 /* WorkoutTableCell.swift in Sources */,
 				5634BFDA2440AE8800FEF19B /* CoreDataCollectionProperty.swift in Sources */,
 				56E77C6B244997810036C6CA /* WeeklyChallangeViewModel.swift in Sources */,
+				56824EB02453029C003AB0E9 /* GetUserEmailUseCase.swift in Sources */,
 				561A7E3D245180BE007971CA /* Event.swift in Sources */,
 				56824EA22452A4AD003AB0E9 /* WorkoutDetailViewModel.swift in Sources */,
 				564B4EDA244B30AA00ABD59B /* Workout.swift in Sources */,
