@@ -12,7 +12,9 @@ import UIKit
 class ProfileViewController: TabRootViewController<ProfileViewModel, ProfileFlowCoordinator>{
     @IBOutlet weak var caloriesView: UILabel!
     @IBOutlet weak var plansView: UILabel!
-    
+    @IBOutlet weak var timeView: UILabel!
+    @IBOutlet weak var repsView: UILabel!
+    @IBOutlet weak var setsView: UILabel!
     
     @IBAction func logoutClicked(_ sender: Any) {
         logout()
@@ -33,16 +35,36 @@ class ProfileViewController: TabRootViewController<ProfileViewModel, ProfileFlow
             })
         }
         
-        observeProperty(getVM().finishedPlans) { (finishedPlans) in
+        observeProperty(getVM().finishedPlans) { finishedPlans in
             self.plansView.text = String(finishedPlans ?? 0)
         }
         
-        observeProperty(getVM().totalCalories) { (totalCalories) in
+        observeProperty(getVM().totalCalories) { totalCalories in
             self.caloriesView.text = String(totalCalories ?? 0) + " kcal"
         }
         
+        observeProperty(getVM().totalSets) { totalSets in
+            self.setsView.text = String(totalSets ?? 0) + " sets"
+        }
+        
+        observeProperty(getVM().totalReps) { totalReps in
+            self.repsView.text = String(totalReps ?? 0) + " reps"
+        }
+        
+        observeProperty(getVM().totalTime) { totalTime in
+            self.timeView.text = totalTime?.asDurationString() ?? "0 s"
+        }
+        
         observeProperty(getVM().state) { (state) in
-            
+            state?.handle(success: { (_) in
+                self.hideLoading()
+            }, error: { (error) in
+                self.hideLoading()
+                self.showError()
+            }, loading: {
+                self.hideLoading()
+                self.showLoading()
+            })
         }
     }
     

@@ -14,6 +14,9 @@ class ProfileViewModel: TabRootViewModel{
     let state = ObservableProperty<AsyncResult<Void>>()
     let finishedPlans = ObservableProperty<Int>()
     let totalCalories = ObservableProperty<Int>()
+    let totalTime = ObservableProperty<Int>()
+    let totalReps = ObservableProperty<Int>()
+    let totalSets = ObservableProperty<Int>()
     
     override init(logoutUC: LogoutUseCase) {
         super.init(logoutUC: logoutUC)
@@ -25,14 +28,23 @@ class ProfileViewModel: TabRootViewModel{
                     self.finishedPlans.setValue(plans?.count ?? 0)
                     
                     var calories = 0
+                    var totalTime = 0
+                    var totalReps = 0
+                    var totalSets = 0
                     
                     if plans != nil{
                         for plan in plans!{
                             calories = calories + Int(plan.calories)
+                            totalTime = totalTime + Int(plan.duration)
+                            totalReps = totalReps + Int(plan.totalReps)
+                            totalSets = totalSets + Int(plan.workoutsCount)
                         }
                     }
                     
                     self.totalCalories.setValue(calories)
+                    self.totalReps.setValue(totalReps)
+                    self.totalSets.setValue(totalSets)
+                    self.totalTime.setValue(totalTime)
                     self.state.setValue(.success(nil))
                 }
             }, error: { error in

@@ -10,13 +10,6 @@ import Foundation
 
 extension FinishedPlan{
     func durationAsString() -> String{
-        let duration = Int(self.duration)
-        if duration < 60{
-            return String(duration) + " s"
-        }else if duration < 120 * 60{
-            return String(duration/60) + " m"
-        }else {
-            return String(duration/60/60) + " h"
-        }
+        return Int(self.duration).asDurationString()
     }
 }

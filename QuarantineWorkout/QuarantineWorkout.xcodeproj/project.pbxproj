@@ -32,6 +32,7 @@
 		56824EA42452A4CA003AB0E9 /* WorkoutDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56824EA32452A4CA003AB0E9 /* WorkoutDetailViewController.swift */; };
 		56824EA62452B0E5003AB0E9 /* WorkoutDetailFlowCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56824EA52452B0E5003AB0E9 /* WorkoutDetailFlowCoordinator.swift */; };
 		56824EA92452D412003AB0E9 /* FinishedPlan+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56824EA82452D412003AB0E9 /* FinishedPlan+Extension.swift */; };
+		56824EAC2452E302003AB0E9 /* Int+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56824EAB2452E302003AB0E9 /* Int+Extension.swift */; };
 		5693EA1B243B89EE006BB1C7 /* ObservableProperty.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5693EA1A243B89EE006BB1C7 /* ObservableProperty.swift */; };
 		5693EA1F243B9A93006BB1C7 /* AsyncResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5693EA1E243B9A93006BB1C7 /* AsyncResult.swift */; };
 		5693EA2A243C7BAF006BB1C7 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5693EA29243C7BAF006BB1C7 /* BaseViewController.swift */; };
@@ -113,6 +114,7 @@
 		56824EA32452A4CA003AB0E9 /* WorkoutDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutDetailViewController.swift; sourceTree = "<group>"; };
 		56824EA52452B0E5003AB0E9 /* WorkoutDetailFlowCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutDetailFlowCoordinator.swift; sourceTree = "<group>"; };
 		56824EA82452D412003AB0E9 /* FinishedPlan+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FinishedPlan+Extension.swift"; sourceTree = "<group>"; };
+		56824EAB2452E302003AB0E9 /* Int+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Int+Extension.swift"; sourceTree = "<group>"; };
 		5693EA1A243B89EE006BB1C7 /* ObservableProperty.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObservableProperty.swift; sourceTree = "<group>"; };
 		5693EA1E243B9A93006BB1C7 /* AsyncResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsyncResult.swift; sourceTree = "<group>"; };
 		5693EA29243C7BAF006BB1C7 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
@@ -241,6 +243,7 @@
 		5653570B20542E8700857C9B /* QuarantineWorkout */ = {
 			isa = PBXGroup;
 			children = (
+				56824EAA2452E2F5003AB0E9 /* Extension */,
 				569A4DA32448CF0D00531473 /* GoogleService-Info.plist */,
 				56DD8A83244636CA000728BC /* Infrastructure */,
 				56DD8A7E24463688000728BC /* Data */,
@@ -274,6 +277,14 @@
 				56824EA82452D412003AB0E9 /* FinishedPlan+Extension.swift */,
 			);
 			path = Entity;
+			sourceTree = "<group>";
+		};
+		56824EAA2452E2F5003AB0E9 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				56824EAB2452E302003AB0E9 /* Int+Extension.swift */,
+			);
+			path = Extension;
 			sourceTree = "<group>";
 		};
 		5697C393244B8D4800CFCC01 /* Layout */ = {
@@ -360,7 +371,6 @@
 		56DD8A7D2446365B000728BC /* Domain */ = {
 			isa = PBXGroup;
 			children = (
-				56DD8A82244636C0000728BC /* Entity */,
 				56DD8A81244636B8000728BC /* UseCase */,
 			);
 			path = Domain;
@@ -414,13 +424,6 @@
 				56D10809244A05AE00256973 /* SignUpUseCase.swift */,
 			);
 			path = UseCase;
-			sourceTree = "<group>";
-		};
-		56DD8A82244636C0000728BC /* Entity */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Entity;
 			sourceTree = "<group>";
 		};
 		56DD8A83244636CA000728BC /* Infrastructure */ = {
@@ -633,6 +636,7 @@
 				56E77C872449B8B10036C6CA /* ProfileFlowCoordinator.swift in Sources */,
 				56D1080A244A05AE00256973 /* SignUpUseCase.swift in Sources */,
 				56824EA42452A4CA003AB0E9 /* WorkoutDetailViewController.swift in Sources */,
+				56824EAC2452E302003AB0E9 /* Int+Extension.swift in Sources */,
 				5634BFD324408BC900FEF19B /* ApiClient.swift in Sources */,
 				56BDFE93243262AA0013A9EB /* BaseApi.swift in Sources */,
 				56824EA02452A47D003AB0E9 /* WorkoutPlansViewModel.swift in Sources */,
