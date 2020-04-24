@@ -58,9 +58,6 @@ class LoginViewController : BaseViewController<LoginViewModel, InitialFlowCoordi
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         hideLoading()
-        
-        userNameView.text = "test@test.test" // TODO remove
-        passwordView.text = "testtest"
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -122,10 +119,8 @@ class LoginViewController : BaseViewController<LoginViewModel, InitialFlowCoordi
     }
     
     func clearInput(){
-        //passwordView.text = ""
-        //userNameView.text = ""
-        
-        // TODO UNCOMMENT
+        passwordView.text = ""
+        userNameView.text = ""
     }
     
     override func getLoadingView() -> UIView? {

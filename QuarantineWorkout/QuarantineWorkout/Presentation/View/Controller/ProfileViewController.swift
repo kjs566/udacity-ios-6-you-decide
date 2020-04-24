@@ -16,7 +16,7 @@ class ProfileViewController: TabRootViewController<ProfileViewModel, ProfileFlow
     @IBOutlet weak var repsView: UILabel!
     @IBOutlet weak var setsView: UILabel!
     @IBOutlet weak var loginsCountView: UILabel!
-    
+    @IBOutlet weak var emailView: UILabel!
     
     @IBOutlet weak var viewLoading: UIView!
     
@@ -61,6 +61,10 @@ class ProfileViewController: TabRootViewController<ProfileViewModel, ProfileFlow
         
         observeProperty(getVM().loginsCount) { loginsCount in
             self.loginsCountView.text = String(loginsCount ?? 0) + " times"
+        }
+        
+        observeProperty(getVM().userEmail) { email in
+            self.emailView.text = email
         }
         
         observeProperty(getVM().state) { (state) in
