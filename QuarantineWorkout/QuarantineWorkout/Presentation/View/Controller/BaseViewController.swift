@@ -88,7 +88,9 @@ protocol BaseController : UIViewController{
 
 extension BaseController{
     func handleError(_ error: Error?){
-        if error is ApiError {
+        if error is ExpectedError{
+            showError((error as! ExpectedError).message)
+        } else if error is ApiError {
             switch error as! ApiError{
             case .networkError:
                 showError("Connection error.")

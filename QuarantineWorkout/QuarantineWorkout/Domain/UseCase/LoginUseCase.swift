@@ -7,7 +7,7 @@
 //
 
 import Foundation
-
+import Firebase
 
 class LoginUseCase: BgUseCase{
     typealias Input = LoginInput
@@ -26,6 +26,14 @@ class LoginUseCase: BgUseCase{
     
     func mapResult(_ repositoryResult: AuthRepository.LoginRepoResult?) -> LoginResult? {
         return LoginResult()
+    }
+    
+    func mapError(_ error: Error?) -> Error? {
+        if let description = error?.localizedDescription{
+            return ExpectedError(message: description)
+        }else{
+            return error
+        }
     }
     
     

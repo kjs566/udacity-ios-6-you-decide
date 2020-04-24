@@ -986,22 +986,13 @@
                                     <constraint firstItem="gfy-LL-IkP" firstAttribute="width" secondItem="PtA-FD-tcR" secondAttribute="width" id="vbL-SH-sRI"/>
                                 </constraints>
                             </stackView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" image="Logo" translatesAutoresizingMaskIntoConstraints="NO" id="NfN-K7-omy">
-                                <rect key="frame" x="67.5" y="151.5" width="240" height="84"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="240" id="r45-ju-9sy"/>
-                                </constraints>
-                            </imageView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemGray6Color" red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="6sa-80-JBK" firstAttribute="centerX" secondItem="PCp-3H-PlW" secondAttribute="centerX" id="0Zg-dD-Wjx"/>
-                            <constraint firstItem="NfN-K7-omy" firstAttribute="centerX" secondItem="PCp-3H-PlW" secondAttribute="centerX" id="Fhd-El-7C4"/>
                             <constraint firstItem="sxf-mn-EFu" firstAttribute="width" secondItem="PCp-3H-PlW" secondAttribute="width" id="JVe-74-TDK"/>
                             <constraint firstItem="sxf-mn-EFu" firstAttribute="centerY" secondItem="PCp-3H-PlW" secondAttribute="centerY" id="Vva-pH-OE6"/>
                             <constraint firstItem="6sa-80-JBK" firstAttribute="top" secondItem="PCp-3H-PlW" secondAttribute="top" constant="60" id="adn-VQ-Je2"/>
-                            <constraint firstItem="PtA-FD-tcR" firstAttribute="top" secondItem="NfN-K7-omy" secondAttribute="bottom" constant="15" id="lCe-Gp-Cmh"/>
-                            <constraint firstItem="NfN-K7-omy" firstAttribute="top" secondItem="6sa-80-JBK" secondAttribute="bottom" constant="15" id="ljT-Gi-Vjr"/>
                             <constraint firstItem="sxf-mn-EFu" firstAttribute="centerX" secondItem="PCp-3H-PlW" secondAttribute="centerX" id="maP-aJ-DYt"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="PCp-3H-PlW"/>

@@ -28,6 +28,13 @@ class SignUpUseCase: BgUseCase{
         return SignUpResult()
     }
     
+    func mapError(_ error: Error?) -> Error? {
+        if let description = error?.localizedDescription{
+            return ExpectedError(message: description)
+        }else{
+            return error
+        }
+    }
     
 }
 

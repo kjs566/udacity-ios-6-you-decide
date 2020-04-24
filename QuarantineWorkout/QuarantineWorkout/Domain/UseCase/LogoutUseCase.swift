@@ -26,8 +26,6 @@ class LogoutUseCase: BgUseCase{
     func mapResult(_ repositoryResult: AuthRepository.LogoutRepoResult?) -> LogoutResult? {
         return LogoutResult()
     }
-    
-    
 }
 
 struct LogoutResult{}

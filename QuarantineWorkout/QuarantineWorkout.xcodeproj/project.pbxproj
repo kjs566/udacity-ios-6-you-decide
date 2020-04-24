@@ -33,6 +33,7 @@
 		56824EA62452B0E5003AB0E9 /* WorkoutDetailFlowCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56824EA52452B0E5003AB0E9 /* WorkoutDetailFlowCoordinator.swift */; };
 		56824EA92452D412003AB0E9 /* FinishedPlan+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56824EA82452D412003AB0E9 /* FinishedPlan+Extension.swift */; };
 		56824EAC2452E302003AB0E9 /* Int+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56824EAB2452E302003AB0E9 /* Int+Extension.swift */; };
+		56824EAE2452FDCF003AB0E9 /* ExpectedError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56824EAD2452FDCE003AB0E9 /* ExpectedError.swift */; };
 		5693EA1B243B89EE006BB1C7 /* ObservableProperty.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5693EA1A243B89EE006BB1C7 /* ObservableProperty.swift */; };
 		5693EA1F243B9A93006BB1C7 /* AsyncResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5693EA1E243B9A93006BB1C7 /* AsyncResult.swift */; };
 		5693EA2A243C7BAF006BB1C7 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5693EA29243C7BAF006BB1C7 /* BaseViewController.swift */; };
@@ -111,6 +112,7 @@
 		56824EA52452B0E5003AB0E9 /* WorkoutDetailFlowCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutDetailFlowCoordinator.swift; sourceTree = "<group>"; };
 		56824EA82452D412003AB0E9 /* FinishedPlan+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FinishedPlan+Extension.swift"; sourceTree = "<group>"; };
 		56824EAB2452E302003AB0E9 /* Int+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Int+Extension.swift"; sourceTree = "<group>"; };
+		56824EAD2452FDCE003AB0E9 /* ExpectedError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpectedError.swift; sourceTree = "<group>"; };
 		5693EA1A243B89EE006BB1C7 /* ObservableProperty.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObservableProperty.swift; sourceTree = "<group>"; };
 		5693EA1E243B9A93006BB1C7 /* AsyncResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsyncResult.swift; sourceTree = "<group>"; };
 		5693EA29243C7BAF006BB1C7 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
@@ -377,6 +379,7 @@
 				561A7E3C245180BE007971CA /* Event.swift */,
 				56DD8A8C24463C14000728BC /* Repository */,
 				56E6661F242D6A5B00C3B621 /* Model */,
+				56824EAD2452FDCE003AB0E9 /* ExpectedError.swift */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -605,6 +608,7 @@
 				569A4D9D2448851400531473 /* InitialFlowCoordinator.swift in Sources */,
 				5634BFDE2440B0CC00FEF19B /* CoreDataResult.swift in Sources */,
 				56BDFE91243258F40013A9EB /* ApiRequest.swift in Sources */,
+				56824EAE2452FDCF003AB0E9 /* ExpectedError.swift in Sources */,
 				56CB51DA2445F1BC008B1EAA /* LoginViewController.swift in Sources */,
 				5693EA2A243C7BAF006BB1C7 /* BaseViewController.swift in Sources */,
 				5695A5B62444ACB000EC5434 /* FetchedCollectionViewDataSource.swift in Sources */,
