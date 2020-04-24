@@ -65,7 +65,7 @@ class WorkoutViewModel: BaseViewModel{
 
             let workout = remainingWorkouts.remove(at: 0)
 
-            if let previous = currentWorkout.getValue(){
+            if let previous = currentWorkout.getValue(), previous.type != .rest{
                 if skipCurrent {
                     let finished: Workout
                     if previous.type == .duration {
@@ -73,6 +73,7 @@ class WorkoutViewModel: BaseViewModel{
                     } else {
                         finished = previous.copy(reps: finishedReps.getValue())
                     }
+                    
                     finishedWorkouts.append(finished)
                 } else {
                     finishedWorkouts.append(previous)
@@ -125,8 +126,8 @@ class WorkoutViewModel: BaseViewModel{
     }
     
     func doneAll(){
-        while !remainingWorkouts.isEmpty {
-            finishedWorkouts.append(remainingWorkouts.remove(at: 0))
+        while !remainingNoRest.isEmpty {
+            finishedWorkouts.append(remainingNoRest.remove(at: 0))
         }
         saveResults()
         showResults()
