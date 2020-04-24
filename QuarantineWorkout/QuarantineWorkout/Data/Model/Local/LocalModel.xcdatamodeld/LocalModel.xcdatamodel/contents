@@ -10,6 +10,7 @@
     </entity>
     <entity name="FinishedWorkout" representedClassName="FinishedWorkout" syncable="YES" codeGenerationType="class">
         <attribute name="duration" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="itemIndex" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="name" optional="YES" attributeType="String"/>
         <attribute name="reps" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="type" optional="YES" attributeType="String"/>
@@ -17,6 +18,6 @@
     </entity>
     <elements>
         <element name="FinishedPlan" positionX="-45" positionY="63" width="128" height="133"/>
-        <element name="FinishedWorkout" positionX="-54" positionY="54" width="128" height="118"/>
+        <element name="FinishedWorkout" positionX="-54" positionY="54" width="128" height="133"/>
     </elements>
 </model>

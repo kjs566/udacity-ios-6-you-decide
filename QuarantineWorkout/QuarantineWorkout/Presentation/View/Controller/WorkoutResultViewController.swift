@@ -20,7 +20,9 @@ class WorkoutResultViewController: BaseViewController<WorkoutResultViewModel, Wo
         self.navigationController?.navigationBar.isHidden = true
         observeProperty(getVM().finishedPlan) { (plan: FinishedPlan?) in
             self.caloriesView.text = String(plan?.calories ?? 0) + " kcal"
-            self.workoutCountView.text = String(plan?.workouts?.count ?? 0)
+            self.repsCountView.text = String(plan?.totalReps ?? 0)
+            self.workoutCountView.text = String(plan?.workoutsCount ?? 0)
+            self.durationView.text = plan?.durationAsString() ?? "0 s"
         }
         
         observeProperty(getVM().finishedWorkouts) { (workouts) in

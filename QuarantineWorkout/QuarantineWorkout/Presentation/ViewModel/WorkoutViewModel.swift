@@ -39,6 +39,8 @@ class WorkoutViewModel: BaseViewModel{
     
     var countDownTimer : Timer? = nil
     
+    var finishedWorkoutReps: [Int] = []
+    
     init(plan: WorkoutPlan) {
         self.plan = plan
         self.remainingWorkouts = plan.workouts
@@ -70,23 +72,14 @@ class WorkoutViewModel: BaseViewModel{
 
             let workout = remainingWorkouts.remove(at: 0)
 
-            if let previous = currentWorkout.getValue(), previous.type != .rest{
-                if skipCurrent {
-                    let finished: Workout
-                    if previous.type == .duration {
-                        finished = previous.copy(duration: finishedReps.getValue())
-                    } else {
-                        finished = previous.copy(reps: finishedReps.getValue())
-                    }
-                    
-                    finishedWorkouts.append(finished)
-                } else {
-                    finishedWorkouts.append(previous)
-                }
-            }
+            finishCurrentWorkout()
             remainingNoRest = remainingWorkouts.filter({ (workout) -> Bool in
                 workout.type != .rest
             })
+            
+            if workout.type != .rest{
+                finishedWorkoutReps.append(0)
+            }
                     
             workoutType.setValue(workout.type)
             currentWorkout.setValue(workout)
@@ -100,6 +93,36 @@ class WorkoutViewModel: BaseViewModel{
             saveResults()
             showResults()
         }
+    }
+    
+    func finishCurrentWorkout(skipCurrent: Bool = false){
+        if let previous = currentWorkout.getValue(), previous.type != .rest{
+            if skipCurrent {
+                let finished: Workout
+                if previous.type == .duration {
+                    finished = previous.copy(duration: finishedReps.getValue())
+                } else {
+                    finished = previous.copy(reps: finishedReps.getValue())
+                }
+                
+                finishedWorkouts.append(finished)
+            } else {
+                if previous.type == .reps{
+                    totalReps = totalReps + (remainingReps.getValue() ?? 0)
+                }
+                
+                if previous.type == .reps || previous.type == .duration{
+                    addRepsToWorkout(remainingReps.getValue() ?? 0)
+                }
+                finishedWorkouts.append(previous)
+            }
+        }
+    }
+    
+    func addRepsToWorkout(_ reps: Int){
+        let current = finishedWorkoutReps.last ?? 0
+        let new = current + reps
+        finishedWorkoutReps.append(new)
     }
     
     func setupTimer(workoutType: Workout.WorkoutType){
@@ -117,12 +140,17 @@ class WorkoutViewModel: BaseViewModel{
         if currentWorkout.type == .reps{
             totalReps = totalReps + 1
         }
+        if currentWorkout.type == .reps || currentWorkout.type == .duration{
+            addRepsToWorkout(1)
+        }
         if current > 1{
             remainingReps.setValue(current - 1)
             finishedReps.setValue(finishedReps.getValue()! + 1)
         }else{
             doneWorkout()
         }
+        
+        saveResults() // Might be to much - saving after each one rep/second...
     }
     
     func skipWorkout(){
@@ -135,10 +163,12 @@ class WorkoutViewModel: BaseViewModel{
     }
     
     func doneAll(){
+        finishCurrentWorkout()
         while !remainingNoRest.isEmpty {
             let workout = remainingNoRest.remove(at: 0)
             totalReps = totalReps + (workout.reps ?? 0)
             finishedWorkouts.append(workout)
+            finishedWorkoutReps.append(workout.reps ?? workout.duration!)
         }
         saveResults()
         showResults()
@@ -157,13 +187,25 @@ class WorkoutViewModel: BaseViewModel{
             
             guard let finishPlanId = self.finishPlanId else { return }
             DataController.shared.updateBackground(id: finishPlanId, updater: { (finishedPlan: FinishedPlan) in
-                let finishedWorkouts = self.finishedWorkouts.map { (workout) -> FinishedWorkout in
+                var finishedWorkouts = self.finishedWorkouts.enumerated().map { (index, workout) -> FinishedWorkout in
                     let finished = FinishedWorkout(context: DataController.shared.backgroundContext)
                     finished.name = workout.name
-                    finished.reps = Int32(workout.reps ?? 0)
-                    finished.duration = Int32(workout.duration ?? 0)
+                    finished.reps = Int32(workout.type == .reps ? (self.finishedWorkoutReps[index] ) : 0)
+                    finished.duration = Int32(workout.type == .duration ? (self.finishedWorkoutReps[index] ) : 0)
                     finished.type = workout.type.rawValue
+                    finished.itemIndex = Int64(index)
                     return finished
+                }
+                
+                
+                if let workout = self.currentWorkout.getValue(), let currentReps = self.finishedReps.getValue(){
+                    let finished = FinishedWorkout(context: DataController.shared.backgroundContext)
+                    finished.name = workout.name
+                    finished.reps = Int32(currentReps)
+                    finished.duration = Int32(currentReps)
+                    finished.type = workout.type.rawValue
+                    finished.itemIndex = Int64(finishedWorkouts.count)
+                    finishedWorkouts.append(finished)
                 }
                 
                 finishedPlan.workouts = NSSet(array: finishedWorkouts)
@@ -172,7 +214,7 @@ class WorkoutViewModel: BaseViewModel{
                 finishedPlan.totalReps = Int64(self.totalReps)
                 
                 let timeDiff = NSDate().timeIntervalSince1970 - self.workoutStart
-                finishedPlan.duration = Int64(timeDiff / 1000)
+                finishedPlan.duration = Int64(timeDiff)
             }, errorHandler: { error in
                 self.handleError(error)
             })

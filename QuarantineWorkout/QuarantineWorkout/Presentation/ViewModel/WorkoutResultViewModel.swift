@@ -14,9 +14,17 @@ class WorkoutResultViewModel : BaseViewModel{
     
     init(finishedPlan: FinishedPlan?) {
         self.finishedPlan.setValue(finishedPlan)
-        finishedWorkouts.setValue(finishedPlan?.workouts?.allObjects.map({ (finished) -> Workout in
-            return Workout.fromFinishedWorkout(finishedWorkout: finished as! FinishedWorkout)
-        }))
+        
+        self.finishedWorkouts.setValue(
+            finishedPlan?.workouts?.allObjects
+                .sorted(by: { (f1, f2) -> Bool in
+                    let finished1 = f1 as! FinishedWorkout
+                    let finished2 = f2 as! FinishedWorkout
+                    
+                    return finished1.itemIndex < finished2.itemIndex
+                })
+                .map({ (finished) -> Workout in return Workout.fromFinishedWorkout(finishedWorkout: finished as! FinishedWorkout)})
+        )
     }
     
 }

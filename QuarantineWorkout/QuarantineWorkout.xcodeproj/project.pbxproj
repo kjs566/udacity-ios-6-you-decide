@@ -31,6 +31,7 @@
 		56824EA22452A4AD003AB0E9 /* WorkoutDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56824EA12452A4AD003AB0E9 /* WorkoutDetailViewModel.swift */; };
 		56824EA42452A4CA003AB0E9 /* WorkoutDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56824EA32452A4CA003AB0E9 /* WorkoutDetailViewController.swift */; };
 		56824EA62452B0E5003AB0E9 /* WorkoutDetailFlowCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56824EA52452B0E5003AB0E9 /* WorkoutDetailFlowCoordinator.swift */; };
+		56824EA92452D412003AB0E9 /* FinishedPlan+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56824EA82452D412003AB0E9 /* FinishedPlan+Extension.swift */; };
 		5693EA1B243B89EE006BB1C7 /* ObservableProperty.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5693EA1A243B89EE006BB1C7 /* ObservableProperty.swift */; };
 		5693EA1F243B9A93006BB1C7 /* AsyncResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5693EA1E243B9A93006BB1C7 /* AsyncResult.swift */; };
 		5693EA2A243C7BAF006BB1C7 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5693EA29243C7BAF006BB1C7 /* BaseViewController.swift */; };
@@ -111,6 +112,7 @@
 		56824EA12452A4AD003AB0E9 /* WorkoutDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutDetailViewModel.swift; sourceTree = "<group>"; };
 		56824EA32452A4CA003AB0E9 /* WorkoutDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutDetailViewController.swift; sourceTree = "<group>"; };
 		56824EA52452B0E5003AB0E9 /* WorkoutDetailFlowCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutDetailFlowCoordinator.swift; sourceTree = "<group>"; };
+		56824EA82452D412003AB0E9 /* FinishedPlan+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FinishedPlan+Extension.swift"; sourceTree = "<group>"; };
 		5693EA1A243B89EE006BB1C7 /* ObservableProperty.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObservableProperty.swift; sourceTree = "<group>"; };
 		5693EA1E243B9A93006BB1C7 /* AsyncResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsyncResult.swift; sourceTree = "<group>"; };
 		5693EA29243C7BAF006BB1C7 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
@@ -190,6 +192,7 @@
 		5634BFCB243FC6F300FEF19B /* Local */ = {
 			isa = PBXGroup;
 			children = (
+				56824EA72452D3FA003AB0E9 /* Entity */,
 				5695A5B52444ACB000EC5434 /* FetchedCollectionViewDataSource.swift */,
 				5634BFDB2440AF3300FEF19B /* DataController.swift */,
 				5634BFD92440AE8800FEF19B /* CoreDataCollectionProperty.swift */,
@@ -263,6 +266,14 @@
 				5634BFCC243FCB2D00FEF19B /* ApiResult.swift */,
 			);
 			path = Base;
+			sourceTree = "<group>";
+		};
+		56824EA72452D3FA003AB0E9 /* Entity */ = {
+			isa = PBXGroup;
+			children = (
+				56824EA82452D412003AB0E9 /* FinishedPlan+Extension.swift */,
+			);
+			path = Entity;
 			sourceTree = "<group>";
 		};
 		5697C393244B8D4800CFCC01 /* Layout */ = {
@@ -586,6 +597,7 @@
 				56BDFE95243276FC0013A9EB /* ApiProperty.swift in Sources */,
 				56E77C672448DAA00036C6CA /* None.swift in Sources */,
 				56E77C69244992AA0036C6CA /* WeeklyChallangeFlowCoordinator.swift in Sources */,
+				56824EA92452D412003AB0E9 /* FinishedPlan+Extension.swift in Sources */,
 				5693EA1B243B89EE006BB1C7 /* ObservableProperty.swift in Sources */,
 				5634BFDC2440AF3300FEF19B /* DataController.swift in Sources */,
 				56DD8A8924463998000728BC /* LogoutUseCase.swift in Sources */,
