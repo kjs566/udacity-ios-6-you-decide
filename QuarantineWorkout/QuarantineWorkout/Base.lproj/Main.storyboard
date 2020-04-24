@@ -386,47 +386,59 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select workout" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cAf-rG-zc9">
-                                <rect key="frame" x="130.5" y="109" width="114.5" height="20.5"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <rect key="frame" x="0.0" y="109" width="375" height="32.5"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="27"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="aqc-Or-Hyg">
-                                <rect key="frame" x="10" y="179.5" width="355" height="388.5"/>
+                                <rect key="frame" x="10" y="191.5" width="355" height="376.5"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="35" translatesAutoresizingMaskIntoConstraints="NO" id="NFt-mc-haK">
-                                        <rect key="frame" x="0.0" y="147" width="177.5" height="95"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="55" translatesAutoresizingMaskIntoConstraints="NO" id="NFt-mc-haK">
+                                        <rect key="frame" x="0.0" y="125" width="177.5" height="127"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="btN-WY-L15">
-                                                <rect key="frame" x="0.0" y="0.0" width="177.5" height="30"/>
-                                                <state key="normal" title="Legs, arms"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="177.5" height="36"/>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                                <state key="normal" title="Legs, arms">
+                                                    <color key="titleColor" name="AccentColor"/>
+                                                </state>
                                                 <connections>
                                                     <action selector="legsArmsClicked:" destination="UfH-0G-Nuy" eventType="touchUpInside" id="J7y-mH-ZMo"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Yng-Eh-p2o">
-                                                <rect key="frame" x="0.0" y="65" width="177.5" height="30"/>
-                                                <state key="normal" title="All body"/>
+                                                <rect key="frame" x="0.0" y="91" width="177.5" height="36"/>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                                <state key="normal" title="All body">
+                                                    <color key="titleColor" name="AccentColor"/>
+                                                </state>
                                             </button>
                                         </subviews>
                                     </stackView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="35" translatesAutoresizingMaskIntoConstraints="NO" id="bYM-ar-1se">
-                                        <rect key="frame" x="177.5" y="147" width="177.5" height="95"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="55" translatesAutoresizingMaskIntoConstraints="NO" id="bYM-ar-1se">
+                                        <rect key="frame" x="177.5" y="125" width="177.5" height="127"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HfK-V5-Uy0">
-                                                <rect key="frame" x="0.0" y="0.0" width="177.5" height="30"/>
-                                                <state key="normal" title="Abs, back"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="177.5" height="36"/>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                                <state key="normal" title="Abs, back">
+                                                    <color key="titleColor" name="AccentColor"/>
+                                                </state>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MEg-xx-Qub">
-                                                <rect key="frame" x="0.0" y="65" width="177.5" height="30"/>
-                                                <state key="normal" title="Fat burning"/>
+                                                <rect key="frame" x="0.0" y="91" width="177.5" height="36"/>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                                <state key="normal" title="Fat burning">
+                                                    <color key="titleColor" name="AccentColor"/>
+                                                </state>
                                             </button>
                                         </subviews>
                                     </stackView>
                                 </subviews>
                             </stackView>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <color key="backgroundColor" systemColor="systemGray6Color" red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="cAf-rG-zc9" firstAttribute="centerX" secondItem="HHl-6a-Fv5" secondAttribute="centerX" id="Onm-Pl-JnW"/>
                             <constraint firstItem="aqc-Or-Hyg" firstAttribute="width" secondItem="wQ7-VB-VGK" secondAttribute="width" constant="-20" id="Rg8-RH-OBJ"/>
@@ -434,7 +446,7 @@
                             <constraint firstItem="cAf-rG-zc9" firstAttribute="top" secondItem="HHl-6a-Fv5" secondAttribute="top" constant="65" id="VbC-Xy-syA"/>
                             <constraint firstItem="aqc-Or-Hyg" firstAttribute="top" secondItem="cAf-rG-zc9" secondAttribute="bottom" constant="50" id="VnY-lv-1cc"/>
                             <constraint firstItem="aqc-Or-Hyg" firstAttribute="centerX" secondItem="HHl-6a-Fv5" secondAttribute="centerX" id="Yg9-WT-0hF"/>
-                            <constraint firstItem="cAf-rG-zc9" firstAttribute="width" secondItem="wQ7-VB-VGK" secondAttribute="width" multiplier="0.305333" id="rbe-7m-SPn"/>
+                            <constraint firstItem="cAf-rG-zc9" firstAttribute="width" secondItem="wQ7-VB-VGK" secondAttribute="width" id="rbe-7m-SPn"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="HHl-6a-Fv5"/>
                     </view>
@@ -445,7 +457,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Rqf-Rb-5z2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1662" y="157"/>
+            <point key="canvasLocation" x="1661.5999999999999" y="156.97151424287858"/>
         </scene>
         <!--Workout Detail-->
         <scene sceneID="ylI-uU-p6Q">
@@ -660,10 +672,10 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="kjs566@gmail.com" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CPW-rr-JOr">
-                                <rect key="frame" x="114.5" y="173" width="146" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="email@domain.ex" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CPW-rr-JOr">
+                                <rect key="frame" x="120.5" y="173" width="134" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
+                                <color key="textColor" name="AccentColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LFJ-bO-X93" userLabel="Separator">
@@ -781,7 +793,7 @@
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="H8W-7r-W3k"/>
                                         </constraints>
-                                        <color key="textColor" name="UdacityColor"/>
+                                        <color key="textColor" name="AccentColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                         <textInputTraits key="textInputTraits" textContentType="username"/>
                                     </textField>
@@ -792,7 +804,7 @@
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="4sa-IQ-UTk"/>
                                         </constraints>
-                                        <color key="textColor" name="UdacityColor"/>
+                                        <color key="textColor" name="AccentColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                         <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="password"/>
                                     </textField>
@@ -800,7 +812,7 @@
                                         <rect key="frame" x="37.5" y="100" width="300" height="40"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <color key="tintColor" name="UdacityColor"/>
-                                        <color key="textColor" name="UdacityColor"/>
+                                        <color key="textColor" name="AccentColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                         <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="password"/>
                                     </textField>
@@ -888,7 +900,7 @@
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="Xd9-p5-8XI"/>
                                         </constraints>
-                                        <color key="textColor" name="UdacityColor"/>
+                                        <color key="textColor" name="AccentColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                         <textInputTraits key="textInputTraits" textContentType="username"/>
                                     </textField>
@@ -899,7 +911,7 @@
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="01K-W2-95G"/>
                                         </constraints>
-                                        <color key="textColor" name="UdacityColor"/>
+                                        <color key="textColor" name="AccentColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                         <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="password"/>
                                     </textField>
