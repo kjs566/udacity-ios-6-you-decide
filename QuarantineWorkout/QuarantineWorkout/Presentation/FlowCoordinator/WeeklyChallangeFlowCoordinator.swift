@@ -10,12 +10,6 @@ import Foundation
 import UIKit
 
 class WeeklyChallangeFlowCoordinator: BaseFlowCoordinator{
-    func showWorkoutResult(vc: BaseController, finishedPlan: FinishedPlan?){
-        performSegue(source: vc, segueIdentifier: "showWorkoutResultSegue", flowAction: FlowPrepareData(vmFactory: { (_) in
-            return WorkoutResultViewModel(finishedPlan: finishedPlan)
-        }))
-    }
-    
     func prepareEmbeddedDetail(sourceController: BaseController, segue: UIStoryboardSegue){
         if segue.identifier == "embeddedWorkoutDetailSegue"{
             prepareSegueProtocol(sourceController: sourceController, segue: segue, sender: FlowPrepareData(vmFactory: { (_) in

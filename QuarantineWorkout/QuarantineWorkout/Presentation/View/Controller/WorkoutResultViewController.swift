@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class WorkoutResultViewController: BaseViewController<WorkoutResultViewModel, MainFlowCoordinator>{
+class WorkoutResultViewController: BaseViewController<WorkoutResultViewModel, WorkoutDetailFlowCoordinator>{
     @IBOutlet weak var caloriesView: UILabel!
     @IBOutlet weak var durationView: UILabel!
     @IBOutlet weak var repsCountView: UILabel!

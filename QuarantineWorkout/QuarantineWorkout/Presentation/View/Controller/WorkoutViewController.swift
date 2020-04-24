@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class WorkoutViewController: BaseViewController<WorkoutViewModel, WeeklyChallangeFlowCoordinator>{
+class WorkoutViewController: BaseViewController<WorkoutViewModel, WorkoutDetailFlowCoordinator>{
     @IBOutlet weak var remainingView: UILabel!
     @IBOutlet weak var repsView: UIButton!
     @IBOutlet weak var doneView: UIButton!
