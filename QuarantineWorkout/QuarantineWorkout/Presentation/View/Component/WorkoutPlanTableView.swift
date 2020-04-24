@@ -57,11 +57,20 @@ extension WorkoutPlanTableView: UITableViewDataSource{
         cell.title.text = workout.name
         cell.position.text = String(index + 1)
         
+        var repsText: String = ""
         if workout.type == .reps{
-            cell.reps.text = String(workout.reps!) + " reps"
-        }else if workout.type == .duration{
-            cell.reps.text = String(workout.duration!) + " s"
+            if let reps = workout.reps{
+                repsText = String(reps)
+                if reps > 1{
+                    repsText = repsText + " reps"
+                }else{
+                    repsText = repsText + " rep"
+                }
+            }
+        }else if workout.type == .duration || workout.type == .rest{
+            repsText = String(workout.duration!) + " s"
         }
+        cell.reps.text = repsText
         
         return cell
     }

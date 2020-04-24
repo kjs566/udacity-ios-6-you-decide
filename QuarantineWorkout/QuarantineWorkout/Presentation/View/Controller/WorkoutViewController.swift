@@ -38,12 +38,16 @@ class WorkoutViewController: BaseViewController<WorkoutViewModel, WorkoutDetailF
             var title = String(remaining)
             let workoutType = self.getVM().currentWorkout.getValue()?.type
             
-            if(workoutType != nil && workoutType! == .duration){
+            if(workoutType != nil && workoutType! == .duration || workoutType! == .rest){
                 title = title + " s"
                 self.tapToCountView.isHidden = true
                 self.repsView.isUserInteractionEnabled = false
             }else{
-                title = title + " reps"
+                if remaining > 1{
+                    title = title + " reps"
+                }else {
+                    title = title + " rep"
+                }
                 self.tapToCountView.isHidden = false
                 self.repsView.isUserInteractionEnabled = true
             }
